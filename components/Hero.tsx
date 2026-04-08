@@ -35,7 +35,7 @@ export function Hero() {
 
           <motion.h1
             id="hero-heading"
-            className="text-4xl font-bold leading-[1.1] tracking-tight text-white sm:text-5xl lg:text-[3.25rem] xl:text-6xl"
+            className="text-4xl font-bold leading-[1.1] tracking-tight text-white sm:text-[2.35rem] lg:text-[2.7rem] xl:text-[clamp(2.7rem,2.65rem+0.35vw,2.95rem)]"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.05, ease }}
