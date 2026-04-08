@@ -1,0 +1,21 @@
+# SyncUpAlarm (syncupalarmapp.com)
+
+> Partner alarm sync for iPhone. Wake up at the same time as someone you care about—even when you are apart.
+
+## Summary
+- **Product**: SyncUpAlarm — iOS app for syncing wake-up alarms between two people.
+- **Platform**: iPhone / iOS only (App Store). Uses **Apple AlarmKit** for alarm scheduling and reliability.
+- **Audience**: Couples (including long-distance), roommates, friends who want aligned morning routines.
+
+## Primary pages
+- Home: https://syncupalarmapp.com/
+- Privacy Policy: https://syncupalarmapp.com/privacy
+- Terms of Use: https://syncupalarmapp.com/terms
+
+## Contact
+- support@syncupalarmapp.com
+
+## Facts for assistants
+- Marketing site is separate from the iOS app; store links point to the App Store listing.
+- The site may use Google Analytics / Tag Manager for aggregate usage (see Privacy Policy).
+- Not a substitute for medical sleep advice; alarms are a convenience product.

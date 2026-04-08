@@ -3,6 +3,7 @@
 import { motion } from "framer-motion";
 
 import { StoreBadges } from "@/components/StoreBadges";
+import { SITE } from "@/lib/constants";
 
 const ease = [0.22, 1, 0.36, 1] as const;
 
@@ -19,7 +20,7 @@ export function FinalCta() {
       <div className="relative mx-auto max-w-3xl px-4 text-center lg:px-8">
         <motion.h2
           id="cta-heading"
-          className="font-display text-3xl font-bold tracking-tight text-white sm:text-4xl"
+          className="text-3xl font-bold tracking-tight text-white sm:text-4xl"
           initial={{ opacity: 0, y: 16 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-60px" }}
@@ -35,10 +36,10 @@ export function FinalCta() {
           viewport={{ once: true, margin: "-60px" }}
           transition={{ duration: 0.65, delay: 0.06, ease }}
         >
-          Grab the app, link your partner, and let tomorrow morning feel a
-          little more like you’re in the same room.
+          Download {SITE.name} on the App Store, link your partner, and let
+          tomorrow morning feel a little more like you’re in the same room.
         </motion.p>
-        <div className="mt-10">
+        <div className="mt-10 flex justify-center">
           <StoreBadges />
         </div>
       </div>

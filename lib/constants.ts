@@ -2,6 +2,9 @@ export const SITE = {
   name: "SyncUpAlarm",
   domain: "https://syncupalarmapp.com",
   year: 2026,
+  /** Legal / contact */
+  companyLegalName: "SyncUpAlarm",
+  supportEmail: "support@syncupalarmapp.com",
 } as const;
 
 export const NAV_LINKS = [
@@ -10,20 +13,24 @@ export const NAV_LINKS = [
 ] as const;
 
 export const FOOTER_LINKS = [
-  { href: "/privacy", label: "Privacy" },
+  { href: "/privacy", label: "Privacy Policy" },
   { href: "/terms", label: "Terms" },
-  { href: "mailto:support@syncupalarmapp.com", label: "Support" },
+  { href: `mailto:${SITE.supportEmail}`, label: "Support" },
 ] as const;
 
 export const SOCIAL_LINKS = [
   { href: "https://twitter.com", label: "X", icon: "twitter" as const },
-  { href: "https://instagram.com", label: "Instagram", icon: "instagram" as const },
+  {
+    href: "https://instagram.com",
+    label: "Instagram",
+    icon: "instagram" as const,
+  },
   { href: "https://github.com", label: "GitHub", icon: "github" as const },
 ] as const;
 
+/** iOS App Store only (no Android listing). */
 export const STORE_LINKS = {
   appStore: "https://apps.apple.com/app/syncupalarm",
-  googlePlay: "https://play.google.com/store/apps/details?id=com.syncupalarm",
 } as const;
 
 export const HOW_IT_WORKS_STEPS = [
@@ -47,7 +54,8 @@ export const HOW_IT_WORKS_STEPS = [
 export const FEATURES = [
   {
     title: "Perfect sync",
-    description: "Alarms align across devices so you and your partner wake as one.",
+    description:
+      "Alarms align across iPhones so you and your partner wake as one.",
     icon: "zap" as const,
   },
   {
@@ -72,7 +80,8 @@ export const FEATURES = [
   },
   {
     title: "Widgets & shortcuts",
-    description: "Glanceable status on your home screen and one-tap snooze when you need it.",
+    description:
+      "Glanceable status on your Home Screen and one-tap snooze when you need it.",
     icon: "layout-grid" as const,
   },
 ] as const;

@@ -2,8 +2,8 @@
 
 import { motion } from "framer-motion";
 
-import { StoreBadges } from "@/components/StoreBadges";
 import { PhoneMockup } from "@/components/PhoneMockup";
+import { StoreBadges } from "@/components/StoreBadges";
 
 const ease = [0.22, 1, 0.36, 1] as const;
 
@@ -21,7 +21,7 @@ export function Hero() {
       <div className="pointer-events-none absolute top-40 right-[-20%] h-[380px] w-[380px] rounded-full bg-teal/10 blur-[100px]" />
       <div className="pointer-events-none absolute bottom-0 left-[-10%] h-[280px] w-[280px] rounded-full bg-flame/10 blur-[90px]" />
 
-      <div className="relative mx-auto grid max-w-6xl items-center gap-14 px-4 lg:grid-cols-[1fr_1.05fr] lg:gap-10 lg:px-8">
+      <div className="relative mx-auto grid max-w-6xl items-center gap-12 px-4 lg:grid-cols-[1fr_1.08fr] lg:items-center lg:gap-10 lg:px-8">
         <div className="text-center lg:text-left">
           <motion.p
             className="mb-4 inline-flex items-center justify-center gap-2 rounded-full border border-white/10 bg-white/[0.04] px-3 py-1 text-xs font-medium text-zinc-400 lg:justify-start"
@@ -35,7 +35,7 @@ export function Hero() {
 
           <motion.h1
             id="hero-heading"
-            className="font-display text-4xl font-bold leading-[1.08] tracking-tight text-white sm:text-5xl lg:text-[3.25rem] xl:text-6xl"
+            className="text-4xl font-bold leading-[1.1] tracking-tight text-white sm:text-5xl lg:text-[3.25rem] xl:text-6xl"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.05, ease }}
@@ -53,8 +53,8 @@ export function Hero() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.12, ease }}
           >
-            Sync alarms with your partner so you both wake up at the exact same
-            time—cozy, clear, and a little bit magical.
+            Sync alarms with your partner on iPhone so you both wake up at the
+            same time—cozy, clear, and a little bit magical.
           </motion.p>
 
           <motion.div
@@ -67,12 +67,12 @@ export function Hero() {
           </motion.div>
         </div>
 
-        <div className="relative mx-auto flex max-w-lg justify-center gap-6 lg:mx-0 lg:max-w-none lg:justify-end">
-          <div className="relative z-10 w-[46%] max-w-[240px] lg:w-auto lg:max-w-[260px]">
-            <PhoneMockup variant="left" rotate={-8} floatOffset={0} delay={0.15} />
+        <div className="relative mx-auto flex w-full max-w-[min(100%,520px)] items-end justify-center gap-[clamp(0.75rem,4vw,2rem)] lg:mx-0 lg:max-w-none lg:justify-end">
+          <div className="w-[42%] max-w-[228px] shrink-0 sm:w-[40%] sm:max-w-[248px]">
+            <PhoneMockup variant="left" floatOffset={0} delay={0.12} />
           </div>
-          <div className="relative z-0 w-[46%] max-w-[240px] translate-y-10 lg:w-auto lg:max-w-[260px] lg:translate-y-14">
-            <PhoneMockup variant="right" rotate={10} floatOffset={1.2} delay={0.35} />
+          <div className="w-[42%] max-w-[228px] shrink-0 translate-y-8 sm:w-[40%] sm:max-w-[248px] sm:translate-y-12">
+            <PhoneMockup variant="right" floatOffset={1} delay={0.28} />
           </div>
         </div>
       </div>

@@ -8,11 +8,6 @@ const nextConfig: NextConfig = {
         hostname: "developer.apple.com",
         pathname: "/assets/**",
       },
-      {
-        protocol: "https",
-        hostname: "play.google.com",
-        pathname: "/intl/**",
-      },
     ],
   },
 };

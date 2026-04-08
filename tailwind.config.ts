@@ -11,7 +11,7 @@ export default {
       },
       fontFamily: {
         sans: ["var(--font-geist-sans)", "system-ui", "sans-serif"],
-        display: ["var(--font-syne)", "var(--font-geist-sans)", "system-ui"],
+        display: ["var(--font-geist-sans)", "system-ui", "sans-serif"],
       },
       boxShadow: {
         glowPurple: "0 0 60px -12px rgba(168, 85, 247, 0.45)",
