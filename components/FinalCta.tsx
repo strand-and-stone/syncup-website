@@ -39,8 +39,8 @@ export function FinalCta() {
           Download {SITE.name} on the App Store, link your partner, and let
           tomorrow morning feel a little more like you’re in the same room.
         </motion.p>
-        <div className="mt-10 flex justify-center">
-          <StoreBadges />
+        <div className="mt-10 flex w-full justify-center">
+          <StoreBadges align="center" />
         </div>
       </div>
     </section>

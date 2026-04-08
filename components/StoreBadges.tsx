@@ -6,10 +6,24 @@ import { STORE_LINKS } from "@/lib/constants";
 
 const badgeEase = [0.22, 1, 0.36, 1] as const;
 
-export function StoreBadges({ className = "" }: { className?: string }) {
+type StoreBadgesProps = {
+  className?: string;
+  /** `left`: centered on xs, start from sm (hero). `center`: always centered (e.g. CTA). */
+  align?: "left" | "center";
+};
+
+export function StoreBadges({
+  className = "",
+  align = "left",
+}: StoreBadgesProps) {
+  const justify =
+    align === "center"
+      ? "justify-center"
+      : "justify-center sm:justify-start";
+
   return (
     <motion.div
-      className={`flex flex-wrap items-center justify-center gap-4 sm:justify-start ${className}`}
+      className={`flex w-full flex-wrap items-center gap-4 ${justify} ${className}`}
       initial={{ opacity: 0, y: 14 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: "-60px" }}
