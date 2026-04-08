@@ -12,7 +12,7 @@ import Link from "next/link";
 import { useState } from "react";
 
 import { LogoMark } from "@/components/LogoMark";
-import { NAV_LINKS, SITE } from "@/lib/constants";
+import { NAV_LINKS, SITE, STORE_LINKS } from "@/lib/constants";
 
 export function Navbar() {
   const [mobileOpen, setMobileOpen] = useState(false);
@@ -63,7 +63,9 @@ export function Navbar() {
         <div className="flex items-center gap-2">
           <motion.div whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }}>
             <Link
-              href="#download"
+              href={STORE_LINKS.appStore}
+              target="_blank"
+              rel="noopener noreferrer"
               className="inline-flex items-center justify-center rounded-full bg-gradient-to-r from-purple/90 to-teal/80 px-3 py-2 text-xs font-semibold text-bg shadow-glowPurple ring-1 ring-white/10 transition-[box-shadow] hover:shadow-glowTeal focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-teal sm:px-4 sm:text-sm"
               onClick={() => setMobileOpen(false)}
             >

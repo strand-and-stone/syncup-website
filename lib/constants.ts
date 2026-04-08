@@ -1,10 +1,10 @@
 export const SITE = {
   name: "SyncUpAlarm",
-  domain: "https://syncupalarmapp.com",
+  domain: "https://syncupalarm.com",
   year: 2026,
   /** Legal / contact */
   companyLegalName: "SyncUpAlarm",
-  supportEmail: "support@syncupalarmapp.com",
+  supportEmail: "support@syncupalarm.com",
 } as const;
 
 export const NAV_LINKS = [

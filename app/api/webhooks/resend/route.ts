@@ -6,7 +6,7 @@ export const runtime = "nodejs";
 
 /**
  * Resend Inbound: when mail hits your verified receiving domain, Resend POSTs here.
- * Forwards e.g. support@syncupalarmapp.com → hello@strandandstonellc.com.
+ * Forwards e.g. support@syncupalarm.com → hello@strandandstonellc.com.
  *
  * Setup: https://resend.com/docs/knowledge-base/forward-emails-with-resend-inbound
  */
@@ -52,7 +52,7 @@ export async function POST(req: NextRequest) {
   }
 
   const allowedRecipients = (process.env.RESEND_INBOUND_RECIPIENTS ??
-    "support@syncupalarmapp.com")
+    "support@syncupalarm.com")
     .split(",")
     .map((s) => s.trim().toLowerCase())
     .filter(Boolean);

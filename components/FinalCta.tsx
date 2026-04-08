@@ -10,7 +10,6 @@ const ease = [0.22, 1, 0.36, 1] as const;
 export function FinalCta() {
   return (
     <section
-      id="download"
       className="relative scroll-mt-24 py-24 sm:py-28"
       aria-labelledby="cta-heading"
     >

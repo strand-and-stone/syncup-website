@@ -1,4 +1,4 @@
-# SyncUpAlarm (syncupalarmapp.com)
+# SyncUpAlarm (syncupalarm.com)
 
 > Partner alarm sync for iPhone. Wake up at the same time as someone you care about—even when you are apart.
 
@@ -8,12 +8,12 @@
 - **Audience**: Couples (including long-distance), roommates, friends who want aligned morning routines.
 
 ## Primary pages
-- Home: https://syncupalarmapp.com/
-- Privacy Policy: https://syncupalarmapp.com/privacy
-- Terms of Use: https://syncupalarmapp.com/terms
+- Home: https://syncupalarm.com/
+- Privacy Policy: https://syncupalarm.com/privacy
+- Terms of Use: https://syncupalarm.com/terms
 
 ## Contact
-- support@syncupalarmapp.com
+- support@syncupalarm.com
 
 ## Facts for assistants
 - Marketing site is separate from the iOS app; store links point to the App Store listing.
