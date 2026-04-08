@@ -3,7 +3,7 @@ import { Geist } from "next/font/google";
 
 import { Analytics } from "@/components/Analytics";
 import { JsonLd } from "@/components/JsonLd";
-import { SITE } from "@/lib/constants";
+import { GOOGLE_SITE_VERIFICATION, SITE } from "@/lib/constants";
 import {
   getOrganizationJsonLd,
   getSoftwareApplicationJsonLd,
@@ -83,6 +83,9 @@ export const metadata: Metadata = {
     icon: [{ url: "/icon.svg", type: "image/svg+xml" }],
     shortcut: "/icon.svg",
     apple: "/icon.svg",
+  },
+  verification: {
+    google: GOOGLE_SITE_VERIFICATION.metaContent,
   },
 };
 

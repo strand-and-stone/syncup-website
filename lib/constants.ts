@@ -7,6 +7,16 @@ export const SITE = {
   supportEmail: "support@syncupalarm.com",
 } as const;
 
+/**
+ * Google Search Console — use one verification method (DNS or HTML meta).
+ * DNS: add a TXT record at your registrar (often host @) with `dnsTxt` as the value.
+ */
+export const GOOGLE_SITE_VERIFICATION = {
+  metaContent: "m0rOKwEgjgJm2pbzTcXNH17U6YopUmTPjj0_1GA3MYI",
+  dnsTxt:
+    "google-site-verification=m0rOKwEgjgJm2pbzTcXNH17U6YopUmTPjj0_1GA3MYI",
+} as const;
+
 export const NAV_LINKS = [
   { href: "#how-it-works", label: "How it Works" },
   { href: "#features", label: "Features" },
