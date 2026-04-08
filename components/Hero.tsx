@@ -30,7 +30,7 @@ export function Hero() {
             transition={{ duration: 0.6, ease }}
           >
             <span className="h-1.5 w-1.5 rounded-full bg-flame shadow-glowFlame" />
-            Made for couples who hate morning chaos
+            Made for people who hate morning chaos
           </motion.p>
 
           <motion.h1
