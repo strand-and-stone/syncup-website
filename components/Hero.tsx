@@ -2,7 +2,7 @@
 
 import { motion } from "framer-motion";
 
-import { PhoneMockup } from "@/components/PhoneMockup";
+import { HeroAppScreenshot } from "@/components/HeroAppScreenshot";
 import { StoreBadges } from "@/components/StoreBadges";
 
 const ease = [0.22, 1, 0.36, 1] as const;
@@ -21,7 +21,7 @@ export function Hero() {
       <div className="pointer-events-none absolute top-40 right-[-20%] h-[380px] w-[380px] rounded-full bg-teal/10 blur-[100px]" />
       <div className="pointer-events-none absolute bottom-0 left-[-10%] h-[280px] w-[280px] rounded-full bg-flame/10 blur-[90px]" />
 
-      <div className="relative mx-auto grid max-w-6xl items-center gap-12 px-4 lg:grid-cols-[1fr_1.08fr] lg:items-center lg:gap-10 lg:px-8">
+      <div className="relative mx-auto grid max-w-6xl items-center gap-12 px-4 lg:grid-cols-[1fr_0.95fr] lg:items-center lg:gap-12 lg:px-8">
         <div className="text-center lg:text-left">
           <motion.p
             className="mb-4 inline-flex items-center justify-center gap-2 rounded-full border border-white/10 bg-white/[0.04] px-3 py-1 text-xs font-medium text-zinc-400 lg:justify-start"
@@ -67,13 +67,8 @@ export function Hero() {
           </motion.div>
         </div>
 
-        <div className="relative mx-auto flex w-full max-w-[min(100%,520px)] items-end justify-center gap-[clamp(0.75rem,4vw,2rem)] lg:mx-0 lg:max-w-none lg:justify-end">
-          <div className="w-[42%] max-w-[228px] shrink-0 sm:w-[40%] sm:max-w-[248px]">
-            <PhoneMockup variant="left" floatOffset={0} delay={0.12} />
-          </div>
-          <div className="w-[42%] max-w-[228px] shrink-0 translate-y-8 sm:w-[40%] sm:max-w-[248px] sm:translate-y-12">
-            <PhoneMockup variant="right" floatOffset={1} delay={0.28} />
-          </div>
+        <div className="relative flex justify-center lg:justify-end">
+          <HeroAppScreenshot />
         </div>
       </div>
     </section>
