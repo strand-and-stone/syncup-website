@@ -8,8 +8,15 @@ export const SITE = {
 } as const;
 
 /**
- * Google Search Console — use one verification method (DNS or HTML meta).
- * DNS: add a TXT record at your registrar (often host @) with `dnsTxt` as the value.
+ * Google Search Console
+ *
+ * - Domain property (DNS): TXT at the **apex** of syncupalarm.com.
+ *   - Host / name: `@` (or blank / “@” depending on UI — not a subdomain).
+ *   - Value: exactly `dnsTxt` (include the `google-site-verification=` prefix).
+ * - URL-prefix property: `metadata.verification.google` in app/layout.tsx (HTML tag).
+ *
+ * If DNS is managed in Vercel:
+ * `vercel dns add syncupalarm.com '@' TXT '<paste dnsTxt>'`
  */
 export const GOOGLE_SITE_VERIFICATION = {
   metaContent: "m0rOKwEgjgJm2pbzTcXNH17U6YopUmTPjj0_1GA3MYI",
