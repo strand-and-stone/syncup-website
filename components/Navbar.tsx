@@ -11,6 +11,7 @@ import { Menu, X } from "lucide-react";
 import Link from "next/link";
 import { useState } from "react";
 
+import { LogoMark } from "@/components/LogoMark";
 import { NAV_LINKS, SITE } from "@/lib/constants";
 
 export function Navbar() {
@@ -37,10 +38,11 @@ export function Navbar() {
       <div className="mx-auto flex h-16 max-w-6xl items-center justify-between gap-3 px-4 sm:px-6 lg:px-8">
         <Link
           href="/"
-          className="font-display shrink-0 text-lg font-semibold tracking-tight text-white transition-colors hover:text-purple"
+          className="font-display flex shrink-0 items-center gap-2.5 text-lg font-semibold tracking-tight text-white transition-colors hover:text-purple"
           onClick={() => setMobileOpen(false)}
         >
-          {SITE.name}
+          <LogoMark size={30} className="shrink-0" />
+          <span>{SITE.name}</span>
         </Link>
 
         <nav

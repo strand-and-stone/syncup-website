@@ -18,16 +18,6 @@ export const FOOTER_LINKS = [
   { href: `mailto:${SITE.supportEmail}`, label: "Support" },
 ] as const;
 
-export const SOCIAL_LINKS = [
-  { href: "https://twitter.com", label: "X", icon: "twitter" as const },
-  {
-    href: "https://instagram.com",
-    label: "Instagram",
-    icon: "instagram" as const,
-  },
-  { href: "https://github.com", label: "GitHub", icon: "github" as const },
-] as const;
-
 /** iOS App Store only (no Android listing). */
 export const STORE_LINKS = {
   appStore: "https://apps.apple.com/app/syncupalarm",

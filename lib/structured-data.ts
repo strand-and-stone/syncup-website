@@ -1,11 +1,5 @@
 import { SITE, STORE_LINKS } from "@/lib/constants";
 
-const sameAs = [
-  "https://twitter.com",
-  "https://instagram.com",
-  "https://github.com",
-];
-
 export function getOrganizationJsonLd() {
   return {
     "@context": "https://schema.org",
@@ -13,11 +7,10 @@ export function getOrganizationJsonLd() {
     name: SITE.name,
     legalName: SITE.companyLegalName,
     url: SITE.domain,
-    logo: `${SITE.domain}/opengraph-image`,
+    logo: `${SITE.domain}/icon.svg`,
     description:
       "SyncUpAlarm helps couples and partners wake up at the same time with synced iPhone alarms.",
     email: SITE.supportEmail,
-    sameAs,
   };
 }
 
