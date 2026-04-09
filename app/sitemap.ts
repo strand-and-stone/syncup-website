@@ -1,10 +1,12 @@
 import type { MetadataRoute } from "next";
 
+import { getAllPosts } from "@/lib/blog/get-posts";
 import { SITE } from "@/lib/constants";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const base = SITE.domain;
   const now = new Date();
+  const posts = getAllPosts();
 
   return [
     {
@@ -13,6 +15,18 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: "weekly",
       priority: 1,
     },
+    {
+      url: `${base}/blog`,
+      lastModified: now,
+      changeFrequency: "weekly",
+      priority: 0.85,
+    },
+    ...posts.map((p) => ({
+      url: `${base}/blog/${p.slug}`,
+      lastModified: new Date(p.updated),
+      changeFrequency: "monthly" as const,
+      priority: 0.75,
+    })),
     {
       url: `${base}/privacy`,
       lastModified: now,
@@ -30,6 +44,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
       lastModified: now,
       changeFrequency: "monthly",
       priority: 0.3,
+    },
+    {
+      url: `${base}/rss.xml`,
+      lastModified: now,
+      changeFrequency: "weekly",
+      priority: 0.4,
     },
   ];
 }

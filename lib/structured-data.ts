@@ -1,4 +1,4 @@
-import { SITE, STORE_LINKS } from "@/lib/constants";
+import { APP_STORE_CTA_LIVE, SITE, STORE_LINKS } from "@/lib/constants";
 
 export function getOrganizationJsonLd() {
   return {
@@ -28,12 +28,31 @@ export function getWebSiteJsonLd() {
 }
 
 export function getSoftwareApplicationJsonLd() {
-  return {
+  const base = {
     "@context": "https://schema.org",
     "@type": "MobileApplication",
     name: SITE.name,
     applicationCategory: "LifestyleApplication",
     operatingSystem: "iOS",
+    description:
+      "Partner alarm sync for iPhone using Apple’s AlarmKit for reliable alarms. Sync wake times with someone you care about.",
+    author: { "@type": "Organization", name: SITE.name, url: SITE.domain },
+  } as const;
+
+  if (!APP_STORE_CTA_LIVE) {
+    return {
+      ...base,
+      offers: {
+        "@type": "Offer",
+        price: "0",
+        priceCurrency: "USD",
+        availability: "https://schema.org/PreOrder",
+      },
+    };
+  }
+
+  return {
+    ...base,
     offers: {
       "@type": "Offer",
       price: "0",
@@ -41,9 +60,6 @@ export function getSoftwareApplicationJsonLd() {
       url: STORE_LINKS.appStore,
     },
     downloadUrl: STORE_LINKS.appStore,
-    description:
-      "Partner alarm sync for iPhone using Apple’s AlarmKit for reliable alarms. Sync wake times with someone you care about.",
-    author: { "@type": "Organization", name: SITE.name, url: SITE.domain },
   };
 }
 

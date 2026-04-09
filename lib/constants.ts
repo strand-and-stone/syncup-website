@@ -27,6 +27,7 @@ export const GOOGLE_SITE_VERIFICATION = {
 export const NAV_LINKS = [
   { href: "#how-it-works", label: "How it Works" },
   { href: "#features", label: "Features" },
+  { href: "/blog", label: "Journal" },
 ] as const;
 
 export const FOOTER_LINKS = [
@@ -39,6 +40,16 @@ export const FOOTER_LINKS = [
 export const STORE_LINKS = {
   appStore: "https://apps.apple.com/app/syncupalarm",
 } as const;
+
+/**
+ * When false, App Store buttons are non-clickable and show a coming-soon tooltip.
+ * Set to true when the listing is live; also restores download URLs in JSON-LD.
+ */
+export const APP_STORE_CTA_LIVE = false;
+
+/** Shown on hover/focus for disabled App Store CTAs. */
+export const APP_STORE_COMING_SOON_TOOLTIP =
+  "Coming soon — we’re hitting snooze on launch one more time. ⏰";
 
 export const HOW_IT_WORKS_STEPS = [
   {

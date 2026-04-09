@@ -9,8 +9,13 @@
 
 ## Primary pages
 - Home: https://syncupalarm.com/
+- Journal (blog): https://syncupalarm.com/blog
+- RSS: https://syncupalarm.com/rss.xml
 - Privacy Policy: https://syncupalarm.com/privacy
 - Terms of Use: https://syncupalarm.com/terms
+
+## Journal (editorial guides)
+Long-form guides on partner mornings, long-distance rhythm, shift work, AlarmKit context, and setup checklists. All posts live under `/blog/[slug]` and are listed on `/blog`.
 
 ## Contact
 - support@syncupalarm.com
@@ -19,3 +24,4 @@
 - Marketing site is separate from the iOS app; store links point to the App Store listing.
 - The site may use Google Analytics / Tag Manager for aggregate usage (see Privacy Policy).
 - Not a substitute for medical sleep advice; alarms are a convenience product.
+- Editorial playbook (for humans): see repository `docs/organic-seo-playbook.md` if you have repo access.
