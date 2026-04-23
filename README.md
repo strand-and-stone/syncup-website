@@ -59,7 +59,9 @@ If something breaks in prod, check the **Deployments** tab in Vercel for the fai
 
 ## Brief context
 
-- **Product**: SyncUpAlarm — partner alarm sync for iPhone (App Store links are in the site constants).
+- **Product**: SyncUpAlarm — partner alarm sync for iPhone.
+- **App Store (canonical URL)**: [SyncUp Alarm on the App Store](https://apps.apple.com/app/syncup-alarm/id6760364103). All in-app CTAs use `STORE_LINKS.appStore` in `lib/constants.ts`.
+- **Tracked download link**: `/download` — server **307** redirect to the App Store; append query params (e.g. `?utm_source=newsletter`) and they are forwarded for campaign analytics.
 - **SEO / content playbook** (for humans): `docs/organic-seo-playbook.md`.
 - **RSS**: `/rss.xml`. **Sitemap**: `/sitemap.xml`.
 

@@ -36,16 +36,26 @@ export const FOOTER_LINKS = [
   { href: `mailto:${SITE.supportEmail}`, label: "Support" },
 ] as const;
 
+/** Official App Store listing (SyncUp Alarm). */
+export const APP_STORE_URL =
+  "https://apps.apple.com/app/syncup-alarm/id6760364103" as const;
+
 /** iOS App Store only (no Android listing). */
 export const STORE_LINKS = {
-  appStore: "https://apps.apple.com/app/syncupalarm",
+  appStore: APP_STORE_URL,
 } as const;
+
+/**
+ * On-site redirect to the App Store (server 307). Use for campaigns / analytics:
+ * `https://syncupalarm.com/download?utm_source=...`
+ */
+export const APP_DOWNLOAD_PATH = "/download" as const;
 
 /**
  * When false, App Store buttons are non-clickable and show a coming-soon tooltip.
  * Set to true when the listing is live; also restores download URLs in JSON-LD.
  */
-export const APP_STORE_CTA_LIVE = false;
+export const APP_STORE_CTA_LIVE = true;
 
 /** Shown on hover/focus for disabled App Store CTAs. */
 export const APP_STORE_COMING_SOON_TOOLTIP =

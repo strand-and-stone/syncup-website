@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 
+import { HeroFlow } from "@/components/HeroFlow";
 import { HeroAppScreenshot } from "@/components/HeroAppScreenshot";
 import { StoreBadges } from "@/components/StoreBadges";
 
@@ -10,65 +11,64 @@ const ease = [0.22, 1, 0.36, 1] as const;
 export function Hero() {
   return (
     <section
-      className="relative overflow-hidden pt-28 pb-20 sm:pt-32 sm:pb-28"
+      className="relative overflow-hidden pt-20 pb-10 sm:pt-24 sm:pb-14"
       aria-labelledby="hero-heading"
     >
       <div
         className="pointer-events-none absolute inset-0 bg-grid-fade bg-grid"
         style={{ backgroundPosition: "center top" }}
       />
-      <div className="pointer-events-none absolute -top-32 left-1/2 h-[520px] w-[520px] -translate-x-1/2 rounded-full bg-purple/20 blur-[120px]" />
-      <div className="pointer-events-none absolute top-40 right-[-20%] h-[380px] w-[380px] rounded-full bg-teal/10 blur-[100px]" />
-      <div className="pointer-events-none absolute bottom-0 left-[-10%] h-[280px] w-[280px] rounded-full bg-flame/10 blur-[90px]" />
+      <div className="pointer-events-none absolute -top-32 left-1/2 h-[480px] w-[480px] -translate-x-1/2 rounded-full bg-purple/18 blur-[110px]" />
+      <div className="pointer-events-none absolute top-32 right-[-18%] h-[320px] w-[320px] rounded-full bg-teal/10 blur-[90px]" />
+      <div className="pointer-events-none absolute bottom-0 left-[-8%] h-[220px] w-[220px] rounded-full bg-flame/10 blur-[80px]" />
 
-      <div className="relative mx-auto grid max-w-6xl items-center gap-12 px-4 lg:grid-cols-[1fr_0.95fr] lg:items-center lg:gap-12 lg:px-8">
-        <div className="text-center lg:text-left">
-          <motion.p
-            className="mb-4 inline-flex items-center justify-center gap-2 rounded-full border border-white/10 bg-white/[0.04] px-3 py-1 text-xs font-medium text-zinc-400 lg:justify-start"
-            initial={{ opacity: 0, y: 12 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, ease }}
-          >
-            <span className="h-1.5 w-1.5 rounded-full bg-flame shadow-glowFlame" />
-            Made for people who hate morning chaos
-          </motion.p>
+      <div className="relative mx-auto grid max-w-6xl items-center gap-6 px-4 sm:gap-8 lg:grid-cols-[minmax(0,1fr)_minmax(0,0.92fr)] lg:items-center lg:gap-10 lg:px-8">
+        {/* Product first on small screens */}
+        <div className="order-1 flex justify-center lg:order-2 lg:justify-end">
+          <HeroAppScreenshot />
+        </div>
 
+        <div className="order-2 flex flex-col items-center text-center lg:order-1 lg:items-start lg:text-left">
           <motion.h1
             id="hero-heading"
-            className="text-4xl font-bold leading-[1.1] tracking-tight text-white sm:text-[2.35rem] lg:text-[2.7rem] xl:text-[clamp(2.7rem,2.65rem+0.35vw,2.95rem)]"
-            initial={{ opacity: 0, y: 20 }}
+            className="font-display max-w-[20ch] text-[1.65rem] font-bold leading-[1.12] tracking-[-0.035em] text-white sm:max-w-none sm:text-[2rem] lg:text-[2.25rem]"
+            initial={{ opacity: 0, y: 14 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7, delay: 0.05, ease }}
+            transition={{ duration: 0.55, ease }}
           >
-            Wake up together.
+            Same alarm.
             <br />
             <span className="bg-gradient-to-r from-purple via-teal to-flame bg-clip-text text-transparent">
-              Even when you’re apart.
+              Both phones.
             </span>
           </motion.h1>
 
           <motion.p
-            className="mx-auto mt-5 max-w-xl text-lg text-zinc-400 lg:mx-0"
-            initial={{ opacity: 0, y: 16 }}
+            className="mt-2 max-w-[34ch] text-sm leading-snug text-zinc-500 sm:text-[0.9375rem]"
+            initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7, delay: 0.12, ease }}
+            transition={{ duration: 0.55, delay: 0.06, ease }}
           >
-            Sync alarms with your partner on iPhone so you both wake up at the
-            same time—cozy, clear, and a little bit magical.
+            iPhone · two people · zero morning chaos.
           </motion.p>
 
           <motion.div
-            className="mt-8 flex justify-center lg:justify-start"
-            initial={{ opacity: 0, y: 18 }}
+            initial={{ opacity: 0, y: 12 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.75, delay: 0.2, ease }}
+            transition={{ duration: 0.55, delay: 0.1, ease }}
+            className="w-full"
+          >
+            <HeroFlow />
+          </motion.div>
+
+          <motion.div
+            className="mt-5 flex w-full justify-center lg:mt-6 lg:justify-start"
+            initial={{ opacity: 0, y: 12 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.16, ease }}
           >
             <StoreBadges />
           </motion.div>
-        </div>
-
-        <div className="relative flex justify-center lg:justify-end">
-          <HeroAppScreenshot />
         </div>
       </div>
     </section>

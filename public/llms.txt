@@ -9,6 +9,8 @@
 
 ## Primary pages
 - Home: https://syncupalarm.com/
+- App Store (direct): https://apps.apple.com/app/syncup-alarm/id6760364103
+- Download redirect (campaigns; forwards query params, e.g. UTM): https://syncupalarm.com/download
 - Journal (blog): https://syncupalarm.com/blog
 - RSS: https://syncupalarm.com/rss.xml
 - Privacy Policy: https://syncupalarm.com/privacy

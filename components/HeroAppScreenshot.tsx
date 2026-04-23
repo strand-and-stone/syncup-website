@@ -12,7 +12,7 @@ export function HeroAppScreenshot() {
 
   return (
     <motion.div
-      className="relative mx-auto w-full max-w-[min(250px,78vw)] sm:max-w-[min(268px,38vw)] lg:mx-0 lg:max-w-[min(286px,30vw)]"
+      className="relative mx-auto w-full max-w-[min(220px,72vw)] sm:max-w-[min(248px,36vw)] lg:mx-0 lg:max-w-[min(270px,28vw)]"
       style={{ aspectRatio: ASPECT }}
       initial={{ opacity: 0, y: 24 }}
       animate={{ opacity: 1, y: 0 }}

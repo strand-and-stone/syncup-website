@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from "next";
-import { Geist } from "next/font/google";
+import { Outfit, Plus_Jakarta_Sans } from "next/font/google";
 
 import { Analytics } from "@/components/Analytics";
 import { JsonLd } from "@/components/JsonLd";
@@ -12,8 +12,14 @@ import {
 
 import "./globals.css";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
+const plusJakarta = Plus_Jakarta_Sans({
+  variable: "--font-sans",
+  subsets: ["latin"],
+  display: "swap",
+});
+
+const outfit = Outfit({
+  variable: "--font-display",
   subsets: ["latin"],
   display: "swap",
 });
@@ -112,7 +118,9 @@ export default function RootLayout({
 
   return (
     <html lang="en-US" className="dark">
-      <body className={`${geistSans.variable} min-h-screen font-sans`}>
+      <body
+        className={`${plusJakarta.variable} ${outfit.variable} min-h-screen font-sans`}
+      >
         <JsonLd data={structuredData} />
         {gtmId ? (
           <noscript>
