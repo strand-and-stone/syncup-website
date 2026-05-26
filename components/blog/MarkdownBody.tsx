@@ -1,22 +1,53 @@
 import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
+import type { ReactNode } from "react";
+
+import { headingId } from "@/lib/blog/headings";
 
 type MarkdownBodyProps = {
   content: string;
 };
 
 export function MarkdownBody({ content }: MarkdownBodyProps) {
+  const usedHeadingIds = new Map<string, number>();
+
+  const getHeadingText = (children: ReactNode): string => {
+    if (typeof children === "string") {
+      return children;
+    }
+    if (Array.isArray(children)) {
+      return children.map(getHeadingText).join("");
+    }
+    if (
+      typeof children === "object" &&
+      children !== null &&
+      "props" in children &&
+      typeof children.props === "object" &&
+      children.props !== null &&
+      "children" in children.props
+    ) {
+      return getHeadingText(children.props.children as ReactNode);
+    }
+    return "";
+  };
+
   return (
     <ReactMarkdown
       remarkPlugins={[remarkGfm]}
       components={{
         h2: ({ children }) => (
-          <h2 className="mt-12 scroll-mt-24 text-xl font-semibold tracking-tight text-white first:mt-0 sm:text-2xl">
+          <h2
+            id={headingId(getHeadingText(children), usedHeadingIds)}
+            className="mt-12 scroll-mt-24 text-xl font-semibold tracking-tight text-white first:mt-0 sm:text-2xl"
+          >
             {children}
           </h2>
         ),
         h3: ({ children }) => (
-          <h3 className="mt-8 text-lg font-semibold text-zinc-100">
+          <h3
+            id={headingId(getHeadingText(children), usedHeadingIds)}
+            className="mt-8 scroll-mt-24 text-lg font-semibold text-zinc-100"
+          >
             {children}
           </h3>
         ),

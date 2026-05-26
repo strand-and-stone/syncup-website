@@ -3,12 +3,16 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 
 import { MarkdownBody } from "@/components/blog/MarkdownBody";
+import { RelatedPosts } from "@/components/blog/RelatedPosts";
+import { TableOfContents } from "@/components/blog/TableOfContents";
 import { JsonLd } from "@/components/JsonLd";
-import { getPostBySlug, getPostSlugs } from "@/lib/blog/get-posts";
+import { getAllPosts, getPostBySlug, getPostSlugs } from "@/lib/blog/get-posts";
+import { getMarkdownHeadings } from "@/lib/blog/headings";
 import { SITE } from "@/lib/constants";
 import {
   getBlogPostingJsonLd,
   getBreadcrumbBlogJsonLd,
+  getExtraBlogJsonLd,
 } from "@/lib/structured-data/blog";
 
 type Props = { params: Promise<{ slug: string }> };
@@ -53,60 +57,78 @@ export default async function BlogPostPage({ params }: Props) {
 
   const articleLd = getBlogPostingJsonLd(post);
   const breadcrumbLd = getBreadcrumbBlogJsonLd(slug, post.title);
+  const extraLd = getExtraBlogJsonLd(post);
+  const headings = getMarkdownHeadings(post.content);
+  const allPosts = getAllPosts();
+  const relatedPosts = allPosts.filter((entry) =>
+    post.related.length > 0
+      ? post.related.includes(entry.slug)
+      : entry.slug !== post.slug && entry.category === post.category,
+  );
 
   return (
     <main
       id="main-content"
-      className="mx-auto max-w-2xl px-4 py-16 sm:px-6 lg:px-8"
+      className="mx-auto max-w-6xl px-4 py-16 sm:px-6 lg:px-8"
     >
-      <JsonLd data={[articleLd, breadcrumbLd]} />
-      <nav className="text-sm text-zinc-500" aria-label="Breadcrumb">
-        <Link href="/" className="hover:text-teal">
-          Home
-        </Link>
-        <span className="mx-2 text-zinc-700">/</span>
-        <Link href="/blog" className="hover:text-teal">
-          Journal
-        </Link>
-        <span className="mx-2 text-zinc-700">/</span>
-        <span className="text-zinc-400">{post.category}</span>
-      </nav>
+      <JsonLd data={[articleLd, breadcrumbLd, ...extraLd]} />
+      <div className="grid gap-10 lg:grid-cols-[minmax(0,1fr)_280px]">
+        <article className="mx-auto w-full max-w-2xl">
+          <nav className="text-sm text-zinc-500" aria-label="Breadcrumb">
+            <Link href="/" className="hover:text-teal">
+              Home
+            </Link>
+            <span className="mx-2 text-zinc-700">/</span>
+            <Link href="/blog" className="hover:text-teal">
+              Journal
+            </Link>
+            <span className="mx-2 text-zinc-700">/</span>
+            <span className="text-zinc-400">{post.category}</span>
+          </nav>
 
-      <header className="mt-6 border-b border-white/10 pb-10">
-        <p className="text-xs font-semibold uppercase tracking-wider text-teal">
-          {post.category}
-        </p>
-        <h1 className="mt-3 text-3xl font-bold leading-tight tracking-tight text-white sm:text-4xl">
-          {post.title}
-        </h1>
-        <p className="mt-4 text-lg text-zinc-400">{post.description}</p>
-        <p className="mt-6 text-sm text-zinc-600">
-          <time dateTime={post.date}>{post.date}</time>
-          {post.updated !== post.date ? (
-            <>
-              {" "}
-              · Updated <time dateTime={post.updated}>{post.updated}</time>
-            </>
-          ) : null}
-          {" · "}
-          {post.readingTimeMinutes} min read
-          {" · "}
-          {post.author}
-        </p>
-      </header>
+          <header className="mt-6 border-b border-white/10 pb-10">
+            <p className="text-xs font-semibold uppercase tracking-wider text-teal">
+              {post.category}
+            </p>
+            <h1 className="mt-3 text-3xl font-bold leading-tight tracking-tight text-white sm:text-4xl">
+              {post.title}
+            </h1>
+            <p className="mt-4 text-lg text-zinc-400">{post.description}</p>
+            <p className="mt-6 text-sm text-zinc-600">
+              <time dateTime={post.date}>{post.date}</time>
+              {post.updated !== post.date ? (
+                <>
+                  {" "}
+                  · Updated <time dateTime={post.updated}>{post.updated}</time>
+                </>
+              ) : null}
+              {" · "}
+              {post.readingTimeMinutes} min read
+              {" · "}
+              {post.author}
+            </p>
+          </header>
 
-      <div className="blog-content pb-16 pt-10">
-        <MarkdownBody content={post.content} />
+          <div className="blog-content pb-8 pt-10">
+            <MarkdownBody content={post.content} />
+          </div>
+
+          <RelatedPosts currentSlug={post.slug} related={relatedPosts} />
+
+          <footer className="mt-10 border-t border-white/10 pt-10">
+            <Link
+              href="/blog"
+              className="text-sm font-medium text-teal hover:underline"
+            >
+              ← All journal posts
+            </Link>
+          </footer>
+        </article>
+
+        <div className="lg:sticky lg:top-24 lg:h-fit">
+          <TableOfContents headings={headings} />
+        </div>
       </div>
-
-      <footer className="border-t border-white/10 pt-10">
-        <Link
-          href="/blog"
-          className="text-sm font-medium text-teal hover:underline"
-        >
-          ← All journal posts
-        </Link>
-      </footer>
     </main>
   );
 }

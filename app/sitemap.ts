@@ -27,6 +27,24 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: "weekly",
       priority: 0.85,
     },
+    {
+      url: `${base}/faq`,
+      lastModified: now,
+      changeFrequency: "monthly",
+      priority: 0.72,
+    },
+    {
+      url: `${base}/about`,
+      lastModified: now,
+      changeFrequency: "monthly",
+      priority: 0.68,
+    },
+    {
+      url: `${base}/press`,
+      lastModified: now,
+      changeFrequency: "monthly",
+      priority: 0.62,
+    },
     ...posts.map((p) => ({
       url: `${base}/blog/${p.slug}`,
       lastModified: new Date(p.updated),
@@ -47,6 +65,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
     },
     {
       url: `${base}/llms.txt`,
+      lastModified: now,
+      changeFrequency: "monthly",
+      priority: 0.3,
+    },
+    {
+      url: `${base}/llms-full.txt`,
       lastModified: now,
       changeFrequency: "monthly",
       priority: 0.3,

@@ -31,6 +31,9 @@ export const NAV_LINKS = [
 ] as const;
 
 export const FOOTER_LINKS = [
+  { href: "/faq", label: "FAQ" },
+  { href: "/about", label: "About" },
+  { href: "/press", label: "Press" },
   { href: "/privacy", label: "Privacy Policy" },
   { href: "/terms", label: "Terms" },
   { href: `mailto:${SITE.supportEmail}`, label: "Support" },

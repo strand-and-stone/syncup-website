@@ -35,6 +35,16 @@ export function getPostBySlug(slug: string): BlogPost | null {
     : typeof fm.keywords === "string"
       ? [fm.keywords]
       : [];
+  const schema = Array.isArray(fm.schema)
+    ? (fm.schema as string[])
+    : typeof fm.schema === "string"
+      ? [fm.schema]
+      : [];
+  const related = Array.isArray(fm.related)
+    ? (fm.related as string[])
+    : typeof fm.related === "string"
+      ? [fm.related]
+      : [];
 
   return {
     slug,
@@ -45,6 +55,8 @@ export function getPostBySlug(slug: string): BlogPost | null {
     author: String(fm.author ?? "SyncUpAlarm"),
     category: String(fm.category ?? "Guides"),
     keywords,
+    schema,
+    related,
     content,
     readingTimeMinutes: readingTimeFromText(content),
   };

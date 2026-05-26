@@ -6,6 +6,8 @@ export type BlogFrontmatter = {
   author: string;
   category: string;
   keywords: string[];
+  schema: string[];
+  related: string[];
 };
 
 export type BlogPost = BlogFrontmatter & {
