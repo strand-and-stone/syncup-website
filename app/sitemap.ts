@@ -45,6 +45,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: "monthly",
       priority: 0.62,
     },
+    {
+      url: `${base}/how-pairing-works`,
+      lastModified: now,
+      changeFrequency: "monthly",
+      priority: 0.7,
+    },
     ...posts.map((p) => ({
       url: `${base}/blog/${p.slug}`,
       lastModified: new Date(p.updated),
