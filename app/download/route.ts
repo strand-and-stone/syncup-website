@@ -3,7 +3,7 @@ import { NextRequest, NextResponse } from "next/server";
 import { STORE_LINKS } from "@/lib/constants";
 
 /**
- * GET /download → App Store (307).
+ * GET /download → App Store (308).
  * Forwards query string (e.g. utm_*) for campaign tracking in your analytics tools.
  */
 export function GET(request: NextRequest) {
@@ -11,5 +11,5 @@ export function GET(request: NextRequest) {
   request.nextUrl.searchParams.forEach((value, key) => {
     dest.searchParams.append(key, value);
   });
-  return NextResponse.redirect(dest, 307);
+  return NextResponse.redirect(dest, 308);
 }

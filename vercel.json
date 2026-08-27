@@ -1,0 +1,16 @@
+{
+  "redirects": [
+    {
+      "source": "/:path*",
+      "has": [{ "type": "host", "value": "www.syncupalarm.com" }],
+      "destination": "https://syncupalarm.com/:path*",
+      "statusCode": 308
+    },
+    {
+      "source": "/support",
+      "destination": "/faq",
+      "statusCode": 301
+    }
+  ]
+}
+
