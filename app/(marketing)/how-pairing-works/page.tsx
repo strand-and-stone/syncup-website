@@ -10,7 +10,7 @@ const description =
   "Invite with a link on two iPhones, iOS 26.0+, AlarmKit permission, what the privacy policy says is shared. Store IAP listed.";
 
 export const metadata: Metadata = {
-  title,
+  title: { absolute: title },
   description,
   alternates: { canonical: `${SITE.domain}/how-pairing-works` },
   openGraph: {
