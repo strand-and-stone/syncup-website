@@ -64,22 +64,10 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.5,
     },
     {
-      url: `${base}/llms.txt`,
-      lastModified: now,
-      changeFrequency: "monthly",
-      priority: 0.3,
-    },
-    {
       url: `${base}/llms-full.txt`,
       lastModified: now,
       changeFrequency: "monthly",
       priority: 0.3,
-    },
-    {
-      url: `${base}/rss.xml`,
-      lastModified: now,
-      changeFrequency: "weekly",
-      priority: 0.4,
     },
   ];
 }

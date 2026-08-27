@@ -13,7 +13,7 @@ const faqs = [
   {
     question: "What if one partner has Android?",
     answer:
-      "SyncUpAlarm is currently iPhone only. Both people need iOS devices to use shared alarm sync.",
+      "SyncUpAlarm is currently iPhone only and requires iOS 26.0+. Both people need iPhones on iOS 26.0+ to use shared alarm sync.",
   },
   {
     question: "Does SyncUpAlarm use notifications or system alarms?",

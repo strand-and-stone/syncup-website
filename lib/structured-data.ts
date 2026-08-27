@@ -34,9 +34,17 @@ export function getSoftwareApplicationJsonLd() {
     name: SITE.name,
     applicationCategory: "LifestyleApplication",
     operatingSystem: "iOS",
+    softwareRequirements: "iOS 26.0+",
     description:
       "Partner alarm sync for iPhone using Apple’s AlarmKit for reliable alarms. Sync wake times with someone you care about.",
     author: { "@type": "Organization", name: SITE.name, url: SITE.domain },
+    identifier: [
+      {
+        "@type": "PropertyValue",
+        propertyID: "AppleAppStore",
+        value: "6760364103",
+      },
+    ],
   } as const;
 
   if (!APP_STORE_CTA_LIVE) {
@@ -53,13 +61,40 @@ export function getSoftwareApplicationJsonLd() {
 
   return {
     ...base,
-    offers: {
-      "@type": "Offer",
-      price: "0",
-      priceCurrency: "USD",
-      url: STORE_LINKS.appStore,
-    },
+    offers: [
+      {
+        "@type": "Offer",
+        name: "Pro (Monthly)",
+        price: "3.99",
+        priceCurrency: "USD",
+        url: STORE_LINKS.appStore,
+        category: "Subscription",
+      },
+      {
+        "@type": "Offer",
+        name: "Pro (Yearly)",
+        price: "24.99",
+        priceCurrency: "USD",
+        url: STORE_LINKS.appStore,
+        category: "Subscription",
+      },
+      {
+        "@type": "Offer",
+        name: "Pro (Lifetime)",
+        price: "44.99",
+        priceCurrency: "USD",
+        url: STORE_LINKS.appStore,
+      },
+      {
+        "@type": "Offer",
+        name: "Bypass",
+        price: "0.99",
+        priceCurrency: "USD",
+        url: STORE_LINKS.appStore,
+      },
+    ],
     downloadUrl: STORE_LINKS.appStore,
+    installUrl: STORE_LINKS.appStore,
   };
 }
 

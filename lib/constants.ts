@@ -25,8 +25,8 @@ export const GOOGLE_SITE_VERIFICATION = {
 } as const;
 
 export const NAV_LINKS = [
-  { href: "#how-it-works", label: "How it Works" },
-  { href: "#features", label: "Features" },
+  { href: "/#how-it-works", label: "How it Works" },
+  { href: "/#features", label: "Features" },
   { href: "/blog", label: "Journal" },
 ] as const;
 
