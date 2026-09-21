@@ -1,7 +1,8 @@
 import type { Metadata, Viewport } from "next";
 import { Outfit, Plus_Jakarta_Sans } from "next/font/google";
 
-import { Analytics } from "@/components/Analytics";
+import { Analytics as VercelAnalytics } from "@vercel/analytics/next";
+import { Analytics as GoogleAnalytics } from "@/components/Analytics";
 import { JsonLd } from "@/components/JsonLd";
 import { GOOGLE_SITE_VERIFICATION, SITE } from "@/lib/constants";
 import {
@@ -134,7 +135,8 @@ export default function RootLayout({
           </noscript>
         ) : null}
         {children}
-        <Analytics />
+        <GoogleAnalytics />
+        <VercelAnalytics />
       </body>
     </html>
   );
