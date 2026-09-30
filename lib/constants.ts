@@ -1,6 +1,9 @@
+const siteDomain =
+  process.env.NEXT_PUBLIC_SITE_URL?.replace(/\/$/, "") ?? "https://syncupalarm.com";
+
 export const SITE = {
   name: "SyncUpAlarm",
-  domain: "https://syncupalarm.com",
+  domain: siteDomain,
   year: 2026,
   /** Legal / contact */
   companyLegalName: "SyncUpAlarm",

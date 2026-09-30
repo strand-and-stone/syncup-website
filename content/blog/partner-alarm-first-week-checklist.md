@@ -11,6 +11,12 @@ keywords:
   - shared wake up routine
 schema:
   - FAQPage
+related:
+  - shared-wake-agreement
+  - partner-sync-wake-challenge
+  - partner-alarm-sync-iphone-guide
+  - iphone-alarms-complete-guide
+  - snooze-button-science
 ---
 
 To set up a partner alarm sync routine that actually works in week one, agree on rules first, test in daytime, and change one variable at a time. This checklist is the fastest way to avoid avoidable wake-up drama on iPhone.

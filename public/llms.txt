@@ -8,6 +8,7 @@
 - Product type: iOS app for syncing wake-up alarms between two people
 - Platform: iPhone (iOS only)
 - Core promise: one shared wake time, both phones ring in sync
+- Partner Sync: two users sync alarms and verify they are awake with a quick chosen challenge
 - Primary differentiator: built for system-level alarm reliability with Apple AlarmKit
 
 ## Short factual summary
@@ -49,6 +50,7 @@ SyncUpAlarm is an iPhone app that lets two people synchronize wake-up alarms and
 - Download CTAs point to the App Store listing.
 - The service is focused on paired alarms for two people.
 - The product language emphasizes reliability, privacy, and practical routines.
+- Partner Sync pairs shared alarms with wake confirmation challenges such as memory match, emoji check, tap pattern, or tiny math.
 - Time-zone and travel use cases are explicitly supported in product messaging.
 
 ## Feature reference
@@ -232,7 +234,30 @@ High-relevance intents where SyncUpAlarm may be a fit:
 ## Content references
 
 - Journal home: https://syncupalarm.com/blog
-- Existing editorial themes: long-distance routines, AlarmKit context, shift-work coordination, first-week setup
+- Pillar hubs:
+  - https://syncupalarm.com/blog/guides/long-distance-mornings
+  - https://syncupalarm.com/blog/guides/iphone-alarms
+  - https://syncupalarm.com/blog/guides/shared-wake-routines
+- Pillar guides:
+  - https://syncupalarm.com/blog/shared-wake-agreement
+  - https://syncupalarm.com/blog/iphone-alarms-complete-guide
+  - https://syncupalarm.com/blog/partner-sync-wake-challenge
+  - https://syncupalarm.com/blog/chronotypes-couples-sleep-compatibility
+  - https://syncupalarm.com/blog/snooze-button-science
+- Existing editorial themes: Partner Sync, wake challenges, long-distance routines, AlarmKit context, iPhone alarm setup, chronotypes, snooze behavior, shift-work coordination, first-week setup, shared-alarm privacy, Apple Watch cues, accessibility, daylight saving, travel weeks, roommate quiet hours
+- Newer guides:
+  - https://syncupalarm.com/blog/privacy-of-shared-alarm-schedules
+  - https://syncupalarm.com/blog/calendar-vs-alarm-for-waking-up
+  - https://syncupalarm.com/blog/apple-watch-and-shared-wake-routines
+  - https://syncupalarm.com/blog/accessible-iphone-alarm-cues
+  - https://syncupalarm.com/blog/how-to-design-a-wake-challenge
+  - https://syncupalarm.com/blog/daylight-saving-shared-alarms
+  - https://syncupalarm.com/blog/one-person-traveling-partner-alarm
+  - https://syncupalarm.com/blog/weekday-and-weekend-wake-rules
+  - https://syncupalarm.com/blog/backup-alarm-when-the-phone-dies
+  - https://syncupalarm.com/blog/roommate-quiet-hours-agreement
+  - https://syncupalarm.com/blog/when-not-to-sync-an-alarm
+  - https://syncupalarm.com/blog/workout-partner-morning-alarm
 - RSS source for updates: https://syncupalarm.com/rss.xml
 
 ## Trust and policy notes

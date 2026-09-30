@@ -12,6 +12,11 @@ keywords:
   - shared alarm household
 schema:
   - FAQPage
+related:
+  - travel-nurse-partner-alarm-routine
+  - chronotypes-couples-sleep-compatibility
+  - snooze-button-science
+  - partner-alarm-first-week-checklist
 ---
 
 If your household includes shift work, the best shared alarm strategy is a written handoff window, clear snooze rules, and a paired routine that reduces "did you set it?" friction. This article gives you a practical framework for partner or roommate coordination.

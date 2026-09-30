@@ -12,6 +12,11 @@ keywords:
   - partner morning routine
 schema:
   - FAQPage
+related:
+  - long-distance-couple-morning-routine
+  - chronotypes-couples-sleep-compatibility
+  - long-distance-alarm-time-zones
+  - couples-waking-up-together-research
 ---
 
 If you are trying to wake up together in a long-distance relationship, the most reliable pattern is a shared wake window, one lightweight ritual, and a partner alarm sync system that removes nightly coordination texts. This guide shows how to make that routine sustainable across time zones.

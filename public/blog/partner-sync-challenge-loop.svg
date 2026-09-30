@@ -1,0 +1,62 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="675" viewBox="0 0 1200 675" role="img" aria-labelledby="title desc">
+  <title id="title">Partner Sync challenge loop</title>
+  <desc id="desc">Two synced iPhone alarms feed into a quick wake verification challenge, then both partners see wake confirmation.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0" stop-color="#050505"/>
+      <stop offset="0.5" stop-color="#12091c"/>
+      <stop offset="1" stop-color="#051015"/>
+    </linearGradient>
+    <linearGradient id="accent" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0" stop-color="#22d3ee"/>
+      <stop offset="0.52" stop-color="#a855f7"/>
+      <stop offset="1" stop-color="#f97316"/>
+    </linearGradient>
+    <filter id="glow" x="-40%" y="-40%" width="180%" height="180%">
+      <feGaussianBlur stdDeviation="12" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+  <rect width="1200" height="675" rx="40" fill="url(#bg)"/>
+  <circle cx="265" cy="338" r="170" fill="#22d3ee" opacity="0.08"/>
+  <circle cx="938" cy="228" r="190" fill="#a855f7" opacity="0.11"/>
+  <path d="M330 337 C455 247 745 247 870 337" fill="none" stroke="#22d3ee" stroke-width="8" stroke-linecap="round" stroke-dasharray="18 20" opacity="0.7"/>
+  <g transform="translate(122 138)">
+    <rect width="260" height="395" rx="42" fill="#0b1020" stroke="#3f3f46" stroke-width="4"/>
+    <rect x="28" y="56" width="204" height="260" rx="28" fill="#111827" stroke="#27272a"/>
+    <text x="130" y="150" text-anchor="middle" font-family="Arial, sans-serif" font-size="74" fill="#f8fafc">6:30</text>
+    <text x="130" y="188" text-anchor="middle" font-family="Arial, sans-serif" font-size="24" fill="#a1a1aa">Partner A</text>
+    <circle cx="130" cy="252" r="46" fill="url(#accent)" opacity="0.95"/>
+    <path d="M111 248 C111 235 126 232 130 244 C134 232 149 235 149 248 C149 265 130 276 130 276 C130 276 111 265 111 248Z" fill="#fff"/>
+    <rect x="48" y="336" width="164" height="28" rx="14" fill="#22d3ee" opacity="0.35"/>
+  </g>
+  <g transform="translate(818 138)">
+    <rect width="260" height="395" rx="42" fill="#0b1020" stroke="#3f3f46" stroke-width="4"/>
+    <rect x="28" y="56" width="204" height="260" rx="28" fill="#111827" stroke="#27272a"/>
+    <text x="130" y="150" text-anchor="middle" font-family="Arial, sans-serif" font-size="74" fill="#f8fafc">6:30</text>
+    <text x="130" y="188" text-anchor="middle" font-family="Arial, sans-serif" font-size="24" fill="#a1a1aa">Partner B</text>
+    <circle cx="130" cy="252" r="46" fill="url(#accent)" opacity="0.95"/>
+    <path d="M111 248 C111 235 126 232 130 244 C134 232 149 235 149 248 C149 265 130 276 130 276 C130 276 111 265 111 248Z" fill="#fff"/>
+    <rect x="48" y="336" width="164" height="28" rx="14" fill="#a855f7" opacity="0.38"/>
+  </g>
+  <g transform="translate(438 126)" filter="url(#glow)">
+    <rect width="324" height="422" rx="36" fill="#0a0a0f" stroke="url(#accent)" stroke-width="4"/>
+    <text x="162" y="72" text-anchor="middle" font-family="Arial, sans-serif" font-size="34" font-weight="700" fill="#ffffff">Wake Challenge</text>
+    <text x="162" y="112" text-anchor="middle" font-family="Arial, sans-serif" font-size="20" fill="#a1a1aa">Pick one quick proof of awake</text>
+    <g transform="translate(62 150)">
+      <rect width="86" height="86" rx="20" fill="#1f2937" stroke="#22d3ee"/>
+      <text x="43" y="56" text-anchor="middle" font-family="Arial, sans-serif" font-size="34" fill="#22d3ee">2+3</text>
+      <rect x="114" width="86" height="86" rx="20" fill="#1f2937" stroke="#a855f7"/>
+      <text x="157" y="56" text-anchor="middle" font-family="Arial, sans-serif" font-size="34" fill="#a855f7">=B</text>
+      <rect x="0" y="112" width="86" height="86" rx="20" fill="#1f2937" stroke="#f97316"/>
+      <text x="43" y="168" text-anchor="middle" font-family="Arial, sans-serif" font-size="34" fill="#f97316">tap</text>
+      <rect x="114" y="112" width="86" height="86" rx="20" fill="#1f2937" stroke="#22d3ee"/>
+      <text x="157" y="168" text-anchor="middle" font-family="Arial, sans-serif" font-size="34" fill="#22d3ee"></text>
+    </g>
+    <rect x="54" y="374" width="216" height="18" rx="9" fill="url(#accent)"/>
+  </g>
+  <text x="600" y="612" text-anchor="middle" font-family="Arial, sans-serif" font-size="32" font-weight="700" fill="#ffffff">Sync alarms. Prove awake. Start together.</text>
+</svg>

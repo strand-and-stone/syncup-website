@@ -12,6 +12,11 @@ keywords:
   - wake up together different bases
 schema:
   - FAQPage
+related:
+  - long-distance-alarm-time-zones
+  - long-distance-couple-morning-routine
+  - chronotypes-couples-sleep-compatibility
+  - partner-alarm-sync-iphone-guide
 ---
 
 Military couples on different bases need routines that survive uncertainty, not perfect plans. The most reliable setup is a shared wake framework with clear fallback rules, minimal daily messaging overhead, and one weekly reset.

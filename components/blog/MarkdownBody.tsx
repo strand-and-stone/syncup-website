@@ -3,13 +3,16 @@ import remarkGfm from "remark-gfm";
 import type { ReactNode } from "react";
 
 import { headingId } from "@/lib/blog/headings";
+import { APP_DOWNLOAD_PATH } from "@/lib/constants";
 
 type MarkdownBodyProps = {
   content: string;
+  inlineCta?: boolean;
 };
 
-export function MarkdownBody({ content }: MarkdownBodyProps) {
+export function MarkdownBody({ content, inlineCta = true }: MarkdownBodyProps) {
   const usedHeadingIds = new Map<string, number>();
+  let paragraphCount = 0;
 
   const getHeadingText = (children: ReactNode): string => {
     if (typeof children === "string") {
@@ -51,11 +54,36 @@ export function MarkdownBody({ content }: MarkdownBodyProps) {
             {children}
           </h3>
         ),
-        p: ({ children }) => (
-          <p className="mt-4 text-sm leading-[1.75] text-zinc-400 sm:text-base">
-            {children}
-          </p>
-        ),
+        p: ({ children }) => {
+          paragraphCount += 1;
+          const showDownloadCallout =
+            inlineCta && paragraphCount > 2 && paragraphCount % 5 === 0;
+
+          return (
+            <>
+              <p className="mt-4 text-sm leading-[1.75] text-zinc-400 sm:text-base">
+                {children}
+              </p>
+              {showDownloadCallout ? (
+                <div className="mt-6 rounded-2xl border border-teal/30 bg-teal/10 p-4 sm:p-5">
+                  <p className="text-sm font-semibold text-white">Try this in real life</p>
+                  <p className="mt-1 text-sm leading-relaxed text-zinc-300">
+                    If both people use iPhone, install SyncUpAlarm and run this routine with
+                    a shared wake setup.
+                  </p>
+                  <p className="mt-3">
+                    <a
+                      href={APP_DOWNLOAD_PATH}
+                      className="inline-flex items-center rounded-full bg-white px-3 py-1.5 text-xs font-semibold text-zinc-900 transition hover:bg-zinc-200 sm:text-sm"
+                    >
+                      Download SyncUpAlarm
+                    </a>
+                  </p>
+                </div>
+              ) : null}
+            </>
+          );
+        },
         a: ({ href, children }) => {
           const external = href?.startsWith("http");
           return (
@@ -85,6 +113,16 @@ export function MarkdownBody({ content }: MarkdownBodyProps) {
           <blockquote className="mt-6 border-l-2 border-purple/50 pl-4 text-sm italic text-zinc-500">
             {children}
           </blockquote>
+        ),
+        img: ({ src, alt }) => (
+          // Blog images are editorial illustrations, so keep rendering lightweight and fully described.
+          // eslint-disable-next-line @next/next/no-img-element
+          <img
+            src={src ?? ""}
+            alt={alt ?? ""}
+            className="my-8 rounded-3xl border border-white/10 bg-zinc-950 shadow-2xl shadow-purple/10"
+            loading="lazy"
+          />
         ),
         hr: () => <hr className="my-10 border-white/10" />,
         strong: ({ children }) => (

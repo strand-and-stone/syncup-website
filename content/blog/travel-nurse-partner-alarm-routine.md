@@ -12,6 +12,11 @@ keywords:
   - shift work wake schedule app
 schema:
   - FAQPage
+related:
+  - shift-work-shared-morning-routine
+  - chronotypes-couples-sleep-compatibility
+  - long-distance-alarm-time-zones
+  - partner-alarm-first-week-checklist
 ---
 
 Travel nurse schedules can change faster than relationship routines can adapt. A better system is to use rotating templates, clear wake windows, and a shared alarm protocol that handles handoffs without nightly renegotiation.

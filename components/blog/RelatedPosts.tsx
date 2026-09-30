@@ -8,7 +8,7 @@ type RelatedPostsProps = {
 };
 
 export function RelatedPosts({ currentSlug, related }: RelatedPostsProps) {
-  const filtered = related.filter((post) => post.slug !== currentSlug).slice(0, 3);
+  const filtered = related.filter((post) => post.slug !== currentSlug).slice(0, 4);
   if (filtered.length === 0) {
     return null;
   }

@@ -87,9 +87,12 @@ export const metadata: Metadata = {
     address: false,
   },
   icons: {
-    icon: [{ url: "/icon.svg", type: "image/svg+xml" }],
+    icon: [
+      { url: "/icon", type: "image/png", sizes: "32x32" },
+      { url: "/icon.svg", type: "image/svg+xml" },
+    ],
     shortcut: "/icon.svg",
-    apple: "/icon.svg",
+    apple: [{ url: "/apple-icon", type: "image/png", sizes: "180x180" }],
   },
   verification: {
     google: GOOGLE_SITE_VERIFICATION.metaContent,

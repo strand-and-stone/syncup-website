@@ -1,6 +1,7 @@
 import type { MetadataRoute } from "next";
 
 import { getAllPosts } from "@/lib/blog/get-posts";
+import { getGuideSlugs } from "@/lib/blog/guides";
 import { SITE } from "@/lib/constants";
 
 export default function sitemap(): MetadataRoute.Sitemap {
@@ -16,17 +17,17 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 1,
     },
     {
-      url: `${base}/download`,
-      lastModified: now,
-      changeFrequency: "weekly",
-      priority: 0.95,
-    },
-    {
       url: `${base}/blog`,
       lastModified: now,
       changeFrequency: "weekly",
       priority: 0.85,
     },
+    ...getGuideSlugs().map((slug) => ({
+      url: `${base}/blog/guides/${slug}`,
+      lastModified: now,
+      changeFrequency: "monthly" as const,
+      priority: 0.8,
+    })),
     {
       url: `${base}/faq`,
       lastModified: now,

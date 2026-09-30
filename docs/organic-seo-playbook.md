@@ -22,12 +22,24 @@ This is an **editorial and growth playbook** for syncupalarm.com. It is designed
 
 | Pillar | Role | Example slugs |
 |--------|------|----------------|
-| Relationships & distance | Emotional + practical “parallel mornings” | `long-distance-couple-alarm-guide` |
-| Product / platform | Credible explanation of AlarmKit & reliability | `alarmkit-partner-alarms-iphone` |
-| Household logistics | Shift work, roommates, fairness | `shift-work-shared-morning-routine` |
-| Supporting | Checklists, first-week setup | `partner-alarm-first-week-checklist` |
+| Relationships & distance | Emotional + practical “parallel mornings” | `long-distance-couple-alarm-guide`, `long-distance-couple-morning-routine` |
+| Sleep science & routines | Research-backed guidance without medical overreach | `chronotypes-couples-sleep-compatibility`, `snooze-button-science` |
+| Product / platform | Credible explanation of iPhone alarms, AlarmKit, Partner Sync, and reliability | `iphone-alarms-complete-guide`, `partner-sync-wake-challenge`, `alarmkit-partner-alarms-iphone` |
+| Supporting | Checklists, agreements, privacy, and pause rules | `partner-alarm-first-week-checklist`, `shared-wake-agreement`, `privacy-of-shared-alarm-schedules`, `when-not-to-sync-an-alarm` |
+| Household logistics | Shift work, roommates, workouts, travel weeks | `shift-work-shared-morning-routine`, `roommate-quiet-hours-agreement`, `workout-partner-morning-alarm`, `one-person-traveling-partner-alarm` |
+| Platform details | Watch, accessibility, calendars, daylight saving, dead phones | `apple-watch-and-shared-wake-routines`, `accessible-iphone-alarm-cues`, `calendar-vs-alarm-for-waking-up`, `daylight-saving-shared-alarms`, `backup-alarm-when-the-phone-dies` |
+| Hubs | Cluster entry points for search and assistants | `/blog/guides/long-distance-mornings`, `/blog/guides/iphone-alarms`, `/blog/guides/shared-wake-routines` |
 
-**Next ideas** (briefs only—write when you have a sharp angle): time-zone math for couples, “snooze culture,” privacy of shared schedules, comparison with calendar-only workflows (without trashing competitors).
+**Next ideas** (briefs only—write when you have a sharp angle): Apple Watch sleep stages versus alarm cues (without health claims), Focus filters for a shared household, and what to do when one person uses Android.
+
+## Distribution
+
+Content stays public. The conversion is the App Store via `/download`, not an email gate. The growth loop is partner-forward: a reader should be able to send a page to the other person.
+
+- **Hubs** at `/blog/guides/*` are the impression layer. They summarize a cluster and link to supporting posts.
+- **Share bar** on posts copies the link, opens Messages, or shares to X. The label is “Send this to your partner.”
+- **No gated posts, countdown popups, or fake urgency.** Rankings and assistant citations depend on pages a crawler can read.
+- **One end-of-guide download CTA** on hubs. Do not add doorway pages that repeat the same intent with a new city or keyword.
 
 ## On-page SEO checklist
 
@@ -57,4 +69,4 @@ This is an **editorial and growth playbook** for syncupalarm.com. It is designed
 
 ---
 
-*Last updated: 2026-04-08*
+*Last updated: 2026-09-30*

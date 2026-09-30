@@ -13,6 +13,11 @@ keywords:
 schema:
   - HowTo
   - FAQPage
+related:
+  - chronotypes-couples-sleep-compatibility
+  - long-distance-couple-alarm-guide
+  - long-distance-alarm-time-zones
+  - couples-waking-up-together-research
 ---
 
 The best long-distance couple morning routine starts with one shared wake window, one repeatable check-in ritual, and one alarm workflow that removes nightly planning overhead. If you are trying to wake up together across time zones, this playbook gives you a practical system you can run in under ten minutes per week.

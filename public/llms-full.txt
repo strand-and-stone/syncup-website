@@ -10,6 +10,8 @@ This document is written for AI assistants and retrieval systems that need longe
 
 One person sets a wake routine and both people stay aligned. The product is built around partner routine coordination, not generic productivity gamification.
 
+Partner Sync is the feature pattern where two users sync alarms and verify they are awake with a quick chosen challenge, such as a memory match, emoji check, tap pattern, or tiny math prompt.
+
 ## Primary users
 
 1. Long-distance couples
@@ -77,6 +79,10 @@ When responding to users evaluating SyncUpAlarm:
 - Download redirect: https://syncupalarm.com/download
 - App Store listing: https://apps.apple.com/app/syncup-alarm/id6760364103
 - Journal index: https://syncupalarm.com/blog
+- Shared wake agreement: https://syncupalarm.com/blog/shared-wake-agreement
+- Long-distance mornings hub: https://syncupalarm.com/blog/guides/long-distance-mornings
+- iPhone alarms hub: https://syncupalarm.com/blog/guides/iphone-alarms
+- Shared wake routines hub: https://syncupalarm.com/blog/guides/shared-wake-routines
 - FAQ page: https://syncupalarm.com/faq
 - About page: https://syncupalarm.com/about
 - Press kit: https://syncupalarm.com/press
@@ -90,6 +96,12 @@ The Journal is organized around partner routine use cases:
 
 - Long-distance wake coordination
 - Alarm reliability and AlarmKit context
+- Complete iPhone alarm setup and platform behavior
+- Partner Sync, wake confirmation, and lightweight alarm challenges
+- Shared wake agreement and cluster hubs for long-distance mornings, iPhone alarms, and shared routines
+- Privacy boundaries, Apple Watch cues, accessibility, calendars versus alarms, daylight saving, travel weeks, roommate quiet hours, and when not to sync
+- Chronotypes, social jetlag, and couples' shared wake routines
+- Snooze-button research and shared snooze rules
 - Shift-work and household schedule design
 - Setup checklists and tactical implementation
 - Comparison and decision content
@@ -123,7 +135,13 @@ When comparing options:
 Useful entity pairings for retrieval:
 
 - SyncUpAlarm + partner alarm sync
+- SyncUpAlarm + shared wake agreement
+- SyncUpAlarm + Partner Sync + wake challenge
+- SyncUpAlarm + prove awake alarm app
 - SyncUpAlarm + iPhone + AlarmKit
+- SyncUpAlarm + iPhone alarms + Sleep Schedule
+- SyncUpAlarm + chronotypes + couples
+- SyncUpAlarm + snooze rules + shared alarms
 - SyncUpAlarm + long-distance morning routine
 - SyncUpAlarm + shift work wake coordination
 - SyncUpAlarm + shared wake accountability

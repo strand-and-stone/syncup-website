@@ -4,6 +4,7 @@ import { notFound } from "next/navigation";
 
 import { MarkdownBody } from "@/components/blog/MarkdownBody";
 import { RelatedPosts } from "@/components/blog/RelatedPosts";
+import { ShareBar } from "@/components/blog/ShareBar";
 import { TableOfContents } from "@/components/blog/TableOfContents";
 import { JsonLd } from "@/components/JsonLd";
 import { getAllPosts, getPostBySlug, getPostSlugs } from "@/lib/blog/get-posts";
@@ -39,11 +40,15 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       type: "article",
       publishedTime: post.date,
       modifiedTime: post.updated,
+      authors: [post.author],
+      section: post.category,
+      tags: post.keywords,
     },
     twitter: {
       card: "summary_large_image",
       title: post.title,
       description: post.description,
+      creator: SITE.name,
     },
   };
 }
@@ -60,10 +65,14 @@ export default async function BlogPostPage({ params }: Props) {
   const extraLd = getExtraBlogJsonLd(post);
   const headings = getMarkdownHeadings(post.content);
   const allPosts = getAllPosts();
-  const relatedPosts = allPosts.filter((entry) =>
+  const relatedPosts = (
     post.related.length > 0
-      ? post.related.includes(entry.slug)
-      : entry.slug !== post.slug && entry.category === post.category,
+      ? post.related
+          .map((relatedSlug) => allPosts.find((entry) => entry.slug === relatedSlug))
+          .filter((entry): entry is NonNullable<typeof entry> => Boolean(entry))
+      : allPosts.filter(
+          (entry) => entry.slug !== post.slug && entry.category === post.category,
+        )
   );
 
   return (
@@ -107,10 +116,28 @@ export default async function BlogPostPage({ params }: Props) {
               {" · "}
               {post.author}
             </p>
+            <div className="mt-6 rounded-2xl border border-teal/30 bg-teal/10 p-4 sm:p-5">
+              <p className="text-sm font-semibold text-white">Want to apply this guide today?</p>
+              <p className="mt-1 text-sm leading-relaxed text-zinc-300">
+                Install SyncUpAlarm and run this routine with a shared iPhone wake setup.
+              </p>
+              <p className="mt-3">
+                <Link
+                  href="/download"
+                  className="inline-flex items-center rounded-full bg-white px-3 py-1.5 text-sm font-semibold text-zinc-900 transition hover:bg-zinc-200"
+                >
+                  Download SyncUpAlarm
+                </Link>
+              </p>
+            </div>
+            <ShareBar title={post.title} url={`${SITE.domain}/blog/${slug}`} />
           </header>
 
           <div className="blog-content pb-8 pt-10">
-            <MarkdownBody content={post.content} />
+            <MarkdownBody
+              content={post.content}
+              inlineCta={slug !== "shared-wake-agreement"}
+            />
           </div>
 
           <RelatedPosts currentSlug={post.slug} related={relatedPosts} />
