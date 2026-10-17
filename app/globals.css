@@ -1,6 +1,26 @@
 @import "tailwindcss";
 @config "../tailwind.config.ts";
 
+/* Transform only. The heading stays opaque so it can paint before JavaScript. */
+@keyframes hero-heading-in {
+  from {
+    transform: translate3d(0, 14px, 0);
+  }
+  to {
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+.hero-heading {
+  animation: hero-heading-in 0.55s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-heading {
+    animation: none;
+  }
+}
+
 @layer base {
   html {
     scroll-behavior: smooth;

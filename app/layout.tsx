@@ -17,12 +17,14 @@ const plusJakarta = Plus_Jakarta_Sans({
   variable: "--font-sans",
   subsets: ["latin"],
   display: "swap",
+  preload: true,
 });
 
 const outfit = Outfit({
   variable: "--font-display",
   subsets: ["latin"],
   display: "swap",
+  preload: false,
 });
 
 const description =

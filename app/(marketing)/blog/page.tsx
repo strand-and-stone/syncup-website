@@ -38,6 +38,7 @@ export default function BlogIndexPage() {
       description: p.description,
       slug: p.slug,
       date: p.date,
+      author: p.author,
     })),
   );
 
