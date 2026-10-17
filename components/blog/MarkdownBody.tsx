@@ -1,5 +1,7 @@
 import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
+import remarkParse from "remark-parse";
+import { unified } from "unified";
 import type { ReactNode } from "react";
 
 import { headingId } from "@/lib/blog/headings";
@@ -10,9 +12,109 @@ type MarkdownBodyProps = {
   inlineCta?: boolean;
 };
 
+type MdNode = {
+  type: string;
+  spread?: boolean;
+  position?: { end?: { offset?: number } };
+  children?: MdNode[];
+};
+
+const CTA_SENTINEL = "SYNCUP_INLINE_CTA";
+
+function listIsLoose(list: MdNode): boolean {
+  if (list.spread) {
+    return true;
+  }
+  return (list.children ?? []).some((item) => {
+    if (item.spread) {
+      return true;
+    }
+    return (item.children ?? []).length > 1;
+  });
+}
+
+function endOffset(node: MdNode | undefined): number | null {
+  const offset = node?.position?.end?.offset;
+  return typeof offset === "number" ? offset : null;
+}
+
+function calloutInsertOffsets(content: string): number[] {
+  const tree = unified().use(remarkParse).use(remarkGfm).parse(content) as MdNode;
+  const offsets: number[] = [];
+  let paragraphCount = 0;
+
+  const walk = (node: MdNode, ancestors: MdNode[]) => {
+    if (node.type === "paragraph") {
+      const tightList = ancestors.find(
+        (ancestor) => ancestor.type === "list" && !listIsLoose(ancestor),
+      );
+      if (!tightList) {
+        paragraphCount += 1;
+        if (paragraphCount > 2 && paragraphCount % 5 === 0) {
+          const parent = ancestors[ancestors.length - 1];
+          const siblings = parent?.children ?? [];
+          const index = siblings.indexOf(node);
+          const next = siblings[index + 1];
+          const inDisclaimer = ancestors.some((ancestor) => ancestor.type === "blockquote");
+          const inList = ancestors.some(
+            (ancestor) => ancestor.type === "list" || ancestor.type === "listItem",
+          );
+          let anchor: MdNode | undefined = node;
+          if (inDisclaimer) {
+            anchor = [...ancestors].reverse().find((ancestor) => ancestor.type === "blockquote");
+          } else if (next?.type === "list") {
+            anchor = next;
+          } else if (inList) {
+            anchor = [...ancestors].reverse().find((ancestor) => ancestor.type === "list");
+          }
+          const offset = endOffset(anchor);
+          if (offset !== null) {
+            offsets.push(offset);
+          }
+        }
+      }
+    }
+    for (const child of node.children ?? []) {
+      walk(child, [...ancestors, node]);
+    }
+  };
+
+  walk(tree, []);
+  return [...new Set(offsets)];
+}
+
+function withInlineCallouts(content: string): string {
+  const offsets = calloutInsertOffsets(content).sort((a, b) => b - a);
+  let next = content;
+  for (const offset of offsets) {
+    next = `${next.slice(0, offset)}\n\n${CTA_SENTINEL}\n\n${next.slice(offset)}`;
+  }
+  return next;
+}
+
+function DownloadCallout() {
+  return (
+    <div className="mt-6 rounded-2xl border border-teal/30 bg-teal/10 p-4 sm:p-5">
+      <p className="text-sm font-semibold text-white">Try this in real life</p>
+      <p className="mt-1 text-sm leading-relaxed text-zinc-300">
+        If both people use iPhone, install SyncUpAlarm and run this routine with a shared wake
+        setup.
+      </p>
+      <p className="mt-3">
+        <a
+          href={APP_DOWNLOAD_PATH}
+          className="inline-flex items-center rounded-full bg-white px-3 py-1.5 text-xs font-semibold text-zinc-900 transition hover:bg-zinc-200 sm:text-sm"
+        >
+          Download SyncUpAlarm
+        </a>
+      </p>
+    </div>
+  );
+}
+
 export function MarkdownBody({ content, inlineCta = true }: MarkdownBodyProps) {
   const usedHeadingIds = new Map<string, number>();
-  let paragraphCount = 0;
+  const markdown = inlineCta ? withInlineCallouts(content) : content;
 
   const getHeadingText = (children: ReactNode): string => {
     if (typeof children === "string") {
@@ -55,35 +157,19 @@ export function MarkdownBody({ content, inlineCta = true }: MarkdownBodyProps) {
           </h3>
         ),
         p: ({ children }) => {
-          paragraphCount += 1;
-          const showDownloadCallout =
-            inlineCta && paragraphCount > 2 && paragraphCount % 5 === 0;
+          if (getHeadingText(children).trim() === CTA_SENTINEL) {
+            return <DownloadCallout />;
+          }
 
           return (
-            <>
-              <p className="mt-4 text-sm leading-[1.75] text-zinc-400 sm:text-base">
-                {children}
-              </p>
-              {showDownloadCallout ? (
-                <div className="mt-6 rounded-2xl border border-teal/30 bg-teal/10 p-4 sm:p-5">
-                  <p className="text-sm font-semibold text-white">Try this in real life</p>
-                  <p className="mt-1 text-sm leading-relaxed text-zinc-300">
-                    If both people use iPhone, install SyncUpAlarm and run this routine with
-                    a shared wake setup.
-                  </p>
-                  <p className="mt-3">
-                    <a
-                      href={APP_DOWNLOAD_PATH}
-                      className="inline-flex items-center rounded-full bg-white px-3 py-1.5 text-xs font-semibold text-zinc-900 transition hover:bg-zinc-200 sm:text-sm"
-                    >
-                      Download SyncUpAlarm
-                    </a>
-                  </p>
-                </div>
-              ) : null}
-            </>
+            <p className="mt-4 text-sm leading-[1.75] text-zinc-400 sm:text-base">{children}</p>
           );
         },
+        blockquote: ({ children }) => (
+          <blockquote className="mt-6 border-l-2 border-purple/50 pl-4 text-sm italic text-zinc-500">
+            {children}
+          </blockquote>
+        ),
         a: ({ href, children }) => {
           const external = href?.startsWith("http");
           return (
@@ -109,11 +195,6 @@ export function MarkdownBody({ content, inlineCta = true }: MarkdownBodyProps) {
           </ol>
         ),
         li: ({ children }) => <li className="leading-relaxed">{children}</li>,
-        blockquote: ({ children }) => (
-          <blockquote className="mt-6 border-l-2 border-purple/50 pl-4 text-sm italic text-zinc-500">
-            {children}
-          </blockquote>
-        ),
         img: ({ src, alt }) => (
           // Blog images are editorial illustrations, so keep rendering lightweight and fully described.
           // eslint-disable-next-line @next/next/no-img-element
@@ -164,7 +245,7 @@ export function MarkdownBody({ content, inlineCta = true }: MarkdownBodyProps) {
         ),
       }}
     >
-      {content}
+      {markdown}
     </ReactMarkdown>
   );
 }

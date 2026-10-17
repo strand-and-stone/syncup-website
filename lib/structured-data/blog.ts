@@ -1,13 +1,20 @@
+import { fillMetadataSegment } from "next/dist/lib/metadata/get-metadata-route";
+
 import { SITE } from "@/lib/constants";
 import type { BlogPost } from "@/lib/blog/types";
-import { getSoftwareApplicationJsonLd } from "@/lib/structured-data";
 
 const base = SITE.domain;
+
+/** Same path Next uses for `app/(marketing)/blog/[slug]/opengraph-image.tsx`. */
+function blogPostOpenGraphImagePath(slug: string): string {
+  const imagePath = fillMetadataSegment("/(marketing)/blog/[slug]", { slug }, "opengraph-image");
+  return `${imagePath}/${slug}`;
+}
 
 function blogPostImage(slug: string) {
   return {
     "@type": "ImageObject",
-    url: `${base}/blog/${slug}/opengraph-image`,
+    url: `${base}${blogPostOpenGraphImagePath(slug)}`,
     width: 1200,
     height: 630,
   };
@@ -71,6 +78,7 @@ export function getBlogPostingJsonLd(post: BlogPost) {
     },
     mainEntityOfPage: { "@type": "WebPage", "@id": url },
     url,
+    image: blogPostImage(post.slug),
     keywords: post.keywords.join(", "),
     articleSection: post.category,
     inLanguage: "en-US",
@@ -220,10 +228,6 @@ export function getExtraBlogJsonLd(post: BlogPost) {
     if (itemList) {
       extras.push(itemList);
     }
-  }
-
-  if (post.content.toLowerCase().includes("syncupalarm")) {
-    extras.push(getSoftwareApplicationJsonLd());
   }
 
   return extras;
