@@ -81,7 +81,7 @@ export function getSoftwareApplicationJsonLd() {
       {
         "@type": "Offer",
         name: "Pro (Lifetime)",
-        price: "44.99",
+        price: "9.99",
         priceCurrency: "USD",
         url: STORE_LINKS.appStore,
       },

@@ -104,8 +104,8 @@ export default function HowPairingWorksPage() {
           is not “magic across the internet.”
         </p>
         <p className="mt-3 text-sm leading-relaxed text-zinc-400">
-          This page does not claim encryption, millisecond lockstep, or that anyone else can see
-          your feed.
+          This page makes no claims about encryption or exact-second timing, or that anyone else
+          can see your feed.
         </p>
 
         <h2 className="mt-10 text-xl font-semibold text-white">AlarmKit permission</h2>
