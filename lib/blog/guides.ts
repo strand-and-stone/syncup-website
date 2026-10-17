@@ -131,6 +131,11 @@ export const BLOG_GUIDES: BlogGuide[] = [
         title: "Shared wake agreement",
         note: "The one-page rules you can send before you set the alarm.",
       },
+      {
+        href: "/blog/how-to-wake-up-a-heavy-sleeper",
+        title: "How to wake up a heavy sleeper",
+        note: "Gentle ways to wake someone else, including from another city.",
+      },
     ],
     faqs: [
       {
@@ -259,6 +264,11 @@ export const BLOG_GUIDES: BlogGuide[] = [
         href: "/blog/accessible-iphone-alarm-cues",
         title: "Alarm cues you can notice",
         note: "Sound, StandBy, headphones, and the limit of Flash for Alerts.",
+      },
+      {
+        href: "/blog/alarm-for-heavy-sleepers",
+        title: "Alarm for heavy sleepers",
+        note: "Why some people sleep through alarms, and the setups research points to.",
       },
     ],
     faqs: [
@@ -392,6 +402,16 @@ export const BLOG_GUIDES: BlogGuide[] = [
         href: "/blog/roommate-quiet-hours-agreement",
         title: "Roommate quiet hours",
         note: "A speaker rule for people who do not share a life.",
+      },
+      {
+        href: "/blog/wake-up-without-waking-partner",
+        title: "Wake up without waking your partner",
+        note: "Wrist alarms, a quiet phone, and a snooze rule for one bed.",
+      },
+      {
+        href: "/blog/how-to-wake-up-a-heavy-sleeper",
+        title: "How to wake up a heavy sleeper",
+        note: "A soft-to-strong sequence, plus how to help without being the alarm.",
       },
     ],
     faqs: [

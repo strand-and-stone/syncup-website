@@ -46,9 +46,12 @@ export function getPostBySlug(slug: string): BlogPost | null {
       ? [fm.related]
       : [];
 
+  const title = String(fm.title ?? "");
+
   return {
     slug,
-    title: String(fm.title ?? ""),
+    title,
+    h1: String(fm.h1 ?? title),
     description: String(fm.description ?? ""),
     date: String(fm.date ?? ""),
     updated: String(fm.updated ?? fm.date ?? ""),

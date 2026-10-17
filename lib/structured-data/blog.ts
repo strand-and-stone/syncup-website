@@ -32,7 +32,7 @@ export function getBlogPostingJsonLd(post: BlogPost) {
   return {
     "@context": "https://schema.org",
     "@type": "BlogPosting",
-    headline: post.title,
+    headline: post.h1,
     description: post.description,
     datePublished: post.date,
     dateModified: post.updated,
