@@ -87,7 +87,7 @@ export function getSoftwareApplicationJsonLd() {
       },
       {
         "@type": "Offer",
-        name: "Bypass",
+        name: "Bypass Alarm",
         price: "0.99",
         priceCurrency: "USD",
         url: STORE_LINKS.appStore,
