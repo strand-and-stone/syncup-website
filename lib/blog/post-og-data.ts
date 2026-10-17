@@ -179,4 +179,22 @@ export const BLOG_POST_OG_DATA: Record<string, BlogPostOgData> = {
       "A shared training-day alarm, a snooze cap, and one fallback message.",
     category: "Lifestyle",
   },
+  "alarm-for-heavy-sleepers": {
+    title: "Alarm for Heavy Sleepers: What Actually Works",
+    description:
+      "Sleep through alarms? Here's why heavy sleepers miss them, what the research says about snoozing and sleep inertia, and alarm setups that help.",
+    category: "Research",
+  },
+  "wake-up-without-waking-partner": {
+    title: "How to Wake Up Without Waking Your Partner",
+    description:
+      "Different wake times, one bed? Quiet alarm options, Apple Watch wrist alarms, light, and a simple couple's plan so only the right person wakes up.",
+    category: "Guides",
+  },
+  "how-to-wake-up-a-heavy-sleeper": {
+    title: "How to Wake Up a Heavy Sleeper (Kindly, and for Good)",
+    description:
+      "Partner or roommate sleeps through every alarm? Gentle, research-backed ways to wake a heavy sleeper, what not to do, and how to help from miles away.",
+    category: "Guides",
+  },
 };

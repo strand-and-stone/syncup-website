@@ -61,7 +61,7 @@ export default async function BlogPostPage({ params }: Props) {
   }
 
   const articleLd = getBlogPostingJsonLd(post);
-  const breadcrumbLd = getBreadcrumbBlogJsonLd(slug, post.title);
+  const breadcrumbLd = getBreadcrumbBlogJsonLd(slug, post.h1);
   const extraLd = getExtraBlogJsonLd(post);
   const headings = getMarkdownHeadings(post.content);
   const allPosts = getAllPosts();
@@ -100,7 +100,7 @@ export default async function BlogPostPage({ params }: Props) {
               {post.category}
             </p>
             <h1 className="mt-3 text-3xl font-bold leading-tight tracking-tight text-white sm:text-4xl">
-              {post.title}
+              {post.h1}
             </h1>
             <p className="mt-4 text-lg text-zinc-400">{post.description}</p>
             <p className="mt-6 text-sm text-zinc-600">

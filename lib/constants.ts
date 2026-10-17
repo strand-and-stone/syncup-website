@@ -75,7 +75,7 @@ export const HOW_IT_WORKS_STEPS = [
   },
   {
     title: "Set once, sync forever",
-    body: "Pick your wake time. We keep your alarms perfectly in lockstep—down to the second.",
+    body: "Pick your wake time.",
     icon: "alarm" as const,
   },
   {
@@ -104,7 +104,7 @@ export const FEATURES = [
   },
   {
     title: "Private by design",
-    description: "Your schedules stay yours. Encrypted sync, no creepy feeds.",
+    description: "Your schedules stay yours. No creepy feeds.",
     icon: "shield" as const,
   },
   {

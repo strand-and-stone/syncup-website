@@ -59,7 +59,7 @@ export default function HowPairingWorksPage() {
             App Store listing
           </a>{" "}
           (id 6760364103) is the live storefront. In-app purchases on that listing are Bypass
-          $0.99, Pro Monthly $3.99, Pro Yearly $24.99, and Pro Lifetime $44.99. The FAQ still says
+          $0.99, Pro Monthly $3.99, Pro Yearly $24.99, and Pro Lifetime $9.99. The FAQ still says
           to check the store for the latest plan details.
         </p>
 
