@@ -7,15 +7,10 @@ import { APP_DOWNLOAD_PATH, SITE } from "@/lib/constants";
 const description =
   "Learn why SyncUpAlarm was built, who it is for, and how the team approaches partner alarm sync on iPhone.";
 
-const personJsonLd = {
+const teamJsonLd = {
   "@context": "https://schema.org",
-  "@type": "Person",
+  "@type": "Organization",
   name: "SyncUpAlarm Team",
-  worksFor: {
-    "@type": "Organization",
-    name: SITE.name,
-    url: SITE.domain,
-  },
   url: `${SITE.domain}/about`,
 };
 
@@ -48,7 +43,7 @@ export default function AboutPage() {
       id="main-content"
       className="mx-auto max-w-3xl px-4 py-16 sm:px-6 lg:px-8"
     >
-      <JsonLd data={[personJsonLd, organizationJsonLd]} />
+      <JsonLd data={[teamJsonLd, organizationJsonLd]} />
 
       <p className="text-sm font-semibold uppercase tracking-widest text-purple">About</p>
       <h1 className="mt-3 text-3xl font-bold tracking-tight text-white sm:text-4xl">
