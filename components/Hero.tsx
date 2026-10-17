@@ -29,19 +29,16 @@ export function Hero() {
         </div>
 
         <div className="order-2 flex flex-col items-center text-center lg:order-1 lg:items-start lg:text-left">
-          <motion.h1
+          <h1
             id="hero-heading"
-            className="font-display max-w-[20ch] text-[1.65rem] font-bold leading-[1.12] tracking-[-0.035em] text-white sm:max-w-none sm:text-[2rem] lg:text-[2.25rem]"
-            initial={{ opacity: 0, y: 14 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.55, ease }}
+            className="hero-heading font-display max-w-[20ch] text-[1.65rem] font-bold leading-[1.12] tracking-[-0.035em] text-white sm:max-w-none sm:text-[2rem] lg:text-[2.25rem]"
           >
             Same alarm.
             <br />
             <span className="bg-gradient-to-r from-purple via-teal to-flame bg-clip-text text-transparent">
               Both phones.
             </span>
-          </motion.h1>
+          </h1>
 
           <motion.p
             className="mt-2 max-w-[34ch] text-sm leading-snug text-zinc-500 sm:text-[0.9375rem]"

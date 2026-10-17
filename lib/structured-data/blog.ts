@@ -4,25 +4,47 @@ import { getSoftwareApplicationJsonLd } from "@/lib/structured-data";
 
 const base = SITE.domain;
 
-export function getBlogJsonLd(posts: Pick<BlogPost, "title" | "description" | "slug" | "date">[]) {
+function blogPostImage(slug: string) {
+  return {
+    "@type": "ImageObject",
+    url: `${base}/blog/${slug}/opengraph-image`,
+    width: 1200,
+    height: 630,
+  };
+}
+
+function blogPostAuthor(name: string) {
+  return {
+    "@type": "Organization",
+    name,
+    url: base,
+  };
+}
+
+export function getBlogJsonLd(
+  posts: Pick<BlogPost, "title" | "description" | "slug" | "date" | "author">[],
+) {
   return {
     "@context": "https://schema.org",
-    "@type": "Blog",
+    "@type": "ItemList",
     name: `${SITE.name} Journal`,
     description:
       "Practical guides on partner alarms, iPhone wake routines, and staying in sync across time zones.",
     url: `${base}/blog`,
-    publisher: {
-      "@type": "Organization",
-      name: SITE.name,
-      url: base,
-    },
-    blogPost: posts.map((p) => ({
-      "@type": "BlogPosting",
-      headline: p.title,
-      description: p.description,
+    numberOfItems: posts.length,
+    itemListElement: posts.map((p, index) => ({
+      "@type": "ListItem",
+      position: index + 1,
       url: `${base}/blog/${p.slug}`,
-      datePublished: p.date,
+      item: {
+        "@type": "BlogPosting",
+        headline: p.title,
+        description: p.description,
+        url: `${base}/blog/${p.slug}`,
+        datePublished: p.date,
+        author: blogPostAuthor(p.author),
+        image: blogPostImage(p.slug),
+      },
     })),
   };
 }
@@ -145,17 +167,33 @@ function getItemListJsonLd(post: BlogPost) {
     return null;
   }
 
+  const image = blogPostImage(post.slug);
+  const author = blogPostAuthor(post.author);
+
   return {
     "@context": "https://schema.org",
     "@type": "ItemList",
     name: post.title,
     description: post.description,
-    itemListElement: optionMatches.map((match, index) => ({
-      "@type": "ListItem",
-      position: index + 1,
-      name: match[1].trim(),
-    })),
     url: `${base}/blog/${post.slug}`,
+    numberOfItems: optionMatches.length,
+    itemListElement: optionMatches.map((match, index) => {
+      const name = match[1].trim();
+      return {
+        "@type": "ListItem",
+        position: index + 1,
+        name,
+        url: `${base}/blog/${post.slug}`,
+        item: {
+          "@type": "Article",
+          headline: name,
+          name,
+          url: `${base}/blog/${post.slug}`,
+          author,
+          image,
+        },
+      };
+    }),
   };
 }
 
