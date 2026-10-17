@@ -11,6 +11,11 @@ const teamJsonLd = {
   "@context": "https://schema.org",
   "@type": "Organization",
   name: "SyncUpAlarm Team",
+  parentOrganization: {
+    "@type": "Organization",
+    name: SITE.name,
+    url: SITE.domain,
+  },
   url: `${SITE.domain}/about`,
 };
 
