@@ -7,7 +7,7 @@ export const SITE = {
   year: 2026,
   /** Legal / contact */
   companyLegalName: "SyncUpAlarm",
-  supportEmail: "support@syncupalarm.com",
+  supportEmail: "robert@strandandstonellc.com",
 } as const;
 
 /**
