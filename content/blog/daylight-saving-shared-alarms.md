@@ -1,8 +1,9 @@
 ---
-title: "Daylight saving and shared alarms: the one-hour checklist"
-description: "Daylight saving moves a shared morning by an hour if one phone lags. Check both clocks, the alarm label, and the calendar the night before. Do it awake."
+title: "Daylight Saving Ends Nov 1, 2026: Adjust Sleep and Alarms"
+description: "US clocks fall back at 2 a.m. on Sunday, Nov 1, 2026. How to check your iPhone alarms, ease your sleep schedule, and keep a shared alarm in sync."
+h1: "Daylight saving ends Nov 1: how to adjust your sleep and alarms"
 date: "2026-09-30"
-updated: "2026-09-30"
+updated: "2026-10-21"
 author: "SyncUpAlarm Team"
 category: "Guides"
 keywords:
@@ -14,21 +15,31 @@ schema:
   - HowTo
   - FAQPage
 related:
-  - long-distance-alarm-time-zones
   - iphone-alarms-complete-guide
-  - calendar-vs-alarm-for-waking-up
-  - shared-wake-agreement
+  - long-distance-alarm-time-zones
+  - weekday-and-weekend-wake-rules
+  - snooze-button-science
 ---
 
-Daylight saving is a one-hour edit to the whole morning. Couples miss it when one phone updates and the other is set by hand, or when a shared alarm and a calendar event drift apart. The fix is a ten-minute check the evening before, on both phones, while you are awake.
+US daylight saving time ends at 2 a.m. local time on Sunday, November 1, 2026, when clocks fall back to 1 a.m. An iPhone set to update automatically changes its own clock, and alarms keep their set times. The night before, check the time zone setting, your alarm list, and any shared alarm.
 
-## Let the iPhone set the time
+## When the clocks change in 2026
 
-Apple's support article on date and time says Set Automatically uses your time zone, including daylight saving, when the device is online. The path is Settings, General, Date & Time, Set Automatically. For the time zone itself, Settings, Privacy & Security, Location Services, System Services, Setting Time Zone should be on.
+> During 2026, daylight saving time is in effect from March 8 at 2 a.m. (local time) to November 1 at 2 a.m. (local time).
 
-Apple also says that manually changing the time to affect app behavior is not recommended and can affect alarms. If someone set the clock forward "just to test something," put Set Automatically back on before you trust the morning.
+Clocks go back to 1 a.m.
 
-If a phone has no service that weekend, it may not pick up the change. That is the phone you check twice.
+Not observed in Hawaii, most of Arizona, and several territories.
+
+## What happens to iPhone alarms
+
+An iPhone set to update automatically changes its own clock, and alarms keep their set times. The night before, check the time zone setting, your alarm list, and any shared alarm.
+
+## Easing your sleep into the new time
+
+> [EXACT AASM QUOTE — paste verbatim from https://aasm.org/advocacy/position-statements/daylight-saving-time-health-advisory/ ]
+
+This is general information, not medical advice.
 
 ## The evening-before checklist
 
@@ -54,27 +65,36 @@ If you are long-distance, only one of you may be changing clocks. The overlap mo
 
 The first morning after the change is a bad time to judge the routine. If someone is an hour early or late, use the pause in the [shared wake agreement](/blog/shared-wake-agreement) and fix the setting that night.
 
+## Shared alarms across time zones
+
+[Time zone alarm math for long-distance couples](/blog/long-distance-alarm-time-zones)
+
 ## What not to do
 
 - Do not set a second "DST alarm" an hour off and forget to delete it. You will get two mornings.
 - Do not turn Set Automatically off to "hold" the old time unless a job truly requires it, and if you do, put a reminder on the calendar to turn it back on.
 - Do not assume a Watch, a bedside clock, and the phone all moved together. Glance at each one.
 
-## Sources
-
-- Apple Support. "If you can't change the time or time zone on your Apple device." [support.apple.com/en-us/101619](https://support.apple.com/en-us/101619)
-- Apple Support. "How to set and change alarms on your iPhone." [support.apple.com/en-us/118444](https://support.apple.com/en-us/118444)
-
 ## FAQ
 
-### Do iPhone alarms move themselves for daylight saving?
+### When does daylight saving end in 2026?
 
-They follow the iPhone clock. With Set Automatically on, Apple says the device adjusts for time zone and daylight saving. A phone that is offline or set by hand needs a manual check.
+US daylight saving time ends at 2 a.m. local time on Sunday, November 1, 2026, when clocks fall back to 1 a.m. During 2026, daylight saving time is in effect from March 8 at 2 a.m. (local time) to November 1 at 2 a.m. (local time). Not observed in Hawaii, most of Arizona, and several territories.
 
-### We live in different regions. Who changes?
+### Will my iPhone alarm go off at the right time?
 
-Only the person whose civil clock changes. Recompute the shared window that evening. Do not both "spring forward" out of habit.
+An iPhone set to update automatically changes its own clock, and alarms keep their set times. The night before, check the time zone setting, your alarm list, and any shared alarm.
 
-### Should we disable the shared alarm that night?
+### Do I get an extra hour of sleep?
 
-Only if the new hour is unsafe or unfair. Otherwise confirm the time and let it ring.
+Clocks go back to 1 a.m.
+
+### What if my partner is in Arizona or Hawaii?
+
+Not observed in Hawaii, most of Arizona, and several territories.
+
+## Sources
+
+- [NIST](https://www.nist.gov/pml/time-and-frequency-division/popular-links/daylight-saving-time-dst)
+- [Apple iPhone date & time guide](https://support.apple.com/guide/iphone/set-the-date-and-time-iph6d1d4b9a/ios)
+- [AASM DST health advisory](https://aasm.org/advocacy/position-statements/daylight-saving-time-health-advisory/)

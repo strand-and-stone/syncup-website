@@ -2,6 +2,10 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 
+import {
+  DAYLIGHT_SAVING_SLUG,
+  DaylightSavingArticle,
+} from "@/components/blog/DaylightSavingArticle";
 import { MarkdownBody } from "@/components/blog/MarkdownBody";
 import { RelatedPosts } from "@/components/blog/RelatedPosts";
 import { ShareBar } from "@/components/blog/ShareBar";
@@ -29,7 +33,8 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     return { title: "Not found" };
   }
   return {
-    title: post.title,
+    title:
+      slug === DAYLIGHT_SAVING_SLUG ? { absolute: post.title } : post.title,
     description: post.description,
     alternates: { canonical: `/blog/${slug}` },
     keywords: post.keywords,
@@ -65,15 +70,17 @@ export default async function BlogPostPage({ params }: Props) {
   const extraLd = getExtraBlogJsonLd(post);
   const headings = getMarkdownHeadings(post.content);
   const allPosts = getAllPosts();
-  const relatedPosts = (
+  const relatedPosts =
     post.related.length > 0
       ? post.related
-          .map((relatedSlug) => allPosts.find((entry) => entry.slug === relatedSlug))
+          .map((relatedSlug) =>
+            allPosts.find((entry) => entry.slug === relatedSlug),
+          )
           .filter((entry): entry is NonNullable<typeof entry> => Boolean(entry))
       : allPosts.filter(
-          (entry) => entry.slug !== post.slug && entry.category === post.category,
-        )
-  );
+          (entry) =>
+            entry.slug !== post.slug && entry.category === post.category,
+        );
 
   return (
     <main
@@ -96,10 +103,10 @@ export default async function BlogPostPage({ params }: Props) {
           </nav>
 
           <header className="mt-6 border-b border-white/10 pb-10">
-            <p className="text-xs font-semibold uppercase tracking-wider text-teal">
+            <p className="text-teal text-xs font-semibold tracking-wider uppercase">
               {post.category}
             </p>
-            <h1 className="mt-3 text-3xl font-bold leading-tight tracking-tight text-white sm:text-4xl">
+            <h1 className="mt-3 text-3xl leading-tight font-bold tracking-tight text-white sm:text-4xl">
               {post.h1}
             </h1>
             <p className="mt-4 text-lg text-zinc-400">{post.description}</p>
@@ -116,36 +123,51 @@ export default async function BlogPostPage({ params }: Props) {
               {" · "}
               {post.author}
             </p>
-            <div className="mt-6 rounded-2xl border border-teal/30 bg-teal/10 p-4 sm:p-5">
-              <p className="text-sm font-semibold text-white">Want to apply this guide today?</p>
-              <p className="mt-1 text-sm leading-relaxed text-zinc-300">
-                Install SyncUpAlarm and run this routine with a shared iPhone wake setup.
-              </p>
-              <p className="mt-3">
-                <Link
-                  href="/download"
-                  className="inline-flex items-center rounded-full bg-white px-3 py-1.5 text-sm font-semibold text-zinc-900 transition hover:bg-zinc-200"
-                >
-                  Download SyncUpAlarm
-                </Link>
-              </p>
-            </div>
+            {slug === DAYLIGHT_SAVING_SLUG ? null : (
+              <div className="border-teal/30 bg-teal/10 mt-6 rounded-2xl border p-4 sm:p-5">
+                <p className="text-sm font-semibold text-white">
+                  Want to apply this guide today?
+                </p>
+                <p className="mt-1 text-sm leading-relaxed text-zinc-300">
+                  Install SyncUpAlarm and run this routine with a shared iPhone
+                  wake setup.
+                </p>
+                <p className="mt-3">
+                  <Link
+                    href="/download"
+                    className="inline-flex items-center rounded-full bg-white px-3 py-1.5 text-sm font-semibold text-zinc-900 transition hover:bg-zinc-200"
+                  >
+                    Download SyncUpAlarm
+                  </Link>
+                </p>
+              </div>
+            )}
             <ShareBar title={post.title} url={`${SITE.domain}/blog/${slug}`} />
           </header>
 
-          <div className="blog-content pb-8 pt-10">
-            <MarkdownBody
-              content={post.content}
-              inlineCta={slug !== "shared-wake-agreement"}
-            />
+          <div className="blog-content pt-10 pb-8">
+            {slug === DAYLIGHT_SAVING_SLUG ? (
+              <DaylightSavingArticle
+                content={post.content}
+                related={relatedPosts}
+                currentSlug={post.slug}
+              />
+            ) : (
+              <MarkdownBody
+                content={post.content}
+                inlineCta={slug !== "shared-wake-agreement"}
+              />
+            )}
           </div>
 
-          <RelatedPosts currentSlug={post.slug} related={relatedPosts} />
+          {slug === DAYLIGHT_SAVING_SLUG ? null : (
+            <RelatedPosts currentSlug={post.slug} related={relatedPosts} />
+          )}
 
           <footer className="mt-10 border-t border-white/10 pt-10">
             <Link
               href="/blog"
-              className="text-sm font-medium text-teal hover:underline"
+              className="text-teal text-sm font-medium hover:underline"
             >
               ← All journal posts
             </Link>
