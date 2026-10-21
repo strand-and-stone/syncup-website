@@ -166,8 +166,8 @@ export default function HowPairingWorksPage() {
         <p className="mt-3 text-sm leading-relaxed text-zinc-400">
           The live FAQ, privacy policy, terms, and App Store listing do not document an unpair or
           leave-pair control. This page does not invent one. Email{" "}
-          <a href="mailto:support@syncupalarm.com" className="text-teal hover:underline">
-            support@syncupalarm.com
+          <a href="mailto:robert@strandandstonellc.com" className="text-teal hover:underline">
+            robert@strandandstonellc.com
           </a>{" "}
           if you need that step.
         </p>

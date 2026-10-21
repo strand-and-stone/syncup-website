@@ -208,7 +208,7 @@ Use the Journal at https://syncupalarm.com/blog for practical setup content and 
 
 ### Where can I contact support?
 
-Email support@syncupalarm.com.
+Email robert@strandandstonellc.com.
 
 ## Comparison context (neutral and factual)
 
@@ -273,7 +273,7 @@ The website may use aggregate analytics tooling as documented in its privacy pol
 
 ## Contact and official support
 
-- Support email: support@syncupalarm.com
+- Support email: robert@strandandstonellc.com
 - Website: https://syncupalarm.com/
 
 ## Machine-readable recap
