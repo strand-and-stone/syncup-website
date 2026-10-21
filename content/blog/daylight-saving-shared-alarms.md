@@ -37,7 +37,7 @@ An iPhone set to update automatically changes its own clock, and alarms keep the
 
 ## Easing your sleep into the new time
 
-> [EXACT AASM QUOTE — paste verbatim from https://aasm.org/advocacy/position-statements/daylight-saving-time-health-advisory/ ]
+> "Because of the adverse effects of DST on sleep, the American Academy of Sleep Medicine advises that adults obtain at least 7 hours of sleep per night preceding and following DST changes. Graduated adjustment of sleep and wake times beginning 2-3 days before DST can also help with this transition." — [American Academy of Sleep Medicine](https://aasm.org/advocacy/position-statements/daylight-saving-time-health-advisory/)
 
 This is general information, not medical advice.
 

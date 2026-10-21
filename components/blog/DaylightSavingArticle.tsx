@@ -138,7 +138,7 @@ function Prose({ blocks }: { blocks: Array<QuoteBlock | ParagraphBlock> }) {
             key={block.text}
             className="border-purple/50 mt-4 border-l-2 pl-4 text-sm leading-7 text-zinc-500 italic first:mt-0"
           >
-            {block.text}
+            {renderInline(block.text)}
           </blockquote>
         ) : (
           <p key={block.text} className={`mt-4 first:mt-0 ${bodyTextClass}`}>
