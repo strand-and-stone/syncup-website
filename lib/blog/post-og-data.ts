@@ -18,19 +18,22 @@ export const BLOG_POST_OG_DATA: Record<string, BlogPostOgData> = {
     category: "Product",
   },
   "chronotypes-couples-sleep-compatibility": {
-    title: "Chronotypes and couples: what sleep science says about mismatched schedules",
+    title:
+      "Chronotypes and couples: what sleep science says about mismatched schedules",
     description:
       "A research-backed guide to morning larks, night owls, social jetlag, and realistic shared wake routines.",
     category: "Research",
   },
   "couples-waking-up-together-research": {
-    title: "The science of waking up together: what research says about couples and morning routines",
+    title:
+      "The science of waking up together: what research says about couples and morning routines",
     description:
       "A research-backed review of sleep timing, social rhythms, and relationship routines.",
     category: "Research",
   },
   "iphone-alarms-complete-guide": {
-    title: "The complete guide to iPhone alarms: Clock, Sleep Schedule, StandBy, Shortcuts, and AlarmKit",
+    title:
+      "The complete guide to iPhone alarms: Clock, Sleep Schedule, StandBy, Shortcuts, and AlarmKit",
     description:
       "A practical iPhone alarm guide covering Clock, Sleep Schedule, Focus, StandBy, Shortcuts, and AlarmKit.",
     category: "Guides",
@@ -42,7 +45,8 @@ export const BLOG_POST_OG_DATA: Record<string, BlogPostOgData> = {
     category: "Guides",
   },
   "long-distance-couple-alarm-guide": {
-    title: "Long-distance couples and the 6 a.m. problem: a practical guide to waking up together",
+    title:
+      "Long-distance couples and the 6 a.m. problem: a practical guide to waking up together",
     description:
       "Time zones, mismatched schedules, and small rituals for parallel mornings.",
     category: "Relationships",
@@ -72,13 +76,15 @@ export const BLOG_POST_OG_DATA: Record<string, BlogPostOgData> = {
     category: "Guides",
   },
   "partner-sync-wake-challenge": {
-    title: "Partner Sync: sync alarms, prove you are awake, and start the day together",
+    title:
+      "Partner Sync: sync alarms, prove you are awake, and start the day together",
     description:
       "A complete guide to paired iPhone alarms, wake challenges, accountability rules, and privacy boundaries.",
     category: "Product",
   },
   "shared-wake-agreement": {
-    title: "The shared wake agreement: a one-page plan you can send your partner",
+    title:
+      "The shared wake agreement: a one-page plan you can send your partner",
     description:
       "A forwardable wake agreement: window, snooze, challenge, fallback, and pause rules.",
     category: "Guides",
@@ -90,7 +96,8 @@ export const BLOG_POST_OG_DATA: Record<string, BlogPostOgData> = {
     category: "Lifestyle",
   },
   "snooze-button-science": {
-    title: "The snooze button, according to science: what it helps, what it does not, and how couples should use it",
+    title:
+      "The snooze button, according to science: what it helps, what it does not, and how couples should use it",
     description:
       "A sourced guide to snoozing, sleep inertia, habit loops, and shared alarm rules.",
     category: "Research",
@@ -126,7 +133,8 @@ export const BLOG_POST_OG_DATA: Record<string, BlogPostOgData> = {
     category: "Guides",
   },
   "accessible-iphone-alarm-cues": {
-    title: "Alarm cues you can actually notice: sound, haptics, and Flash for Alerts",
+    title:
+      "Alarm cues you can actually notice: sound, haptics, and Flash for Alerts",
     description:
       "How to choose an iPhone wake cue you will notice, and what Flash for Alerts covers.",
     category: "Guides",
@@ -138,9 +146,9 @@ export const BLOG_POST_OG_DATA: Record<string, BlogPostOgData> = {
     category: "Product",
   },
   "daylight-saving-shared-alarms": {
-    title: "Daylight saving and shared alarms: the one-hour checklist",
+    title: "Daylight Saving Ends Nov 1, 2026: Adjust Sleep and Alarms",
     description:
-      "What to check on both iPhones when the clocks change so a shared wake time does not slip.",
+      "US clocks fall back at 2 a.m. on Sunday, Nov 1, 2026. How to check your iPhone alarms, ease your sleep schedule, and keep a shared alarm in sync.",
     category: "Guides",
   },
   "one-person-traveling-partner-alarm": {

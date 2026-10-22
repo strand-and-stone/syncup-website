@@ -15,12 +15,12 @@ export function Hero() {
       aria-labelledby="hero-heading"
     >
       <div
-        className="pointer-events-none absolute inset-0 bg-grid-fade bg-grid"
+        className="bg-grid-fade bg-grid pointer-events-none absolute inset-0"
         style={{ backgroundPosition: "center top" }}
       />
-      <div className="pointer-events-none absolute -top-32 left-1/2 h-[480px] w-[480px] -translate-x-1/2 rounded-full bg-purple/18 blur-[110px]" />
-      <div className="pointer-events-none absolute top-32 right-[-18%] h-[320px] w-[320px] rounded-full bg-teal/10 blur-[90px]" />
-      <div className="pointer-events-none absolute bottom-0 left-[-8%] h-[220px] w-[220px] rounded-full bg-flame/10 blur-[80px]" />
+      <div className="bg-purple/18 pointer-events-none absolute -top-32 left-1/2 h-[480px] w-[480px] -translate-x-1/2 rounded-full blur-[110px]" />
+      <div className="bg-teal/10 pointer-events-none absolute top-32 right-[-18%] h-[320px] w-[320px] rounded-full blur-[90px]" />
+      <div className="bg-flame/10 pointer-events-none absolute bottom-0 left-[-8%] h-[220px] w-[220px] rounded-full blur-[80px]" />
 
       <div className="relative mx-auto grid max-w-6xl items-center gap-6 px-4 sm:gap-8 lg:grid-cols-[minmax(0,1fr)_minmax(0,0.92fr)] lg:items-center lg:gap-10 lg:px-8">
         {/* Product first on small screens */}
@@ -31,11 +31,11 @@ export function Hero() {
         <div className="order-2 flex flex-col items-center text-center lg:order-1 lg:items-start lg:text-left">
           <h1
             id="hero-heading"
-            className="hero-heading font-display max-w-[20ch] text-[1.65rem] font-bold leading-[1.12] tracking-[-0.035em] text-white sm:max-w-none sm:text-[2rem] lg:text-[2.25rem]"
+            className="hero-heading font-display max-w-[20ch] text-[1.65rem] leading-[1.12] font-bold tracking-[-0.035em] text-white sm:max-w-none sm:text-[2rem] lg:text-[2.25rem]"
           >
             Same alarm.
             <br />
-            <span className="bg-gradient-to-r from-purple via-teal to-flame bg-clip-text text-transparent">
+            <span className="from-purple via-teal to-flame bg-gradient-to-r bg-clip-text text-transparent">
               Both phones.
             </span>
           </h1>
@@ -46,7 +46,7 @@ export function Hero() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.55, delay: 0.06, ease }}
           >
-            iPhone · two people · zero morning chaos.
+            iPhone alarm clock app · two people · zero morning chaos.
           </motion.p>
 
           <motion.div
