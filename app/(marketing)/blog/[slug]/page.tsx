@@ -6,6 +6,10 @@ import {
   DAYLIGHT_SAVING_SLUG,
   DaylightSavingArticle,
 } from "@/components/blog/DaylightSavingArticle";
+import {
+  SHARED_ALARM_COMPARISON_SLUG,
+  SharedAlarmComparisonArticle,
+} from "@/components/blog/SharedAlarmComparisonArticle";
 import { MarkdownBody } from "@/components/blog/MarkdownBody";
 import { RelatedPosts } from "@/components/blog/RelatedPosts";
 import { ShareBar } from "@/components/blog/ShareBar";
@@ -68,6 +72,8 @@ export default async function BlogPostPage({ params }: Props) {
   const articleLd = getBlogPostingJsonLd(post);
   const breadcrumbLd = getBreadcrumbBlogJsonLd(slug, post.h1);
   const extraLd = getExtraBlogJsonLd(post);
+  const designedArticle =
+    slug === DAYLIGHT_SAVING_SLUG || slug === SHARED_ALARM_COMPARISON_SLUG;
   const headings = getMarkdownHeadings(post.content);
   const allPosts = getAllPosts();
   const relatedPosts =
@@ -123,7 +129,7 @@ export default async function BlogPostPage({ params }: Props) {
               {" · "}
               {post.author}
             </p>
-            {slug === DAYLIGHT_SAVING_SLUG ? null : (
+            {designedArticle ? null : (
               <div className="border-teal/30 bg-teal/10 mt-6 rounded-2xl border p-4 sm:p-5">
                 <p className="text-sm font-semibold text-white">
                   Want to apply this guide today?
@@ -152,6 +158,12 @@ export default async function BlogPostPage({ params }: Props) {
                 related={relatedPosts}
                 currentSlug={post.slug}
               />
+            ) : slug === SHARED_ALARM_COMPARISON_SLUG ? (
+              <SharedAlarmComparisonArticle
+                content={post.content}
+                related={relatedPosts}
+                currentSlug={post.slug}
+              />
             ) : (
               <MarkdownBody
                 content={post.content}
@@ -160,7 +172,7 @@ export default async function BlogPostPage({ params }: Props) {
             )}
           </div>
 
-          {slug === DAYLIGHT_SAVING_SLUG ? null : (
+          {designedArticle ? null : (
             <RelatedPosts currentSlug={post.slug} related={relatedPosts} />
           )}
 
