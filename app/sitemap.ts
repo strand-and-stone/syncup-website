@@ -22,6 +22,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: "weekly",
       priority: 0.85,
     },
+    {
+      url: `${base}/blog/guides`,
+      lastModified: now,
+      changeFrequency: "monthly",
+      priority: 0.82,
+    },
     ...getGuideSlugs().map((slug) => ({
       url: `${base}/blog/guides/${slug}`,
       lastModified: now,

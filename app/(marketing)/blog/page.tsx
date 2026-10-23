@@ -48,16 +48,16 @@ export default function BlogIndexPage() {
       className="mx-auto max-w-3xl px-4 py-16 sm:px-6 lg:max-w-5xl lg:px-8"
     >
       <JsonLd data={jsonLd} />
-      <p className="text-sm font-medium uppercase tracking-widest text-purple">
+      <p className="text-purple text-sm font-medium tracking-widest uppercase">
         Journal
       </p>
       <h1 className="mt-3 text-3xl font-bold tracking-tight text-white sm:text-4xl">
         Mornings, distance, and the systems behind them
       </h1>
       <p className="mt-4 max-w-2xl text-base leading-relaxed text-zinc-400">
-        Editorial guides from the SyncUpAlarm team—written for humans first, search
-        engines second. We cite limits, link to Apple’s docs where it helps, and
-        avoid promising magic.
+        Editorial guides from the SyncUpAlarm team—written for humans first,
+        search engines second. We cite limits, link to Apple’s docs where it
+        helps, and avoid promising magic.
       </p>
       <p className="mt-2 flex flex-wrap items-center gap-x-4 gap-y-1 text-sm text-zinc-600">
         <Link href="/" className="text-teal hover:underline">
@@ -65,7 +65,7 @@ export default function BlogIndexPage() {
         </Link>
         <a
           href="/rss.xml"
-          className="text-zinc-500 hover:text-purple"
+          className="hover:text-purple text-zinc-500"
           rel="alternate"
           type="application/rss+xml"
         >
@@ -74,24 +74,37 @@ export default function BlogIndexPage() {
       </p>
 
       <section className="mt-12">
-        <h2 className="text-xs font-semibold uppercase tracking-wider text-zinc-500">
-          Start with a pillar
-        </h2>
+        <div className="flex flex-wrap items-center justify-between gap-3">
+          <h2 className="text-xs font-semibold tracking-wider text-zinc-500 uppercase">
+            Start with a pillar
+          </h2>
+          <Link
+            href="/blog/guides"
+            className="hover:border-teal/50 hover:text-teal inline-flex items-center rounded-full border border-white/15 px-3 py-1.5 text-sm font-medium text-zinc-100 transition"
+          >
+            All guides
+          </Link>
+        </div>
         <ul className="mt-3 grid gap-4 md:grid-cols-3">
           {BLOG_GUIDES.map((guide, index) => (
             <li
               key={guide.slug}
               className={`rounded-2xl border p-5 ${PILLAR_STYLES[index] ?? PILLAR_STYLES[0]}`}
             >
-              <p className="text-xs font-semibold uppercase tracking-wider text-zinc-400">
+              <p className="text-xs font-semibold tracking-wider text-zinc-400 uppercase">
                 Pillar
               </p>
               <h3 className="mt-2 text-lg font-semibold text-white">
-                <Link href={`/blog/guides/${guide.slug}`} className="hover:text-purple">
+                <Link
+                  href={`/blog/guides/${guide.slug}`}
+                  className="hover:text-purple"
+                >
                   {guide.title}
                 </Link>
               </h3>
-              <p className="mt-2 text-sm leading-relaxed text-zinc-400">{guide.description}</p>
+              <p className="mt-2 text-sm leading-relaxed text-zinc-400">
+                {guide.description}
+              </p>
             </li>
           ))}
         </ul>
@@ -99,15 +112,18 @@ export default function BlogIndexPage() {
 
       {featuredPost ? (
         <section className="mt-12">
-          <p className="text-xs font-semibold uppercase tracking-wider text-zinc-500">
+          <p className="text-xs font-semibold tracking-wider text-zinc-500 uppercase">
             Featured read
           </p>
           <article className="mt-3 rounded-3xl border border-white/10 bg-gradient-to-br from-zinc-950 to-zinc-900/60 p-7 sm:p-8">
-            <p className="text-xs font-semibold uppercase tracking-wider text-teal">
+            <p className="text-teal text-xs font-semibold tracking-wider uppercase">
               {featuredPost.category}
             </p>
             <h2 className="mt-2 text-2xl font-bold tracking-tight text-white sm:text-3xl">
-              <Link href={`/blog/${featuredPost.slug}`} className="hover:text-purple">
+              <Link
+                href={`/blog/${featuredPost.slug}`}
+                className="hover:text-purple"
+              >
                 {featuredPost.title}
               </Link>
             </h2>
@@ -133,18 +149,24 @@ export default function BlogIndexPage() {
         {remainingPosts.map((post, index) => {
           const feature = index % 5 === 0;
           return (
-            <li key={post.slug} className={feature ? "sm:col-span-2" : undefined}>
+            <li
+              key={post.slug}
+              className={feature ? "sm:col-span-2" : undefined}
+            >
               <BlogCard post={post} variant={feature ? "feature" : "compact"} />
             </li>
           );
         })}
       </ul>
 
-      <section className="mt-12 rounded-2xl border border-teal/30 bg-teal/10 p-6">
-        <h2 className="text-xl font-semibold text-white">Build a shared wake routine</h2>
+      <section className="border-teal/30 bg-teal/10 mt-12 rounded-2xl border p-6">
+        <h2 className="text-xl font-semibold text-white">
+          Build a shared wake routine
+        </h2>
         <p className="mt-2 max-w-2xl text-sm leading-relaxed text-zinc-300 sm:text-base">
-          Read a guide, then test it in the app. SyncUpAlarm is built for two-person iPhone
-          wake routines across distance, travel, and shift changes.
+          Read a guide, then test it in the app. SyncUpAlarm is built for
+          two-person iPhone wake routines across distance, travel, and shift
+          changes.
         </p>
         <p className="mt-4">
           <Link
