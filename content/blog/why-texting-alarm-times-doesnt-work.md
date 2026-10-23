@@ -83,7 +83,7 @@ A shared alarm routine with explicit rules, lightweight weekly review, and fallb
 ## Related guides
 
 - [Complete guide to syncing alarms with your partner on iPhone](/blog/partner-alarm-sync-iphone-guide)
-- [Best shared alarm apps for couples in 2026](/blog/best-shared-alarm-apps-couples-2026)
+- [Shared alarm apps for couples: what to compare](/blog/best-shared-alarm-apps-couples-2026)
 - [Partner alarm first-week checklist](/blog/partner-alarm-first-week-checklist)
 
 If both people are on iPhone, you can test this approach at [syncupalarm.com/download](https://syncupalarm.com/download).

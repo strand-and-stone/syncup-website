@@ -154,7 +154,7 @@ No. This is a routine and logistics framework, not medical guidance.
 
 ## Next reads
 
-- [Best shared alarm apps for couples in 2026](/blog/best-shared-alarm-apps-couples-2026)
+- [Shared alarm apps for couples: what to compare](/blog/best-shared-alarm-apps-couples-2026)
 - [Your first week with a partner-synced alarm](/blog/partner-alarm-first-week-checklist)
 - [How AlarmKit supports iPhone alarm reliability](/blog/alarmkit-partner-alarms-iphone)
 

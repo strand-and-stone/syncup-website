@@ -131,6 +131,6 @@ No. It removes logistics friction but does not replace communication and care.
 
 - [Complete guide to syncing alarms with your partner on iPhone](/blog/partner-alarm-sync-iphone-guide)
 - [Long-distance couples and the 6 a.m. problem](/blog/long-distance-couple-alarm-guide)
-- [Best shared alarm apps for couples in 2026](/blog/best-shared-alarm-apps-couples-2026)
+- [Shared alarm apps for couples: what to compare](/blog/best-shared-alarm-apps-couples-2026)
 
 To test this playbook with a live iPhone setup, use [syncupalarm.com/download](https://syncupalarm.com/download).
