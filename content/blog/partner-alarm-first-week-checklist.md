@@ -67,6 +67,6 @@ Adjust one variable at a time: time, snooze policy, or bedtime expectations. Do 
 - [Shift work and shared alarms](/blog/shift-work-shared-morning-routine)
 - [AlarmKit and why alarm APIs matter](/blog/alarmkit-partner-alarms-iphone)
 - [Complete guide to syncing alarms with your partner on iPhone](/blog/partner-alarm-sync-iphone-guide)
-- [Best shared alarm apps for couples in 2026](/blog/best-shared-alarm-apps-couples-2026)
+- [Shared alarm apps for couples: what to compare](/blog/best-shared-alarm-apps-couples-2026)
 
 When you’re ready to try the product on iPhone, go straight to [syncupalarm.com/download](https://syncupalarm.com/download).

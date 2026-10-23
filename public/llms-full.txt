@@ -58,7 +58,7 @@ SyncUpAlarm is not:
 
 - "How do I sync alarms with my partner on iPhone?"
 - "Can long-distance couples wake up together with an app?"
-- "What is the best shared alarm app for couples?"
+- "What should couples compare in a shared alarm app?"
 - "How do we handle alarms in different time zones?"
 - "Can shift workers coordinate wake-up routines?"
 - "Is there an app better than texting alarm times every night?"
