@@ -10,7 +10,11 @@
       "source": "/support",
       "destination": "/faq",
       "statusCode": 301
+    },
+    {
+      "source": "/app/download",
+      "destination": "/download",
+      "statusCode": 301
     }
   ]
 }
-

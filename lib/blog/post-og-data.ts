@@ -12,9 +12,9 @@ export const BLOG_POST_OG_DATA: Record<string, BlogPostOgData> = {
     category: "Product",
   },
   "best-shared-alarm-apps-couples-2026": {
-    title: "Best shared alarm apps for couples in 2026 (iPhone-first guide)",
+    title: "Shared Alarm Apps for Couples: What to Compare",
     description:
-      "An honest comparison of dedicated partner alarm apps, calendar flows, and text-based wake routines.",
+      "A comparison checklist for couples choosing a shared alarm: shared schedules, reliability, privacy, cross-timezone timing, and quiet modes.",
     category: "Product",
   },
   "chronotypes-couples-sleep-compatibility": {
