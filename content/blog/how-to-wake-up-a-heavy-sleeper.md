@@ -20,7 +20,7 @@ related:
   - roommate-quiet-hours-agreement
 ---
 
-The kindest way to wake a heavy sleeper is a plan you both agreed on the night before: their alarm goes first, you're the backup, and everyone knows when to step in. This guide is for the partner or roommate doing the waking; if you're the heavy sleeper, start with [/blog/alarm-for-heavy-sleepers](/blog/alarm-for-heavy-sleepers).
+The kindest way to wake a heavy sleeper is a plan you both agreed on the night before: their alarm goes first, you're the backup, and everyone knows when to step in. This guide is for the partner or roommate doing the waking; if you're the heavy sleeper, start with [Alarm for Heavy Sleepers: What Actually Works](/blog/alarm-for-heavy-sleepers).
 
 ## Agree on the protocol before bed
 
