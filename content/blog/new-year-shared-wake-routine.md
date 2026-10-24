@@ -56,7 +56,7 @@ Not necessarily. A shared plan can stagger times; what matters is that both peop
 
 ### What if one of us is a heavy sleeper?
 
-Link to [`/blog/alarm-for-heavy-sleepers`](/blog/alarm-for-heavy-sleepers) and [`/blog/how-to-wake-up-a-heavy-sleeper`](/blog/how-to-wake-up-a-heavy-sleeper).
+[Alarm for Heavy Sleepers: What Actually Works](/blog/alarm-for-heavy-sleepers) and [How to Wake Up a Heavy Sleeper (Kindly, and for Good)](/blog/how-to-wake-up-a-heavy-sleeper).
 
 ## Internal links
 
