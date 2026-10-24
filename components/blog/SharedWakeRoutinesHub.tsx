@@ -24,7 +24,7 @@ type CardSpec = {
 const CARD_ROWS: Array<{ heading: string; columns: 2 | 3 | 4; cards: CardSpec[] }> = [
   {
     heading: "Start here",
-    columns: 3,
+    columns: 4,
     cards: [
       {
         href: "/blog/shared-wake-agreement",
@@ -40,6 +40,11 @@ const CARD_ROWS: Array<{ heading: string; columns: 2 | 3 | 4; cards: CardSpec[] 
         href: "/blog/weekday-and-weekend-wake-rules",
         title: "Weekday and weekend rules",
         description: "Keep the two close so Mondays feel normal.",
+      },
+      {
+        href: "/blog/new-year-shared-wake-routine",
+        title: "New Year wake routine for two",
+        description: "A shared morning plan that sticks past January.",
       },
     ],
   },
