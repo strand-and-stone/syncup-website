@@ -17,10 +17,11 @@ export function sendGtagPageView(url: string, title?: string) {
   if (typeof window === "undefined" || !GA_MEASUREMENT_ID || !window.gtag) {
     return;
   }
-  window.gtag("config", GA_MEASUREMENT_ID, {
+  window.gtag("event", "page_view", {
     page_path: url,
+    page_location: window.location.href,
     page_title: title,
-    send_page_view: true,
+    send_to: GA_MEASUREMENT_ID,
   });
 }
 
