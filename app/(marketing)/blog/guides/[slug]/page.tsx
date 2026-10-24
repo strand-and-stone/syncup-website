@@ -2,22 +2,49 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 
-import { SharedWakeRoutinesHub, getSharedWakeRoutinesHubMetadata } from "@/components/blog/SharedWakeRoutinesHub";
+import { existsSync, readdirSync } from "node:fs";
+import path from "node:path";
+
 import { JsonLd } from "@/components/JsonLd";
 import { getGuideBySlug, getGuideSlugs } from "@/lib/blog/guides";
 import { SITE } from "@/lib/constants";
 
 type Props = { params: Promise<{ slug: string }> };
 
+const FALLBACK_DEDICATED_GUIDE_SLUGS = ["iphone-alarms", "shared-wake-routines"] as const;
+
+function getDedicatedGuideSlugs(): Set<string> {
+  try {
+    const guidesDir = path.join(process.cwd(), "app", "(marketing)", "blog", "guides");
+    const entries = readdirSync(guidesDir, { withFileTypes: true });
+
+    const slugs = entries
+      .filter((entry) => entry.isDirectory())
+      .map((entry) => entry.name)
+      .filter((name) => name !== "[slug]" && !name.startsWith("_"))
+      .filter((name) => {
+        const base = path.join(guidesDir, name);
+        return existsSync(path.join(base, "page.tsx")) || existsSync(path.join(base, "page.jsx"));
+      });
+
+    return new Set(slugs.length > 0 ? slugs : FALLBACK_DEDICATED_GUIDE_SLUGS);
+  } catch {
+    return new Set(FALLBACK_DEDICATED_GUIDE_SLUGS);
+  }
+}
+
+const DEDICATED_GUIDE_SLUGS = getDedicatedGuideSlugs();
+
 export function generateStaticParams() {
-  return getGuideSlugs().map((slug) => ({ slug }));
+  return getGuideSlugs()
+    .filter((slug) => !DEDICATED_GUIDE_SLUGS.has(slug))
+    .map((slug) => ({ slug }));
 }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params;
-  if (slug === "shared-wake-routines") {
-    return getSharedWakeRoutinesHubMetadata();
-  }
+  if (DEDICATED_GUIDE_SLUGS.has(slug)) return { title: "Not found" };
+
   const guide = getGuideBySlug(slug);
   if (!guide) {
     return { title: "Not found" };
@@ -53,9 +80,8 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
 export default async function BlogGuidePage({ params }: Props) {
   const { slug } = await params;
-  if (slug === "shared-wake-routines") {
-    return <SharedWakeRoutinesHub />;
-  }
+  if (DEDICATED_GUIDE_SLUGS.has(slug)) notFound();
+
   const guide = getGuideBySlug(slug);
   if (!guide) {
     notFound();
