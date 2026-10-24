@@ -42,7 +42,7 @@ Actually ringing at wake time, with snooze and a dismiss action.
 
 ## Why "just put it on the calendar" fails in the morning
 
-A banner at 6:00 a.m. is easy to sleep through or swipe away, and an invited partner doesn't know whether you set an alarm. Link [/blog/why-texting-alarm-times-doesnt-work](/blog/why-texting-alarm-times-doesnt-work).
+A banner at 6:00 a.m. is easy to sleep through or swipe away, and an invited partner doesn't know whether you set an alarm. [Why texting alarm times does not work (and what to do instead)](/blog/why-texting-alarm-times-doesnt-work).
 
 ## Calendar with alarm: how to run both on iPhone
 
@@ -53,7 +53,7 @@ A banner at 6:00 a.m. is easy to sleep through or swipe away, and an invited par
 
 ## When a shared alarm beats a calendar ping
 
-When two people need to be up for the same thing, a shared alarm keeps the wake time itself in sync, not just the event. With SyncUp, both iPhones see one alarm plan and either person notices a change. See [/blog/partner-alarm-sync-iphone-guide](/blog/partner-alarm-sync-iphone-guide).
+When two people need to be up for the same thing, a shared alarm keeps the wake time itself in sync, not just the event. With SyncUp, both iPhones see one alarm plan and either person notices a change. See [Complete guide: how to sync alarms with your partner on iPhone](/blog/partner-alarm-sync-iphone-guide).
 
 ## FAQ
 
