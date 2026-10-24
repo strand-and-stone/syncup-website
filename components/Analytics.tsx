@@ -8,7 +8,6 @@ import {
   GA_MEASUREMENT_ID,
   GTM_ID,
   pushDataLayer,
-  sendGtagPageView,
 } from "@/lib/gtag";
 
 /**
@@ -30,10 +29,6 @@ function PageViewTracker() {
           typeof window !== "undefined" ? window.location.href : undefined,
         page_title: typeof document !== "undefined" ? document.title : undefined,
       });
-    }
-
-    if (GA_MEASUREMENT_ID && !GTM_ID) {
-      sendGtagPageView(url, document.title);
     }
   }, [pathname, searchParams]);
 
@@ -76,7 +71,7 @@ window.dataLayer = window.dataLayer || [];
 function gtag(){dataLayer.push(arguments);}
 gtag('js', new Date());
 gtag('config', '${GA_MEASUREMENT_ID}', {
-  send_page_view: false,
+  send_page_view: true,
   allow_google_signals: false,
   allow_ad_personalization_signals: false
 });
