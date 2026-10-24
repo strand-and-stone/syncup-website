@@ -1,6 +1,5 @@
-/** Default GA4 property; override with NEXT_PUBLIC_GA_MEASUREMENT_ID if needed. */
-export const GA_MEASUREMENT_ID =
-  process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID?.trim() || "G-TVH2BHSQ6E";
+/** GA4 measurement ID used by the site. */
+export const GA_MEASUREMENT_ID = "G-9WF4HK78WT";
 export const GTM_ID = process.env.NEXT_PUBLIC_GTM_ID ?? "";
 
 declare global {
