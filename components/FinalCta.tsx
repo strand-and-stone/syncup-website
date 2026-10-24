@@ -3,7 +3,6 @@
 import { motion } from "framer-motion";
 
 import { StoreBadges } from "@/components/StoreBadges";
-import { SITE } from "@/lib/constants";
 
 const ease = [0.22, 1, 0.36, 1] as const;
 
@@ -25,8 +24,7 @@ export function FinalCta() {
           viewport={{ once: true, margin: "-60px" }}
           transition={{ duration: 0.65, ease }}
         >
-          Ready for softer wake-ups{" "}
-          <span className="text-flame">and</span> stronger sync?
+          Ready to wake up on the same plan?
         </motion.h2>
         <motion.p
           className="mx-auto mt-4 max-w-lg text-zinc-400"
@@ -35,12 +33,17 @@ export function FinalCta() {
           viewport={{ once: true, margin: "-60px" }}
           transition={{ duration: 0.65, delay: 0.06, ease }}
         >
-          Download {SITE.name} on the App Store, link your partner, and let
-          tomorrow morning feel a little more like you’re in the same room.
+          Get SyncUp on the App Store, pair with your partner or roommate, and set tomorrow{"'"}s wake
+          plan together.
         </motion.p>
         <div className="mt-10 flex w-full justify-center">
           <StoreBadges align="center" />
         </div>
+        <p className="mx-auto mt-6 max-w-2xl text-xs leading-relaxed text-zinc-500">
+          {
+            '"SyncUp is a scheduling tool, not a medical or safety device. Phone settings, time changes, battery and connectivity can affect any alarm, so for anything critical, keep a backup alarm."'
+          }
+        </p>
       </div>
     </section>
   );
