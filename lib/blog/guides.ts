@@ -291,9 +291,9 @@ export const BLOG_GUIDES: BlogGuide[] = [
   },
   {
     slug: "shared-wake-routines",
-    title: "Shared wake routines: the SyncUpAlarm research and household cluster",
+    title: "Shared Wake Routines for Couples and Roommates",
     description:
-      "A hub for chronotypes, snooze rules, shift work, and what sleep research does and does not say about waking up together.",
+      "Guides for waking up on one shared plan: agreements, weekday rules, quiet hours, shift work, and partner alarms for couples and roommates.",
     keywords: [
       "couples waking up together",
       "chronotypes couples",
@@ -392,6 +392,11 @@ export const BLOG_GUIDES: BlogGuide[] = [
         href: "/blog/weekday-and-weekend-wake-rules",
         title: "Weekday and weekend rules",
         note: "Two named schedules so Friday is not a new fight.",
+      },
+      {
+        href: "/blog/new-year-shared-wake-routine",
+        title: "New Year wake routine for two",
+        note: "A shared morning plan you can set up on January 1 and adjust weekly.",
       },
       {
         href: "/blog/how-to-design-a-wake-challenge",

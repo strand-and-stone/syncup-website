@@ -92,13 +92,15 @@ function withInlineCallouts(content: string): string {
   return next;
 }
 
-function DownloadCallout() {
+function DownloadCallout({ body }: { body?: string }) {
+  const copy =
+    body ??
+    "If both people use iPhone, install SyncUpAlarm and run this routine with a shared wake setup.";
   return (
     <div className="mt-6 rounded-2xl border border-teal/30 bg-teal/10 p-4 sm:p-5">
       <p className="text-sm font-semibold text-white">Try this in real life</p>
       <p className="mt-1 text-sm leading-relaxed text-zinc-300">
-        If both people use iPhone, install SyncUpAlarm and run this routine with a shared wake
-        setup.
+        {copy}
       </p>
       <p className="mt-3">
         <a
@@ -157,8 +159,13 @@ export function MarkdownBody({ content, inlineCta = true }: MarkdownBodyProps) {
           </h3>
         ),
         p: ({ children }) => {
-          if (getHeadingText(children).trim() === CTA_SENTINEL) {
+          const text = getHeadingText(children).trim();
+          if (text === CTA_SENTINEL) {
             return <DownloadCallout />;
+          }
+          if (text.startsWith(`${CTA_SENTINEL}:`)) {
+            const body = text.slice(`${CTA_SENTINEL}:`.length).trim();
+            return <DownloadCallout body={body || undefined} />;
           }
 
           return (

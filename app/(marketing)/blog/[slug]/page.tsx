@@ -5,6 +5,7 @@ import { notFound } from "next/navigation";
 import {
   DAYLIGHT_SAVING_SLUG,
   DaylightSavingArticle,
+  NEW_YEAR_WAKE_ROUTINE_SLUG,
 } from "@/components/blog/DaylightSavingArticle";
 import {
   SHARED_ALARM_COMPARISON_SLUG,
@@ -25,6 +26,8 @@ import {
 } from "@/lib/structured-data/blog";
 
 type Props = { params: Promise<{ slug: string }> };
+
+const HEAVY_SLEEPER_ALARM_SLUG = "alarm-for-heavy-sleepers";
 
 export async function generateStaticParams() {
   return getPostSlugs().map((slug) => ({ slug }));
@@ -73,7 +76,10 @@ export default async function BlogPostPage({ params }: Props) {
   const breadcrumbLd = getBreadcrumbBlogJsonLd(slug, post.h1);
   const extraLd = getExtraBlogJsonLd(post);
   const designedArticle =
-    slug === DAYLIGHT_SAVING_SLUG || slug === SHARED_ALARM_COMPARISON_SLUG;
+    slug === DAYLIGHT_SAVING_SLUG ||
+    slug === SHARED_ALARM_COMPARISON_SLUG ||
+    slug === NEW_YEAR_WAKE_ROUTINE_SLUG;
+  const heavySleeperAlarmPost = slug === HEAVY_SLEEPER_ALARM_SLUG;
   const headings = getMarkdownHeadings(post.content);
   const allPosts = getAllPosts();
   const relatedPosts =
@@ -129,7 +135,7 @@ export default async function BlogPostPage({ params }: Props) {
               {" · "}
               {post.author}
             </p>
-            {designedArticle ? null : (
+            {designedArticle || heavySleeperAlarmPost ? null : (
               <div className="border-teal/30 bg-teal/10 mt-6 rounded-2xl border p-4 sm:p-5">
                 <p className="text-sm font-semibold text-white">
                   Want to apply this guide today?
@@ -158,6 +164,13 @@ export default async function BlogPostPage({ params }: Props) {
                 related={relatedPosts}
                 currentSlug={post.slug}
               />
+            ) : slug === NEW_YEAR_WAKE_ROUTINE_SLUG ? (
+              <DaylightSavingArticle
+                content={post.content}
+                related={relatedPosts}
+                currentSlug={post.slug}
+                ctaVariant="download"
+              />
             ) : slug === SHARED_ALARM_COMPARISON_SLUG ? (
               <SharedAlarmComparisonArticle
                 content={post.content}
@@ -167,10 +180,40 @@ export default async function BlogPostPage({ params }: Props) {
             ) : (
               <MarkdownBody
                 content={post.content}
-                inlineCta={slug !== "shared-wake-agreement"}
+                inlineCta={
+                  slug !== "shared-wake-agreement" &&
+                  !heavySleeperAlarmPost &&
+                  slug !== "calendar-vs-alarm-for-waking-up"
+                }
               />
             )}
           </div>
+
+          {heavySleeperAlarmPost ? (
+            <>
+              <div className="border-teal/30 bg-teal/10 mt-10 rounded-2xl border p-4 sm:p-5">
+                <p className="text-sm leading-relaxed text-zinc-300 sm:text-base">
+                  If you and your partner or roommate both use iPhone, SyncUp lets you share one
+                  wake plan so a second person knows when you&apos;re meant to be up.
+                </p>
+                <p className="mt-3">
+                  <Link
+                    href="/download"
+                    className="inline-flex items-center rounded-full bg-white px-3 py-1.5 text-sm font-semibold text-zinc-900 transition hover:bg-zinc-200"
+                  >
+                    Download SyncUpAlarm
+                  </Link>
+                </p>
+              </div>
+              <blockquote className="mt-8 border-l-2 border-purple/50 pl-4 text-sm italic text-zinc-500">
+                <p>
+                  SyncUp is not a medical device and isn&apos;t meant to diagnose or treat sleep
+                  conditions. If you regularly sleep through alarms or feel unusually tired, talk
+                  to a doctor. Keep a backup alarm for anything critical.
+                </p>
+              </blockquote>
+            </>
+          ) : null}
 
           {designedArticle ? null : (
             <RelatedPosts currentSlug={post.slug} related={relatedPosts} />
