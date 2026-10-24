@@ -44,12 +44,12 @@ If you sleep through alarms, the setup usually matters more than the volume: whe
 
 ## Add a second person as a cue (where SyncUp fits)
 
-A partner or roommate who knows your wake time is a second cue a phone can't give you. With SyncUp, two iPhones share one alarm plan: both of you can see the time, a change on one phone shows up on the other, and the person who's already up knows when to check in. It doesn't replace your own alarm; it makes the plan visible to two people. See [/how-pairing-works](/how-pairing-works) and [/blog/partner-alarm-sync-iphone-guide](/blog/partner-alarm-sync-iphone-guide).
+A partner or roommate who knows your wake time is a second cue a phone can't give you. With SyncUp, two iPhones share one alarm plan: both of you can see the time, a change on one phone shows up on the other, and the person who's already up knows when to check in. It doesn't replace your own alarm; it makes the plan visible to two people. See [How SyncUpAlarm pairing works](/how-pairing-works) and [Complete guide: how to sync alarms with your partner on iPhone](/blog/partner-alarm-sync-iphone-guide).
 
 ## Loud vs quiet when you share a room
 
-- If your partner wakes easily, try vibration or a watch haptic for you, and a later, softer alarm for them. See [/blog/wake-up-without-waking-partner](/blog/wake-up-without-waking-partner).
-- Roommates: agree on quiet hours and an alarm volume ceiling up front. See [/blog/roommate-quiet-hours-agreement](/blog/roommate-quiet-hours-agreement).
+- If your partner wakes easily, try vibration or a watch haptic for you, and a later, softer alarm for them. See [How to Wake Up Without Waking Your Partner](/blog/wake-up-without-waking-partner).
+- Roommates: agree on quiet hours and an alarm volume ceiling up front. See [A quiet-hours agreement for roommates who do not share a schedule](/blog/roommate-quiet-hours-agreement).
 - A loud speaker alarm in a shared room is a household decision, not a solo one.
 
 ## When to skip shock bands and extreme hardware
@@ -63,8 +63,8 @@ Days 1–2: move the phone and test the alarm. Days 3–4: add the backup alarm 
 ## iPhone tips for heavy sleepers
 
 - Check your alarm settings before you rely on them, especially Focus, Silent mode, and your alert volume.
-- If you're not sure which iPhone alarm surface you're editing, start with [/blog/guides/iphone-alarms](/blog/guides/iphone-alarms).
-- If you're deciding between iPhone Clock alarms and AlarmKit-based apps, read [/blog/alarmkit-partner-alarms-iphone](/blog/alarmkit-partner-alarms-iphone).
+- If you're not sure which iPhone alarm surface you're editing, start with [iPhone alarms for two people: the SyncUpAlarm guide cluster](/blog/guides/iphone-alarms).
+- If you're deciding between iPhone Clock alarms and AlarmKit-based apps, read [What Apple’s AlarmKit changes for partner alarm apps on iPhone](/blog/alarmkit-partner-alarms-iphone).
 
 ## Comparison table
 
@@ -88,7 +88,7 @@ Common setup reasons include snoozing on autopilot, muted or Focus settings, or 
 
 ### Can a partner help me wake up without being my alarm clock?
 
-Yes, if you agree on the plan. See [/blog/how-to-wake-up-a-heavy-sleeper](/blog/how-to-wake-up-a-heavy-sleeper) for a partner wake protocol.
+Yes, if you agree on the plan. See [How to Wake Up a Heavy Sleeper (Kindly, and for Good)](/blog/how-to-wake-up-a-heavy-sleeper) for a partner wake protocol.
 
 ### Does SyncUp work on Android?
 
