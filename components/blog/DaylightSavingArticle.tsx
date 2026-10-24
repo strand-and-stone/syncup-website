@@ -5,8 +5,11 @@ import { getMarkdownHeadings } from "@/lib/blog/headings";
 import type { BlogPost } from "@/lib/blog/types";
 
 export const DAYLIGHT_SAVING_SLUG = "daylight-saving-shared-alarms";
+export const NEW_YEAR_WAKE_ROUTINE_SLUG = "new-year-shared-wake-routine";
 
 const APP_STORE_URL = "https://apps.apple.com/us/app/id6760364103";
+const NEW_YEAR_DOWNLOAD_CTA =
+  "If you both use iPhone, SyncUpAlarm lets you pair, set one wake plan, and test it before January 1.";
 
 const sectionHeadingClass =
   "scroll-mt-24 text-xl font-semibold tracking-tight text-white sm:text-2xl";
@@ -29,6 +32,7 @@ type DaylightSavingArticleProps = {
   content: string;
   related: BlogPost[];
   currentSlug: string;
+  ctaVariant?: "appStore" | "download";
 };
 
 function onlyLink(text: string): { label: string; href: string } | null {
@@ -150,6 +154,27 @@ function Prose({ blocks }: { blocks: Array<QuoteBlock | ParagraphBlock> }) {
   );
 }
 
+function DownloadCtaCard() {
+  return (
+    <section
+      className="border-teal/30 bg-teal/10 mt-10 rounded-2xl border p-6"
+      aria-label="Download SyncUpAlarm"
+    >
+      <p className="text-sm leading-7 text-zinc-300 sm:text-base">
+        {NEW_YEAR_DOWNLOAD_CTA}
+      </p>
+      <p className="mt-4">
+        <a
+          href="/download"
+          className="inline-flex items-center rounded-full bg-white px-4 py-2 text-sm font-semibold text-zinc-900 transition hover:bg-zinc-200"
+        >
+          Download SyncUpAlarm
+        </a>
+      </p>
+    </section>
+  );
+}
+
 function blogSlug(href: string): string {
   return href.replace(/^\/blog\//, "").replace(/\/$/, "");
 }
@@ -158,6 +183,7 @@ export function DaylightSavingArticle({
   content,
   related,
   currentSlug,
+  ctaVariant = "appStore",
 }: DaylightSavingArticleProps) {
   const { intro, sections } = parseArticle(content);
   const headingIds = getMarkdownHeadings(content);
@@ -177,6 +203,7 @@ export function DaylightSavingArticle({
   const relatedPosts = related
     .filter((post) => post.slug !== currentSlug)
     .slice(0, 4);
+  let insertedDownloadCta = false;
 
   return (
     <div>
@@ -202,8 +229,21 @@ export function DaylightSavingArticle({
           (link) => !link.href.startsWith("/blog/"),
         );
 
+        const shouldInsertDownloadCta =
+          ctaVariant === "download" &&
+          !insertedDownloadCta &&
+          section.heading === "Internal links";
+        const wrap = (node: ReactNode): ReactNode => {
+          if (!shouldInsertDownloadCta) {
+            return node;
+          }
+          insertedDownloadCta = true;
+          return [<DownloadCtaCard key="download-cta" />, node];
+        };
+
         if (section.h3s.length > 0) {
-          return (
+          return wrap(
+            (
             <section
               key={section.heading}
               className="mt-10"
@@ -234,11 +274,13 @@ export function DaylightSavingArticle({
                 })}
               </ul>
             </section>
+            ),
           );
         }
 
         if (bullets.length > 0) {
-          return (
+          return wrap(
+            (
             <section
               key={section.heading}
               className="mt-10"
@@ -255,11 +297,13 @@ export function DaylightSavingArticle({
                 ))}
               </ul>
             </section>
+            ),
           );
         }
 
         if (sourceLinks.length > 0) {
-          return (
+          return wrap(
+            (
             <section
               key={section.heading}
               className="mt-10"
@@ -283,11 +327,13 @@ export function DaylightSavingArticle({
                 ))}
               </ul>
             </section>
+            ),
           );
         }
 
         if (blogLinks.length > 0 && prose.length === 0) {
-          return (
+          return wrap(
+            (
             <section
               key={section.heading}
               className="mt-10"
@@ -306,22 +352,31 @@ export function DaylightSavingArticle({
                       {post ? (
                         <BlogCard post={post} />
                       ) : (
-                        <a
-                          href={link.href}
-                          className="hover:text-teal font-semibold text-white"
-                        >
-                          {link.label}
-                        </a>
+                        <article className={cardClass}>
+                          <a
+                            href={link.href}
+                            className="hover:text-teal text-lg font-semibold text-white"
+                          >
+                            {link.label}
+                          </a>
+                          {link.href === "/blog/guides" ? (
+                            <p className="mt-2 text-sm leading-relaxed text-zinc-400 sm:text-base">
+                              Pillar hubs for shared wake routines, iPhone alarms for two, and long-distance mornings.
+                            </p>
+                          ) : null}
+                        </article>
                       )}
                     </li>
                   );
                 })}
               </ul>
             </section>
+            ),
           );
         }
 
-        return (
+        return wrap(
+          (
           <section
             key={section.heading}
             className={`mt-10 ${proseCardClass}`}
@@ -332,6 +387,7 @@ export function DaylightSavingArticle({
             </h2>
             <Prose blocks={prose} />
           </section>
+          ),
         );
       })}
 
@@ -353,21 +409,23 @@ export function DaylightSavingArticle({
         </section>
       ) : null}
 
-      <section className="border-teal/30 bg-teal/10 mt-10 rounded-2xl border p-6">
-        <p className="text-sm leading-7 text-zinc-300 sm:text-base">
-          Free to download.
-        </p>
-        <p className="mt-4">
-          <a
-            href={APP_STORE_URL}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center rounded-full bg-white px-4 py-2 text-sm font-semibold text-zinc-900 transition hover:bg-zinc-200"
-          >
-            Download SyncUp on the App Store
-          </a>
-        </p>
-      </section>
+      {ctaVariant === "appStore" ? (
+        <section className="border-teal/30 bg-teal/10 mt-10 rounded-2xl border p-6">
+          <p className="text-sm leading-7 text-zinc-300 sm:text-base">
+            Free to download.
+          </p>
+          <p className="mt-4">
+            <a
+              href={APP_STORE_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center rounded-full bg-white px-4 py-2 text-sm font-semibold text-zinc-900 transition hover:bg-zinc-200"
+            >
+              Download SyncUp on the App Store
+            </a>
+          </p>
+        </section>
+      ) : null}
     </div>
   );
 }

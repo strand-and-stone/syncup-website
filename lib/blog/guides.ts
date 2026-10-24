@@ -394,6 +394,11 @@ export const BLOG_GUIDES: BlogGuide[] = [
         note: "Two named schedules so Friday is not a new fight.",
       },
       {
+        href: "/blog/new-year-shared-wake-routine",
+        title: "New Year wake routine for two",
+        note: "A shared morning plan you can set up on January 1 and adjust weekly.",
+      },
+      {
         href: "/blog/how-to-design-a-wake-challenge",
         title: "Design a wake challenge",
         note: "A seconds-long step you can finish while groggy.",
