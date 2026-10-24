@@ -44,7 +44,7 @@ You're a backup, not the system. Their alarm, their backup alarm, and their phon
 
 ## Waking someone from another city
 
-A call or text only works if they're already near the surface. A shared alarm plan helps more: both of you see the same wake time, and you know when to check. See [/blog/long-distance-alarm-time-zones](/blog/long-distance-alarm-time-zones) and [/blog/one-person-traveling-partner-alarm](/blog/one-person-traveling-partner-alarm).
+A call or text only works if they're already near the surface. A shared alarm plan helps more: both of you see the same wake time, and you know when to check. See [Time zone alarm math for long-distance couples](/blog/long-distance-alarm-time-zones) and [When one of you is traveling: a one-week alarm plan](/blog/one-person-traveling-partner-alarm).
 
 ## Where SyncUp fits
 
@@ -52,7 +52,7 @@ SyncUp lets two iPhones share one alarm plan, so you can see the wake time they 
 
 ## Roommates and teens
 
-Agree on quiet hours and who is (and isn't) responsible for waking whom. See [/blog/roommate-quiet-hours-agreement](/blog/roommate-quiet-hours-agreement).
+Agree on quiet hours and who is (and isn't) responsible for waking whom. See [A quiet-hours agreement for roommates who do not share a schedule](/blog/roommate-quiet-hours-agreement).
 
 ## Talk about it later, not at 7 a.m.
 
