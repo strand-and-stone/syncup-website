@@ -11,6 +11,10 @@ import {
   SHARED_ALARM_COMPARISON_SLUG,
   SharedAlarmComparisonArticle,
 } from "@/components/blog/SharedAlarmComparisonArticle";
+import {
+  HEAVY_SLEEPER_PARTNER_PROTOCOL_SLUG,
+  HeavySleeperPartnerProtocolArticle,
+} from "@/components/blog/HeavySleeperPartnerProtocolArticle";
 import { MarkdownBody } from "@/components/blog/MarkdownBody";
 import { RelatedPosts } from "@/components/blog/RelatedPosts";
 import { ShareBar } from "@/components/blog/ShareBar";
@@ -78,9 +82,15 @@ export default async function BlogPostPage({ params }: Props) {
   const designedArticle =
     slug === DAYLIGHT_SAVING_SLUG ||
     slug === SHARED_ALARM_COMPARISON_SLUG ||
+    slug === HEAVY_SLEEPER_PARTNER_PROTOCOL_SLUG ||
     slug === NEW_YEAR_WAKE_ROUTINE_SLUG;
   const heavySleeperAlarmPost = slug === HEAVY_SLEEPER_ALARM_SLUG;
-  const headings = getMarkdownHeadings(post.content);
+  const headings = getMarkdownHeadings(post.content).filter((heading) => {
+    if (slug !== HEAVY_SLEEPER_PARTNER_PROTOCOL_SLUG) {
+      return true;
+    }
+    return heading.text !== "Soft CTA" && heading.text !== "Disclaimer";
+  });
   const allPosts = getAllPosts();
   const relatedPosts =
     post.related.length > 0
@@ -177,6 +187,8 @@ export default async function BlogPostPage({ params }: Props) {
                 related={relatedPosts}
                 currentSlug={post.slug}
               />
+            ) : slug === HEAVY_SLEEPER_PARTNER_PROTOCOL_SLUG ? (
+              <HeavySleeperPartnerProtocolArticle content={post.content} />
             ) : (
               <MarkdownBody
                 content={post.content}
