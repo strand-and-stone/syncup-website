@@ -8,7 +8,6 @@ import {
   GA_MEASUREMENT_ID,
   GTM_ID,
   pushDataLayer,
-  sendGtagPageView,
 } from "@/lib/gtag";
 
 /**
@@ -30,10 +29,6 @@ function PageViewTracker() {
           typeof window !== "undefined" ? window.location.href : undefined,
         page_title: typeof document !== "undefined" ? document.title : undefined,
       });
-    }
-
-    if (GA_MEASUREMENT_ID && !GTM_ID) {
-      sendGtagPageView(url, document.title);
     }
   }, [pathname, searchParams]);
 
