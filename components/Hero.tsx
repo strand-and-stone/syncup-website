@@ -33,10 +33,10 @@ export function Hero() {
             id="hero-heading"
             className="hero-heading font-display max-w-[20ch] text-[1.65rem] leading-[1.12] font-bold tracking-[-0.035em] text-white sm:max-w-none sm:text-[2rem] lg:text-[2.25rem]"
           >
-            Same alarm.
+            Wake up together.
             <br />
             <span className="from-purple via-teal to-flame bg-gradient-to-r bg-clip-text text-transparent">
-              Both phones.
+              One alarm, both phones.
             </span>
           </h1>
 
@@ -46,7 +46,8 @@ export function Hero() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.55, delay: 0.06, ease }}
           >
-            iPhone alarm clock app · two people · zero morning chaos.
+            A shared alarm app for couples and roommates on iPhone. Pair once, set one wake plan,
+            and see it on both phones.
           </motion.p>
 
           <motion.div

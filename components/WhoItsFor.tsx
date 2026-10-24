@@ -1,5 +1,7 @@
 "use client";
 
+import Link from "next/link";
+
 import { motion } from "framer-motion";
 import { Coffee, HeartHandshake, Sun } from "lucide-react";
 
@@ -8,6 +10,41 @@ import { WHO_ITS_FOR } from "@/lib/constants";
 const ease = [0.22, 1, 0.36, 1] as const;
 
 const decor = [HeartHandshake, Sun, Coffee] as const;
+
+function TitleWithLinks({ title }: { title: string }) {
+  if (title === "Long-distance & shift workers") {
+    return (
+      <>
+        <Link
+          href="/blog/guides/long-distance-mornings"
+          className="underline decoration-white/15 underline-offset-4 transition-colors hover:decoration-teal/60 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-teal/60"
+        >
+          Long-distance
+        </Link>{" "}
+        &{" "}
+        <Link
+          href="/blog/shift-work-shared-morning-routine"
+          className="underline decoration-white/15 underline-offset-4 transition-colors hover:decoration-teal/60 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-teal/60"
+        >
+          shift workers
+        </Link>
+      </>
+    );
+  }
+
+  if (title === "Roommates & friends") {
+    return (
+      <Link
+        href="/blog/roommate-quiet-hours-agreement"
+        className="underline decoration-white/15 underline-offset-4 transition-colors hover:decoration-teal/60 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-teal/60"
+      >
+        {title}
+      </Link>
+    );
+  }
+
+  return title;
+}
 
 export function WhoItsFor() {
   return (
@@ -53,7 +90,7 @@ export function WhoItsFor() {
                   <Icon className="h-7 w-7 text-teal" aria-hidden />
                 </div>
                 <h3 className="font-display mt-6 text-xl font-semibold text-white">
-                  {item.title}
+                  <TitleWithLinks title={item.title} />
                 </h3>
                 <p className="mt-3 text-sm leading-relaxed text-zinc-400">
                   {item.body}

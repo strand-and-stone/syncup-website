@@ -8,9 +8,9 @@ import { HowItWorks } from "@/components/HowItWorks";
 import { WhoItsFor } from "@/components/WhoItsFor";
 import { SITE } from "@/lib/constants";
 
-const title = "SyncUp: Alarm Clock App to Wake Up Together on iPhone";
+const title = "SyncUp: Shared Alarm App to Wake Up Together, iPhone";
 const description =
-  "SyncUp is an iPhone alarm clock app that syncs your alarm with a partner or friend, adds wake-up challenges, and uses Apple AlarmKit. Free to download.";
+  "SyncUp is a shared alarm app for iPhone. Pair with your partner or roommate, set one wake plan, and see changes on both phones. Built on AlarmKit.";
 
 export const metadata: Metadata = {
   title: { absolute: title },
@@ -39,18 +39,18 @@ export const metadata: Metadata = {
   },
 };
 
-const PILLAR_GUIDES = [
+const GUIDE_CARDS = [
+  {
+    href: "/blog/guides/shared-wake-routines",
+    title: "Shared wake routines",
+  },
+  {
+    href: "/blog/guides/iphone-alarms",
+    title: "iPhone alarms",
+  },
   {
     href: "/blog/alarm-for-heavy-sleepers",
-    title: "Alarm for Heavy Sleepers: What Actually Works",
-  },
-  {
-    href: "/blog/wake-up-without-waking-partner",
-    title: "How to Wake Up Without Waking Your Partner",
-  },
-  {
-    href: "/blog/how-to-wake-up-a-heavy-sleeper",
-    title: "How to Wake Up a Heavy Sleeper (Kindly, and for Good)",
+    title: "Alarm for heavy sleepers",
   },
 ] as const;
 
@@ -72,14 +72,16 @@ export default function Home() {
           >
             Guides
           </h2>
-          <ul className="mt-4 space-y-3">
-            {PILLAR_GUIDES.map((guide) => (
+          <ul className="mt-8 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+            {GUIDE_CARDS.map((guide) => (
               <li key={guide.href}>
                 <Link
                   href={guide.href}
-                  className="hover:text-teal text-zinc-300"
+                  className="group block h-full rounded-2xl border border-white/10 bg-zinc-950/40 p-6 transition-all hover:-translate-y-0.5 hover:border-purple/30 hover:bg-zinc-950/60 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-teal/60"
                 >
-                  {guide.title}
+                  <p className="font-display text-lg font-semibold tracking-tight text-white group-hover:text-purple">
+                    {guide.title}
+                  </p>
                 </Link>
               </li>
             ))}

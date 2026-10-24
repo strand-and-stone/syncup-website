@@ -70,67 +70,71 @@ export const APP_STORE_COMING_SOON_TOOLTIP =
 export const HOW_IT_WORKS_STEPS = [
   {
     title: "Pair up",
-    body: "Invite your partner and connect in seconds. No awkward morning texts required.",
+    body: "Send a link. They join, and you're connected.",
     icon: "heart" as const,
   },
   {
-    title: "Set once, sync forever",
-    body: "Pick your wake time.",
+    title: "Set one plan",
+    body: "Pick a wake time once and it shows on both phones.",
     icon: "alarm" as const,
   },
   {
-    title: "Rise together",
-    body: "When one alarm fires, you both feel it. Same beat, same energy, same day.",
+    title: "Wake together",
+    body: 'Each phone rings its own alarm on the shared plan, so nobody has to text "u up?"',
     icon: "sparkles" as const,
   },
 ] as const;
 
 export const FEATURES = [
   {
-    title: "Perfect sync",
+    title: "Shared plan",
     description:
-      "Alarms align across iPhones so you and your partner wake as one.",
+      "One wake time across two iPhones; a change on one shows on the other.",
     icon: "zap" as const,
   },
   {
     title: "Gentle nudges",
-    description: "Optional soft ramps and haptics that feel human, not harsh.",
+    description: "Optional soft ramps and haptics.",
     icon: "waves" as const,
   },
   {
-    title: "Distance-proof",
-    description: "Time zones? Travel? SyncUpAlarm keeps your rhythm connected.",
+    title: "Time-zone aware",
+    description: "Travel or long distance, the plan follows your time zones.",
     icon: "globe" as const,
   },
   {
     title: "Private by design",
-    description: "Your schedules stay yours. No creepy feeds.",
+    description:
+      "Your wake plan is shared only with the person you pair with. See our privacy policy.",
     icon: "shield" as const,
   },
   {
     title: "Playful streaks",
-    description: "Little flame rewards when you both nail the morning—fun, not pressure.",
+    description: "Small rewards when you both get up on plan. Fun, not pressure.",
     icon: "flame" as const,
   },
   {
     title: "Widgets & shortcuts",
-    description:
-      "Glanceable status on your Home Screen and one-tap snooze when you need it.",
+    description: "Glanceable status on your Home Screen.",
     icon: "layout-grid" as const,
   },
-] as const;
+] as const satisfies readonly {
+  title: string;
+  description: string;
+  icon: "zap" | "waves" | "globe" | "shield" | "flame" | "layout-grid";
+}[];
 
 export const WHO_ITS_FOR = [
   {
-    title: "Long-distance couples",
-    body: "Share mornings even when you’re cities—or continents—apart.",
+    title: "Couples",
+    body: "Wake up together, or on a staggered plan you both can see.",
   },
   {
-    title: "Shift workers",
-    body: "Coordinate wake-ups without the “did you get up?” anxiety spiral.",
+    title: "Long-distance & shift workers",
+    body: "Coordinate mornings across cities and schedules.",
   },
   {
-    title: "Roommates & besties",
-    body: "Keep routines aligned for workouts, trips, or just better vibes.",
+    title: "Roommates & friends",
+    body: "Workouts, trips, and quiet-hour mornings.",
   },
 ] as const;
