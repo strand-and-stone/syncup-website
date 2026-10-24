@@ -6,7 +6,7 @@ import type { BlogPost } from "@/lib/blog/types";
 const base = SITE.domain;
 
 /** Same path Next uses for `app/(marketing)/blog/[slug]/opengraph-image.tsx`. */
-function blogPostOpenGraphImagePath(slug: string): string {
+export function blogPostOpenGraphImagePath(slug: string): string {
   const imagePath = fillMetadataSegment("/(marketing)/blog/[slug]", { slug }, "opengraph-image");
   return `${imagePath}/${slug}`;
 }

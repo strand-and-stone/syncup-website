@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 
+import { SharedWakeRoutinesHub, getSharedWakeRoutinesHubMetadata } from "@/components/blog/SharedWakeRoutinesHub";
 import { JsonLd } from "@/components/JsonLd";
 import { getGuideBySlug, getGuideSlugs } from "@/lib/blog/guides";
 import { SITE } from "@/lib/constants";
@@ -14,6 +15,9 @@ export function generateStaticParams() {
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params;
+  if (slug === "shared-wake-routines") {
+    return getSharedWakeRoutinesHubMetadata();
+  }
   const guide = getGuideBySlug(slug);
   if (!guide) {
     return { title: "Not found" };
@@ -49,6 +53,9 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
 export default async function BlogGuidePage({ params }: Props) {
   const { slug } = await params;
+  if (slug === "shared-wake-routines") {
+    return <SharedWakeRoutinesHub />;
+  }
   const guide = getGuideBySlug(slug);
   if (!guide) {
     notFound();
