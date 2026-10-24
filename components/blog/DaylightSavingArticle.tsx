@@ -412,7 +412,7 @@ export function DaylightSavingArticle({
       {ctaVariant === "appStore" ? (
         <section className="border-teal/30 bg-teal/10 mt-10 rounded-2xl border p-6">
           <p className="text-sm leading-7 text-zinc-300 sm:text-base">
-            Free to download.
+            To download.
           </p>
           <p className="mt-4">
             <a
