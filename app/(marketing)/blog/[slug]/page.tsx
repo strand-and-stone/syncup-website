@@ -167,7 +167,10 @@ export default async function BlogPostPage({ params }: Props) {
             ) : (
               <MarkdownBody
                 content={post.content}
-                inlineCta={slug !== "shared-wake-agreement"}
+                inlineCta={
+                  slug !== "shared-wake-agreement" &&
+                  slug !== "calendar-vs-alarm-for-waking-up"
+                }
               />
             )}
           </div>
