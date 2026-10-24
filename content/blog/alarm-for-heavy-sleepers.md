@@ -38,7 +38,7 @@ If you sleep through alarms, the setup usually matters more than the volume: whe
 
 1. Put the phone across the room so you have to stand up to stop it.
 2. Use a sound you don't hear during the day, and change it every few weeks.
-3. Set a second alarm a few minutes later as a backup, not as a snooze plan.
+3. Set a second alarm a few minutes later as a backup, not as a snooze plan ([When the phone dies: a backup alarm that is not your partner](/blog/backup-alarm-when-the-phone-dies)).
 4. Pair sound with vibration, or an Apple Watch haptic if you wear one.
 5. Run a quick afternoon test with Silent mode and Focus on, so you know what actually rings.
 
@@ -96,4 +96,4 @@ SyncUp is an iPhone app.
 
 ### Is snoozing bad?
 
-Snooze habits vary. If snooze turns into turning the alarm off, try a backup alarm across the room instead.
+Snooze habits vary ([The snooze button, according to science: what it helps, what it does not, and how couples should use it](/blog/snooze-button-science)). If snooze turns into turning the alarm off, try a backup alarm across the room instead.
