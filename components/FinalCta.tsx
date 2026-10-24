@@ -40,9 +40,9 @@ export function FinalCta() {
           <StoreBadges align="center" />
         </div>
         <p className="mx-auto mt-6 max-w-2xl text-xs leading-relaxed text-zinc-500">
-          {
-            '"SyncUp is a scheduling tool, not a medical or safety device. Phone settings, time changes, battery and connectivity can affect any alarm, so for anything critical, keep a backup alarm."'
-          }
+          SyncUp is a scheduling tool, not a medical or safety device. Phone settings, time changes,
+          battery and connectivity can affect any alarm, so for anything critical, keep a backup
+          alarm.
         </p>
       </div>
     </section>
