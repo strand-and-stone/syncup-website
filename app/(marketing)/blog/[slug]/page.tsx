@@ -5,6 +5,7 @@ import { notFound } from "next/navigation";
 import {
   DAYLIGHT_SAVING_SLUG,
   DaylightSavingArticle,
+  NEW_YEAR_WAKE_ROUTINE_SLUG,
 } from "@/components/blog/DaylightSavingArticle";
 import {
   SHARED_ALARM_COMPARISON_SLUG,
@@ -81,7 +82,8 @@ export default async function BlogPostPage({ params }: Props) {
   const designedArticle =
     slug === DAYLIGHT_SAVING_SLUG ||
     slug === SHARED_ALARM_COMPARISON_SLUG ||
-    slug === HEAVY_SLEEPER_PARTNER_PROTOCOL_SLUG;
+    slug === HEAVY_SLEEPER_PARTNER_PROTOCOL_SLUG ||
+    slug === NEW_YEAR_WAKE_ROUTINE_SLUG;
   const heavySleeperAlarmPost = slug === HEAVY_SLEEPER_ALARM_SLUG;
   const headings = getMarkdownHeadings(post.content).filter((heading) => {
     if (slug !== HEAVY_SLEEPER_PARTNER_PROTOCOL_SLUG) {
@@ -171,6 +173,13 @@ export default async function BlogPostPage({ params }: Props) {
                 content={post.content}
                 related={relatedPosts}
                 currentSlug={post.slug}
+              />
+            ) : slug === NEW_YEAR_WAKE_ROUTINE_SLUG ? (
+              <DaylightSavingArticle
+                content={post.content}
+                related={relatedPosts}
+                currentSlug={post.slug}
+                ctaVariant="download"
               />
             ) : slug === SHARED_ALARM_COMPARISON_SLUG ? (
               <SharedAlarmComparisonArticle
