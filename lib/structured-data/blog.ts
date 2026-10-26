@@ -74,7 +74,7 @@ export function getBlogPostingJsonLd(post: BlogPost) {
   return {
     "@context": "https://schema.org",
     "@type": "BlogPosting",
-    headline: post.h1,
+    headline: post.slug === IPHONE_ALARM_GUIDE_SLUG ? post.title : post.h1,
     description: post.description,
     datePublished: post.date,
     dateModified: post.updated,
