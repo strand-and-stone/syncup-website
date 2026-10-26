@@ -40,7 +40,7 @@ Use this first:
 | Two people need one shared wake plan        | A partner alarm app like SyncUpAlarm |
 | App-level custom alarms or countdowns       | AlarmKit-powered app                 |
 
-Most people do not need every layer.
+Most people do not need every layer. The smallest setup that fits your routine is usually the easiest to keep working.
 
 ## Clock app alarms
 
@@ -146,7 +146,7 @@ Use Sleep Schedule when the routine is personal and repeatable:
 - Wind Down and Sleep Focus behavior
 - Sleep history and health context
 
-It is not always for a shared partner alarm. If both people use independent Sleep Schedules, they still have to coordinate changes somewhere else. If one person edits a Tuesday wake-up time, the other person needs a separate update.
+It is not always the right fit for a shared partner alarm. If both people use independent Sleep Schedules, they still have to coordinate changes somewhere else. If one person edits a Tuesday wake-up time, the other person needs a separate update.
 
 For couples, treat Sleep Schedule as the personal sleep layer and the shared alarm as the coordination layer. That keeps sleep health settings from becoming a relationship spreadsheet.
 
