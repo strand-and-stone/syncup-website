@@ -4,6 +4,7 @@ import remarkParse from "remark-parse";
 import { unified } from "unified";
 import type { ReactNode } from "react";
 
+import { HOW_PAIRING_BUTTON_SENTINEL } from "@/lib/blog/iphone-alarm-checklist";
 import { headingId } from "@/lib/blog/headings";
 import { APP_DOWNLOAD_PATH } from "@/lib/constants";
 
@@ -160,6 +161,18 @@ export function MarkdownBody({ content, inlineCta = true }: MarkdownBodyProps) {
         ),
         p: ({ children }) => {
           const text = getHeadingText(children).trim();
+          if (text === HOW_PAIRING_BUTTON_SENTINEL) {
+            return (
+              <p className="mt-4">
+                <a
+                  href="/how-pairing-works"
+                  className="inline-flex items-center rounded-full bg-white px-4 py-2 text-sm font-semibold text-zinc-900 transition hover:bg-zinc-200"
+                >
+                  How pairing works
+                </a>
+              </p>
+            );
+          }
           if (text === CTA_SENTINEL) {
             return <DownloadCallout />;
           }
