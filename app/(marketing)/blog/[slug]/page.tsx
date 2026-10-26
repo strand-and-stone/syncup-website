@@ -22,6 +22,18 @@ import { TableOfContents } from "@/components/blog/TableOfContents";
 import { JsonLd } from "@/components/JsonLd";
 import { getAllPosts, getPostBySlug, getPostSlugs } from "@/lib/blog/get-posts";
 import { getMarkdownHeadings } from "@/lib/blog/headings";
+import type { HeadingItem } from "@/lib/blog/headings";
+import {
+  IPHONE_ALARM_BACKUP_GRID_LABEL,
+  IPHONE_ALARM_CHECKLIST_H2,
+  IPHONE_ALARM_CHECKLIST_ID,
+  IPHONE_ALARM_GUIDE_SLUG,
+  parseIphoneAlarmChecklist,
+  splitAroundIphoneChecklist,
+  type InlineSegment,
+  type IphoneAlarmChecklist,
+} from "@/lib/blog/iphone-alarm-checklist";
+import type { BlogPost } from "@/lib/blog/types";
 import { SITE } from "@/lib/constants";
 import {
   getBlogPostingJsonLd,
@@ -45,7 +57,9 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   }
   return {
     title:
-      slug === DAYLIGHT_SAVING_SLUG ? { absolute: post.title } : post.title,
+      slug === DAYLIGHT_SAVING_SLUG || slug === IPHONE_ALARM_GUIDE_SLUG
+        ? { absolute: post.title }
+        : post.title,
     description: post.description,
     alternates: { canonical: `/blog/${slug}` },
     keywords: post.keywords,
@@ -85,12 +99,25 @@ export default async function BlogPostPage({ params }: Props) {
     slug === HEAVY_SLEEPER_PARTNER_PROTOCOL_SLUG ||
     slug === NEW_YEAR_WAKE_ROUTINE_SLUG;
   const heavySleeperAlarmPost = slug === HEAVY_SLEEPER_ALARM_SLUG;
-  const headings = getMarkdownHeadings(post.content).filter((heading) => {
-    if (slug !== HEAVY_SLEEPER_PARTNER_PROTOCOL_SLUG) {
-      return true;
-    }
-    return heading.text !== "Soft CTA" && heading.text !== "Disclaimer";
-  });
+  const headings = getMarkdownHeadings(post.content)
+    .filter((heading) => {
+      if (slug !== HEAVY_SLEEPER_PARTNER_PROTOCOL_SLUG) {
+        return true;
+      }
+      return heading.text !== "Soft CTA" && heading.text !== "Disclaimer";
+    })
+    .map((heading) =>
+      heading.text === IPHONE_ALARM_CHECKLIST_H2
+        ? { ...heading, id: IPHONE_ALARM_CHECKLIST_ID }
+        : heading,
+    );
+  const iphoneChecklist =
+    slug === IPHONE_ALARM_GUIDE_SLUG
+      ? parseIphoneAlarmChecklist(post.content)
+      : null;
+  const iphoneGuideParts = iphoneChecklist
+    ? splitAroundIphoneChecklist(post.content)
+    : null;
   const allPosts = getAllPosts();
   const relatedPosts =
     post.related.length > 0
@@ -121,7 +148,20 @@ export default async function BlogPostPage({ params }: Props) {
               Journal
             </Link>
             <span className="mx-2 text-zinc-700">/</span>
-            <span className="text-zinc-400">{post.category}</span>
+            {slug === IPHONE_ALARM_GUIDE_SLUG ? (
+              <>
+                <Link
+                  href="/blog/guides/iphone-alarms"
+                  className="hover:text-teal"
+                >
+                  iPhone alarms guide hub
+                </Link>
+                <span className="mx-2 text-zinc-700">/</span>
+                <span className="text-zinc-400">{post.h1}</span>
+              </>
+            ) : (
+              <span className="text-zinc-400">{post.category}</span>
+            )}
           </nav>
 
           <header className="mt-6 border-b border-white/10 pb-10">
@@ -168,7 +208,16 @@ export default async function BlogPostPage({ params }: Props) {
           </header>
 
           <div className="blog-content pt-10 pb-8">
-            {slug === DAYLIGHT_SAVING_SLUG ? (
+            {iphoneGuideParts && iphoneChecklist ? (
+              <>
+                <MarkdownBody content={iphoneGuideParts.before} />
+                <IphoneAlarmChecklistSection
+                  section={iphoneChecklist}
+                  headings={headings}
+                />
+                <MarkdownBody content={iphoneGuideParts.after} />
+              </>
+            ) : slug === DAYLIGHT_SAVING_SLUG ? (
               <DaylightSavingArticle
                 content={post.content}
                 related={relatedPosts}
@@ -205,8 +254,9 @@ export default async function BlogPostPage({ params }: Props) {
             <>
               <div className="border-teal/30 bg-teal/10 mt-10 rounded-2xl border p-4 sm:p-5">
                 <p className="text-sm leading-relaxed text-zinc-300 sm:text-base">
-                  If you and your partner or roommate both use iPhone, SyncUp lets you share one
-                  wake plan so a second person knows when you&apos;re meant to be up.
+                  If you and your partner or roommate both use iPhone, SyncUp
+                  lets you share one wake plan so a second person knows when
+                  you&apos;re meant to be up.
                 </p>
                 <p className="mt-3">
                   <Link
@@ -219,15 +269,18 @@ export default async function BlogPostPage({ params }: Props) {
               </div>
               <blockquote className="mt-8 border-l-2 border-purple/50 pl-4 text-sm italic text-zinc-500">
                 <p>
-                  SyncUp is not a medical device and isn&apos;t meant to diagnose or treat sleep
-                  conditions. If you regularly sleep through alarms or feel unusually tired, talk
-                  to a doctor. Keep a backup alarm for anything critical.
+                  SyncUp is not a medical device and isn&apos;t meant to
+                  diagnose or treat sleep conditions. If you regularly sleep
+                  through alarms or feel unusually tired, talk to a doctor. Keep
+                  a backup alarm for anything critical.
                 </p>
               </blockquote>
             </>
           ) : null}
 
-          {designedArticle ? null : (
+          {designedArticle ? null : slug === IPHONE_ALARM_GUIDE_SLUG ? (
+            <IphoneGuideRelated related={relatedPosts} />
+          ) : (
             <RelatedPosts currentSlug={post.slug} related={relatedPosts} />
           )}
 
@@ -246,5 +299,168 @@ export default async function BlogPostPage({ params }: Props) {
         </div>
       </div>
     </main>
+  );
+}
+
+const checklistHeadingClass =
+  "scroll-mt-24 text-xl font-semibold tracking-tight text-white sm:text-2xl";
+const checklistCardClass =
+  "rounded-2xl border border-white/10 bg-zinc-950/50 p-5 sm:p-6";
+const checklistInfoCardClass =
+  "rounded-2xl border border-white/10 bg-zinc-950/40 p-6";
+const checklistGridClass = "mt-4 grid gap-4 sm:grid-cols-2";
+const checklistBodyClass = "text-sm leading-7 text-zinc-400 sm:text-base";
+const titleCardClass =
+  "group block h-full rounded-2xl border border-white/10 bg-zinc-950/40 p-6 transition-all hover:-translate-y-0.5 hover:border-purple/30 hover:bg-zinc-950/60 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-teal/60";
+
+const IPHONE_GUIDE_RELATED_CARDS = [
+  {
+    href: "/blog/backup-alarm-when-the-phone-dies",
+    title: "Backup alarm when the phone dies",
+  },
+  {
+    href: "/blog/how-to-wake-up-a-heavy-sleeper",
+    title: "How to wake up a heavy sleeper",
+  },
+  {
+    href: "/blog/partner-alarm-sync-iphone-guide",
+    title: "Partner alarm sync on iPhone (shared alarm)",
+  },
+  {
+    href: "/blog/guides/iphone-alarms",
+    title: "iPhone alarms guide hub",
+  },
+] as const;
+
+function TitleLinkCard({ href, title }: { href: string; title: string }) {
+  return (
+    <Link href={href} className={titleCardClass}>
+      <p className="font-display group-hover:text-purple text-lg font-semibold tracking-tight text-white">
+        {title}
+      </p>
+    </Link>
+  );
+}
+
+function InlineSegments({ segments }: { segments: InlineSegment[] }) {
+  return segments.map((segment, index) => {
+    if (segment.type === "text") {
+      return <span key={index}>{segment.value}</span>;
+    }
+    const external = segment.href.startsWith("http");
+    return (
+      <a
+        key={`${segment.href}-${index}`}
+        href={segment.href}
+        className="text-teal decoration-teal/40 hover:text-purple underline underline-offset-2"
+        {...(external ? { target: "_blank", rel: "noopener noreferrer" } : {})}
+      >
+        {segment.label}
+      </a>
+    );
+  });
+}
+
+function IphoneAlarmChecklistSection({
+  section,
+  headings,
+}: {
+  section: IphoneAlarmChecklist;
+  headings: HeadingItem[];
+}) {
+  const idFor = (text: string) =>
+    headings.find((heading) => heading.text === text)?.id;
+
+  return (
+    <section className="mt-12" aria-labelledby={IPHONE_ALARM_CHECKLIST_ID}>
+      <h2 id={IPHONE_ALARM_CHECKLIST_ID} className={checklistHeadingClass}>
+        {IPHONE_ALARM_CHECKLIST_H2}
+      </h2>
+      <div className={`mt-4 ${checklistInfoCardClass}`}>
+        <p className={checklistBodyClass}>{section.intro}</p>
+      </div>
+      <div className={`mt-4 ${checklistInfoCardClass}`}>
+        <p className={checklistBodyClass}>{section.disclaimer}</p>
+      </div>
+      <ol className={checklistGridClass}>
+        {section.steps.map((step, index) => (
+          <li key={step.title} className={checklistCardClass}>
+            <p className="text-purple text-xs font-semibold tracking-wider uppercase">
+              Step {index + 1}
+            </p>
+            <h3
+              id={idFor(step.title)}
+              className="mt-2 scroll-mt-24 text-lg font-semibold text-white"
+            >
+              {step.title}
+            </h3>
+            <p className={`mt-3 ${checklistBodyClass}`}>{step.body}</p>
+            {step.source.length > 0 ? (
+              <p className={`mt-3 ${checklistBodyClass}`}>
+                <InlineSegments segments={step.source} />
+              </p>
+            ) : null}
+          </li>
+        ))}
+      </ol>
+      <div className={checklistGridClass}>
+        <div>
+          <p className={checklistBodyClass}>{section.closing}</p>
+          {section.closingSource.length > 0 ? (
+            <p className={`mt-3 ${checklistBodyClass}`}>
+              <InlineSegments segments={section.closingSource} />
+            </p>
+          ) : null}
+        </div>
+        {section.besideNote ? (
+          <TitleLinkCard
+            href={section.besideNote.href}
+            title={section.besideNote.title}
+          />
+        ) : null}
+      </div>
+      <p className="mt-8 text-base font-semibold text-white">
+        {IPHONE_ALARM_BACKUP_GRID_LABEL}
+      </p>
+      <ul className={checklistGridClass}>
+        {section.backupCards.map((card) => (
+          <li key={card.href}>
+            <TitleLinkCard href={card.href} title={card.title} />
+          </li>
+        ))}
+      </ul>
+    </section>
+  );
+}
+
+function IphoneGuideRelated({ related }: { related: BlogPost[] }) {
+  const briefHrefs = new Set<string>(
+    IPHONE_GUIDE_RELATED_CARDS.map((card) => card.href),
+  );
+  const extras = related.filter(
+    (post) => !briefHrefs.has(`/blog/${post.slug}`),
+  );
+
+  return (
+    <section className="mt-10" aria-labelledby="related-posts-heading">
+      <h2
+        id="related-posts-heading"
+        className="text-lg font-semibold text-white"
+      >
+        Related posts
+      </h2>
+      <ul className="mt-4 grid gap-6 sm:grid-cols-2">
+        {IPHONE_GUIDE_RELATED_CARDS.map((card) => (
+          <li key={card.href}>
+            <TitleLinkCard href={card.href} title={card.title} />
+          </li>
+        ))}
+        {extras.map((post) => (
+          <li key={post.slug}>
+            <TitleLinkCard href={`/blog/${post.slug}`} title={post.title} />
+          </li>
+        ))}
+      </ul>
+    </section>
   );
 }
