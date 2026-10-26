@@ -3,7 +3,7 @@ title: "Daylight Saving Ends Nov 1, 2026: Check Shared Alarms"
 description: "US clocks fall back at 2:00 a.m. local time on Sunday, Nov 1, 2026. What NIST, Apple, and Google say, plus a night-before checklist for two."
 h1: "Daylight saving time ends Nov 1, 2026: what to check on shared alarms"
 date: "2026-09-30"
-updated: "2026-10-27"
+updated: "2026-10-26"
 author: "SyncUpAlarm Team"
 category: "Guides"
 keywords:

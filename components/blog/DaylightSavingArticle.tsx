@@ -346,9 +346,9 @@ function DaylightSavingRefresh({ content }: { content: string }) {
                   </p>
                 </div>
               ) : null}
-              <ul className={cardGridClass}>
+              <ol className="mt-4 list-none space-y-4 p-0">
                 {steps.map((item) => (
-                  <li key={item.heading} className="flex flex-col gap-4">
+                  <li key={item.heading}>
                     <div className={cardClass}>
                       <h3
                         id={item.id}
@@ -356,17 +356,27 @@ function DaylightSavingRefresh({ content }: { content: string }) {
                       >
                         {item.heading}
                       </h3>
+                      {textBlocks(item.blocks).length > 0 ? (
+                        <Prose blocks={textBlocks(item.blocks)} />
+                      ) : null}
+                      {linkBlocks(item.blocks).length > 0 ? (
+                        <p className={`mt-3 ${bodyTextClass}`}>
+                          {linkBlocks(item.blocks).map((link, index) => (
+                            <Link
+                              key={link.href}
+                              href={link.href}
+                              className="text-teal decoration-teal/40 hover:text-purple underline underline-offset-2"
+                            >
+                              {index > 0 ? " " : null}
+                              {link.label}
+                            </Link>
+                          ))}
+                        </p>
+                      ) : null}
                     </div>
-                    {linkBlocks(item.blocks).map((link) => (
-                      <LinkedPostCard
-                        key={link.href}
-                        href={link.href}
-                        label={link.label}
-                      />
-                    ))}
                   </li>
                 ))}
-              </ul>
+              </ol>
             </section>
           );
         }
