@@ -6,37 +6,31 @@ import { SITE } from "@/lib/constants";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const base = SITE.domain;
-  const now = new Date();
   const posts = getAllPosts();
 
   return [
     {
       url: base,
-      lastModified: now,
       changeFrequency: "weekly",
       priority: 1,
     },
     {
       url: `${base}/blog`,
-      lastModified: now,
       changeFrequency: "weekly",
       priority: 0.85,
     },
     {
       url: `${base}/blog/guides`,
-      lastModified: now,
       changeFrequency: "monthly",
       priority: 0.82,
     },
     ...getGuideSlugs().map((slug) => ({
       url: `${base}/blog/guides/${slug}`,
-      lastModified: now,
       changeFrequency: "monthly" as const,
       priority: 0.8,
     })),
     {
       url: `${base}/faq`,
-      lastModified: now,
       changeFrequency: "monthly",
       priority: 0.72,
     },
@@ -48,13 +42,11 @@ export default function sitemap(): MetadataRoute.Sitemap {
     },
     {
       url: `${base}/press`,
-      lastModified: now,
       changeFrequency: "monthly",
       priority: 0.62,
     },
     {
       url: `${base}/how-pairing-works`,
-      lastModified: now,
       changeFrequency: "monthly",
       priority: 0.7,
     },
@@ -66,21 +58,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
     })),
     {
       url: `${base}/privacy`,
-      lastModified: now,
       changeFrequency: "yearly",
       priority: 0.5,
     },
     {
       url: `${base}/terms`,
-      lastModified: now,
       changeFrequency: "yearly",
       priority: 0.5,
-    },
-    {
-      url: `${base}/llms-full.txt`,
-      lastModified: now,
-      changeFrequency: "monthly",
-      priority: 0.3,
     },
   ];
 }
