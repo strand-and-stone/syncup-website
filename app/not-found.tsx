@@ -9,6 +9,9 @@ export const metadata: Metadata = {
   title: "Page not found",
   description: `The page you requested does not exist on ${SITE.domain}.`,
   robots: { index: false, follow: true },
+  // Root layout sets canonical "/". A 404 must not inherit that or it
+  // points Google at the homepage. null clears the inherited alternate.
+  alternates: { canonical: null },
 };
 
 export default function NotFound() {
