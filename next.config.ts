@@ -29,6 +29,13 @@ const nextConfig: NextConfig = {
   async headers() {
     return [
       {
+        // File extension is .png; bytes are JPEG (FF D8). The page renders it
+        // through the image optimizer, which already sniffs JPEG. This keeps
+        // the raw public URL from being labeled image/png.
+        source: "/images/hero-app-screenshot.png",
+        headers: [{ key: "Content-Type", value: "image/jpeg" }],
+      },
+      {
         source: "/(.*)",
         headers: [
           {
