@@ -42,6 +42,9 @@ export const FOOTER_LINKS = [
   { href: `mailto:${SITE.supportEmail}`, label: "Support" },
 ] as const;
 
+export const FOOTER_APPLE_TRADEMARK_NOTICE =
+  "iPhone, iPad and App Store are trademarks of Apple Inc., registered in the U.S. and other countries and regions. SyncUp is an independent app and is not affiliated with or endorsed by Apple Inc." as const;
+
 /** Official App Store listing (SyncUp Alarm). */
 export const APP_STORE_URL =
   "https://apps.apple.com/app/syncup-alarm/id6760364103" as const;
