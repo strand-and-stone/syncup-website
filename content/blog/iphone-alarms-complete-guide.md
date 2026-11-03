@@ -1,8 +1,9 @@
 ---
-title: "The complete guide to iPhone alarms: Clock, Sleep Schedule, StandBy, Shortcuts, and AlarmKit"
-description: "A practical iPhone alarm guide covering Clock, Sleep Schedule, Focus, StandBy, Shortcuts, Apple Watch, AlarmKit, and shared alarm workflows."
+title: "iPhone Alarm Guide: Not Going Off, Clock, Sleep, Focus"
+description: "iPhone alarm not going off? Steps Apple suggests checking, plus how Clock, Sleep Schedule, Focus, StandBy, and AlarmKit alarms work."
+h1: "The complete guide to iPhone alarms: Clock, Sleep Schedule, StandBy, Shortcuts, and AlarmKit"
 date: "2026-07-31"
-updated: "2026-07-31"
+updated: "2026-10-26"
 author: "SyncUpAlarm Team"
 category: "Guides"
 keywords:
@@ -14,8 +15,10 @@ schema:
   - HowTo
   - FAQPage
 related:
-  - partner-sync-wake-challenge
+  - backup-alarm-when-the-phone-dies
+  - how-to-wake-up-a-heavy-sleeper
   - partner-alarm-sync-iphone-guide
+  - partner-sync-wake-challenge
   - alarmkit-partner-alarms-iphone
   - best-shared-alarm-apps-couples-2026
 ---
@@ -28,16 +31,16 @@ This guide explains the practical alarm surfaces on iPhone, what each one is goo
 
 Use this first:
 
-| Need | Best iPhone tool |
-| --- | --- |
-| One basic personal alarm | Clock app |
-| Bedtime/wake schedule with Sleep Focus | Health app Sleep Schedule |
-| Bedside glanceable clock while charging | StandBy |
-| "When alarm stops, do something" automation | Shortcuts personal automation |
-| Two people need one shared wake plan | A partner alarm app like SyncUpAlarm |
-| App-level custom alarms or countdowns | AlarmKit-powered app |
+| Need                                        | iPhone tool                          |
+| ------------------------------------------- | ------------------------------------ |
+| One basic personal alarm                    | Clock app                            |
+| Bedtime/wake schedule with Sleep Focus      | Health app Sleep Schedule            |
+| Bedside glanceable clock while charging     | StandBy                              |
+| "When alarm stops, do something" automation | Shortcuts personal automation        |
+| Two people need one shared wake plan        | A partner alarm app like SyncUpAlarm |
+| App-level custom alarms or countdowns       | AlarmKit-powered app                 |
 
-Most people do not need every layer. The best setup is the smallest setup that is reliable.
+Most people do not need every layer. The smallest setup that fits your routine is usually the easiest to keep working.
 
 ## Clock app alarms
 
@@ -54,18 +57,96 @@ Use Clock when:
 
 For a couple, the Clock app is fine for individual alarms. It is not a shared source of truth. If one partner edits their alarm, the other partner does not automatically know.
 
+## iPhone alarm not going off: a checklist of steps Apple suggests checking
+
+> If your iPhone alarm didn't sound, was too quiet, or only vibrated, these are the settings Apple Support suggests checking. They're steps to check, not a guarantee, so for anything that matters, keep a backup alarm too.
+
+SyncUp is a scheduling tool, not a medical or safety device. Phone settings, time changes, battery and connectivity can affect any alarm, so for anything critical, keep a backup alarm. This article is general information, not medical advice.
+
+### Is the alarm switched on, for the right time and days?
+
+Per Apple Support, open Clock > Alarms and check the switch next to the alarm time. Tap the time to check it and its Repeat days.
+
+[Source: Apple Support](https://support.apple.com/guide/iphone/set-an-alarm-iph2909d3a74/ios). Set an alarm in Clock (iph2909d3a74).
+
+### Is the alarm's Sound set to None?
+
+Per Apple Support, if your alarm only vibrates, check that the sound isn't set to None: Clock > Alarms > Edit > tap the alarm > Sound, then choose a sound.
+
+[Source: Apple Support](https://support.apple.com/en-us/118444). 118444.
+
+### Check the alarm volume.
+
+Per Apple Support, go to Settings > Sounds & Haptics and drag the slider under Ringtone and Alerts. The name of this setting depends on your iOS version (see step 4).
+
+[Source: Apple Support](https://support.apple.com/en-us/118444). 118444.
+
+### On newer iOS, check Alarms and Timers volume.
+
+Apple's iPhone User Guide lists Settings > Sounds & Haptics > Alarms and Timers, where you can turn Match Ringtone Volume off and drag the slider, or turn it on. If you see it: the setting name depends on your iOS version, so you may see this instead of the Ringtone and Alerts slider in step 3.
+
+[Source: Apple Support](https://support.apple.com/guide/iphone/set-an-alarm-iph2909d3a74/ios). iph2909d3a74.
+
+### Is "Change with Buttons" moving your alarm volume?
+
+Per Apple Support, turn on Change with Buttons to use the volume buttons to change the alarm volume. Check that the volume wasn't lowered by accident.
+
+[Source: Apple Support](https://support.apple.com/en-us/118444). [118444](https://support.apple.com/en-us/118444); [iph2909d3a74](https://support.apple.com/guide/iphone/set-an-alarm-iph2909d3a74/ios).
+
+### Silent mode, Do Not Disturb, or a Focus.
+
+Apple Support says Do Not Disturb, the Ring/Silent switch, and Silent mode don't affect the alarm sound. Apple's behavior can change with iOS updates, and phone settings can still affect any alarm, so keep a backup alarm for anything critical. If one of these is on, keep going through the other steps.
+
+[Source: Apple Support](https://support.apple.com/en-us/118444). [118444](https://support.apple.com/en-us/118444); [iph2909d3a74](https://support.apple.com/guide/iphone/set-an-alarm-iph2909d3a74/ios).
+
+### Headphones or wireless earbuds connected?
+
+Per Apple Support, with headphones connected the alarm plays at a set volume through the iPhone's built-in speakers as well as wired and wireless headphones.
+
+[Source: Apple Support](https://support.apple.com/en-us/118444). 118444.
+
+### Using StandBy at the bedside?
+
+Per Apple Support, haptics for alarms are disabled in StandBy, so check that the alarm sound isn't set to None.
+
+[Source: Apple Support](https://support.apple.com/en-us/118444). [118444](https://support.apple.com/en-us/118444); StandBy guide [iph878d77632](https://support.apple.com/guide/iphone/use-standby-iph878d77632/ios).
+
+### Is the alarm quieter when you look at the phone?
+
+Per Apple Support, when Attention Aware features detect attention, iPhone lowers the volume of alerts. To turn this off: Settings > Face ID & Passcode > Attention Aware Features.
+
+[Source: Apple Support](https://support.apple.com/en-us/102216). 102216.
+
+### Sleep Schedule alarm in Health: is its Alarm on?
+
+Per Apple Support, a sleep schedule's alarm can be turned off for the next wake-up only, for one schedule, or for all schedules (turning off Sleep Schedule also turns off its scheduled alarms). Check Health > Browse > Sleep > Your Schedule. Apple also notes that Clock alarms are separate from a sleep schedule.
+
+[Source: Apple Support](https://support.apple.com/guide/iphone/turn-off-alarms-and-delete-sleep-schedules-iph35e7e0e5f/ios). [iph35e7e0e5f](https://support.apple.com/guide/iphone/turn-off-alarms-and-delete-sleep-schedules-iph35e7e0e5f/ios); [iphaf56dceb4](https://support.apple.com/guide/iphone/set-up-sleep-iphaf56dceb4/ios); [iph2909d3a74](https://support.apple.com/guide/iphone/set-an-alarm-iph2909d3a74/ios).
+
+Per Apple Support, manually adjusting the time on your iPhone in Settings to change app behavior isn't recommended and can affect alarms.
+
+[Source: Apple Support](https://support.apple.com/en-us/118444). 118444.
+
+[Daylight saving and shared alarms](/blog/daylight-saving-shared-alarms)
+
+[Backup alarm when the phone dies](/blog/backup-alarm-when-the-phone-dies)
+
+[Alarm for heavy sleepers](/blog/alarm-for-heavy-sleepers)
+
+[Accessible iPhone alarm cues](/blog/accessible-iphone-alarm-cues)
+
 ## Sleep Schedule and wake-up alarms in Health
 
 Apple's Sleep Schedule flow lives in the Health app. It is designed around bedtime, wake time, sleep goals, and Sleep Focus. Apple says you can create recurring schedules, set alarm options, choose a sound and vibration, enable snooze, and choose whether Sleep Focus reduces distractions before and during bedtime.
 
-Sleep Schedule is best when the routine is personal and repeatable:
+Use Sleep Schedule when the routine is personal and repeatable:
 
 - Weekday wake-up schedule
 - Weekend schedule
 - Wind Down and Sleep Focus behavior
 - Sleep history and health context
 
-It is not always best for a shared partner alarm. If both people use independent Sleep Schedules, they still have to coordinate changes somewhere else. If one person edits a Tuesday wake-up time, the other person needs a separate update.
+It is not always the right fit for a shared partner alarm. If both people use independent Sleep Schedules, they still have to coordinate changes somewhere else. If one person edits a Tuesday wake-up time, the other person needs a separate update.
 
 For couples, treat Sleep Schedule as the personal sleep layer and the shared alarm as the coordination layer. That keeps sleep health settings from becoming a relationship spreadsheet.
 
@@ -107,7 +188,7 @@ Good Shortcuts uses:
 - When an alarm is stopped, turn on lights through a smart-home action.
 - When an alarm is snoozed, log a personal note or reminder.
 
-Be careful with alarm automations in shared routines. Automations can add convenience, but they can also hide complexity. If the goal is "both partners wake up reliably," do not depend on a chain of fragile actions that only one person understands. Keep the core wake cue simple and visible.
+Be careful with alarm automations in shared routines. Automations can add convenience, but they can also hide complexity. If the goal is "both partners wake up," do not depend on a chain of fragile actions that only one person understands. Keep the core wake cue simple and visible.
 
 ## Apple Watch and alarms
 
@@ -138,7 +219,7 @@ Still, do not assume every app behaves the same way. Look for clear product beha
 
 SyncUpAlarm is built for the partner use case: two iPhones, one shared wake plan, fewer nightly coordination texts.
 
-## How to design a reliable shared iPhone alarm routine
+## How to plan a shared iPhone alarm routine
 
 Use this process for couples, roommates, or close friends.
 
@@ -187,7 +268,7 @@ Clock alarms and Sleep Schedule wake-up alarms are separate. Check both.
 
 ### "Focus blocked my alarm"
 
-For built-in Clock alarms, Apple says Do Not Disturb, Silent mode, and the Ring/Silent switch do not affect the alarm sound. If the alarm failed, investigate sound, volume, enabled status, sleep schedule confusion, or third-party app behavior.
+Apple Support says Do Not Disturb, the Ring/Silent switch, and Silent mode don't affect the alarm sound. Apple's behavior can change with iOS updates, and phone settings can still affect any alarm, so keep a backup alarm for anything critical.
 
 ### "StandBy made my alarm less noticeable"
 
@@ -210,10 +291,15 @@ Use it when:
 
 Start with the [partner alarm sync guide](/blog/partner-alarm-sync-iphone-guide), then use the [first-week checklist](/blog/partner-alarm-first-week-checklist) to test your routine without drama.
 
+SYNCUP_HOW_PAIRING_BUTTON
+
 ## Sources and further reading
+
+as of Oct 26, 2026
 
 - Apple Support. "Set an alarm in Clock on iPhone." [support.apple.com/guide/iphone/set-an-alarm-iph2909d3a74/ios](https://support.apple.com/guide/iphone/set-an-alarm-iph2909d3a74/ios)
 - Apple Support. "How to set and change alarms on your iPhone." [support.apple.com/en-us/118444](https://support.apple.com/en-us/118444)
+- Apple Support. "Turn Attention Aware features on or off." [support.apple.com/en-us/102216](https://support.apple.com/en-us/102216)
 - Apple Support. "Set up a sleep schedule in Health on iPhone." [support.apple.com/guide/iphone/iphaf56dceb4/ios](https://support.apple.com/guide/iphone/iphaf56dceb4/ios)
 - Apple Support. "Turn off alarms and delete sleep schedules in Health on iPhone." [support.apple.com/guide/iphone/iph35e7e0e5f/ios](https://support.apple.com/guide/iphone/turn-off-alarms-and-delete-sleep-schedules-iph35e7e0e5f/ios)
 - Apple Support. "Use StandBy to view information at a distance while iPhone is charging." [support.apple.com/guide/iphone/iph878d77632/ios](https://support.apple.com/guide/iphone/iph878d77632/ios)
@@ -221,6 +307,8 @@ Start with the [partner alarm sync guide](/blog/partner-alarm-sync-iphone-guide)
 - Apple Support. "Event triggers in Shortcuts on iPhone or iPad." [support.apple.com/guide/shortcuts/apd932ff833f/ios](https://support.apple.com/guide/shortcuts/apd932ff833f/ios)
 - Apple Developer Documentation. "AlarmKit." [developer.apple.com/documentation/AlarmKit](https://developer.apple.com/documentation/AlarmKit)
 - Apple Developer. "Wake up to the AlarmKit API." WWDC25. [developer.apple.com/videos/play/wwdc2025/230/](https://developer.apple.com/videos/play/wwdc2025/230/)
+
+Apple, iPhone and StandBy are trademarks of Apple Inc. SyncUp is not affiliated with or endorsed by Apple.
 
 ## FAQ
 
@@ -230,7 +318,7 @@ Clock alarms are standard alarms in the Clock app. Sleep Schedule wake-up alarms
 
 ### Do iPhone alarms ring in Do Not Disturb?
 
-Apple says Do Not Disturb, Silent mode, and the Ring/Silent switch do not affect the sound of built-in Clock alarms.
+Apple Support says Do Not Disturb, the Ring/Silent switch, and Silent mode don't affect the alarm sound. Apple's behavior can change with iOS updates, and phone settings can still affect any alarm, so keep a backup alarm for anything critical.
 
 ### Does StandBy replace the Clock app?
 
@@ -244,6 +332,26 @@ Yes. Apple's Shortcuts guide lists alarm event triggers including when an alarm 
 
 AlarmKit is Apple's developer framework for scheduling prominent app alarms and countdowns with system-managed alarm behavior and UI options.
 
-### What is the best setup for couples?
+### What setup works for couples?
 
 Use personal sleep tools for personal sleep planning, then use one shared source of truth for the couple's wake plan.
+
+### Why didn't my iPhone alarm go off?
+
+Apple Support suggests checking that the alarm is switched on in Clock, that its sound isn't set to None, and that the Ringtone and Alerts volume isn't turned down. Phone settings, battery and connectivity can affect any alarm, so keep a backup alarm for anything critical.
+
+### Does Silent mode or Do Not Disturb stop my iPhone alarm?
+
+Apple Support says Do Not Disturb, the Ring/Silent switch, and Silent mode don't affect the alarm sound. Apple's behavior can change with iOS updates, and phone settings can still affect any alarm, so keep a backup alarm for anything critical.
+
+### Why does my iPhone alarm only vibrate?
+
+Per Apple Support, if your alarm only vibrates, check that the alarm sound isn't set to None: open Clock, tap Alarms, tap Edit, tap the alarm, then tap Sound and choose a sound.
+
+### Why is my iPhone alarm quiet when I look at my phone?
+
+Per Apple Support, when Attention Aware features detect that you're paying attention, iPhone lowers the volume of alerts. You can turn this off in Settings > Face ID & Passcode.
+
+### Will my alarm play through my headphones?
+
+Per Apple Support, when headphones are connected, the alarm plays at a set volume through the iPhone's built-in speakers as well as wired and wireless headphones.

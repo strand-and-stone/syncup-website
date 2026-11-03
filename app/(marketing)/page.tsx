@@ -52,6 +52,10 @@ const GUIDE_CARDS = [
     href: "/blog/alarm-for-heavy-sleepers",
     title: "Alarm for heavy sleepers",
   },
+  {
+    href: "/blog/iphone-alarms-complete-guide#iphone-alarm-not-going-off-checklist",
+    title: "iPhone alarm not going off? Steps Apple suggests checking",
+  },
 ] as const;
 
 export default function Home() {
@@ -77,9 +81,9 @@ export default function Home() {
               <li key={guide.href}>
                 <Link
                   href={guide.href}
-                  className="group block h-full rounded-2xl border border-white/10 bg-zinc-950/40 p-6 transition-all hover:-translate-y-0.5 hover:border-purple/30 hover:bg-zinc-950/60 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-teal/60"
+                  className="group hover:border-purple/30 focus-visible:ring-teal/60 block h-full rounded-2xl border border-white/10 bg-zinc-950/40 p-6 transition-all hover:-translate-y-0.5 hover:bg-zinc-950/60 focus-visible:ring-2 focus-visible:outline-none"
                 >
-                  <p className="font-display text-lg font-semibold tracking-tight text-white group-hover:text-purple">
+                  <p className="font-display group-hover:text-purple text-lg font-semibold tracking-tight text-white">
                     {guide.title}
                   </p>
                 </Link>

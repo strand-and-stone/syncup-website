@@ -32,10 +32,9 @@ export const BLOG_POST_OG_DATA: Record<string, BlogPostOgData> = {
     category: "Research",
   },
   "iphone-alarms-complete-guide": {
-    title:
-      "The complete guide to iPhone alarms: Clock, Sleep Schedule, StandBy, Shortcuts, and AlarmKit",
+    title: "iPhone Alarm Guide: Not Going Off, Clock, Sleep, Focus",
     description:
-      "A practical iPhone alarm guide covering Clock, Sleep Schedule, Focus, StandBy, Shortcuts, and AlarmKit.",
+      "iPhone alarm not going off? Steps Apple suggests checking, plus how Clock, Sleep Schedule, Focus, StandBy, and AlarmKit alarms work.",
     category: "Guides",
   },
   "long-distance-alarm-time-zones": {

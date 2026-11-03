@@ -1,13 +1,26 @@
 import { fillMetadataSegment } from "next/dist/lib/metadata/get-metadata-route";
 
+import {
+  IPHONE_ALARM_CHECKLIST_HOWTO_NAME,
+  IPHONE_ALARM_GUIDE_SLUG,
+  parseIphoneAlarmChecklist,
+} from "@/lib/blog/iphone-alarm-checklist";
 import { SITE } from "@/lib/constants";
 import type { BlogPost } from "@/lib/blog/types";
+
+/** HowTo description captured before the Oct 26, 2026 title and meta change. */
+const IPHONE_GUIDE_PREVIOUS_HOWTO_DESCRIPTION =
+  "A practical iPhone alarm guide covering Clock, Sleep Schedule, Focus, StandBy, Shortcuts, Apple Watch, AlarmKit, and shared alarm workflows.";
 
 const base = SITE.domain;
 
 /** Same path Next uses for `app/(marketing)/blog/[slug]/opengraph-image.tsx`. */
 export function blogPostOpenGraphImagePath(slug: string): string {
-  const imagePath = fillMetadataSegment("/(marketing)/blog/[slug]", { slug }, "opengraph-image");
+  const imagePath = fillMetadataSegment(
+    "/(marketing)/blog/[slug]",
+    { slug },
+    "opengraph-image",
+  );
   return `${imagePath}/${slug}`;
 }
 
@@ -61,7 +74,7 @@ export function getBlogPostingJsonLd(post: BlogPost) {
   return {
     "@context": "https://schema.org",
     "@type": "BlogPosting",
-    headline: post.h1,
+    headline: post.slug === IPHONE_ALARM_GUIDE_SLUG ? post.title : post.h1,
     description: post.description,
     datePublished: post.date,
     dateModified: post.updated,
@@ -88,7 +101,9 @@ export function getBlogPostingJsonLd(post: BlogPost) {
 
 function getFaqPageJsonLd(post: BlogPost) {
   const lines = post.content.split("\n");
-  const faqStart = lines.findIndex((line) => line.trim().toLowerCase() === "## faq");
+  const faqStart = lines.findIndex(
+    (line) => line.trim().toLowerCase() === "## faq",
+  );
   if (faqStart === -1) {
     return null;
   }
@@ -147,22 +162,77 @@ function getFaqPageJsonLd(post: BlogPost) {
   };
 }
 
+function routineHowToSteps(post: BlogPost): string[] {
+  if (post.slug !== IPHONE_ALARM_GUIDE_SLUG) {
+    return [...post.content.matchAll(/^###\s+Step\s+\d+:\s+(.+)$/gm)].map(
+      (match) => match[1].trim(),
+    );
+  }
+
+  const lines = post.content.split("\n");
+  let inRoutine = false;
+  const names: string[] = [];
+  for (const raw of lines) {
+    const line = raw.trim();
+    if (line.startsWith("## ")) {
+      inRoutine = line === "## How to plan a shared iPhone alarm routine";
+      continue;
+    }
+    if (!inRoutine) {
+      continue;
+    }
+    const match = /^###\s+Step\s+\d+:\s+(.+)$/.exec(line);
+    if (match) {
+      names.push(match[1].trim());
+    }
+  }
+  return names;
+}
+
 function getHowToJsonLd(post: BlogPost) {
-  const stepMatches = [...post.content.matchAll(/^###\s+Step\s+\d+:\s+(.+)$/gm)];
-  if (stepMatches.length === 0) {
+  const names = routineHowToSteps(post);
+  if (names.length === 0) {
+    return null;
+  }
+
+  const preservedGuide = post.slug === IPHONE_ALARM_GUIDE_SLUG;
+
+  return {
+    "@context": "https://schema.org",
+    "@type": "HowTo",
+    name: preservedGuide ? post.h1 : post.title,
+    description: preservedGuide
+      ? IPHONE_GUIDE_PREVIOUS_HOWTO_DESCRIPTION
+      : post.description,
+    step: names.map((name, index) => ({
+      "@type": "HowToStep",
+      position: index + 1,
+      name,
+      text: name,
+    })),
+    url: `${base}/blog/${post.slug}`,
+    inLanguage: "en-US",
+  };
+}
+
+function getIphoneChecklistHowToJsonLd(post: BlogPost) {
+  if (post.slug !== IPHONE_ALARM_GUIDE_SLUG) {
+    return null;
+  }
+  const checklist = parseIphoneAlarmChecklist(post.content);
+  if (!checklist || checklist.steps.length === 0) {
     return null;
   }
 
   return {
     "@context": "https://schema.org",
     "@type": "HowTo",
-    name: post.title,
-    description: post.description,
-    step: stepMatches.map((match, index) => ({
+    name: IPHONE_ALARM_CHECKLIST_HOWTO_NAME,
+    step: checklist.steps.map((step, index) => ({
       "@type": "HowToStep",
       position: index + 1,
-      name: match[1].trim(),
-      text: match[1].trim(),
+      name: step.title,
+      text: step.text,
     })),
     url: `${base}/blog/${post.slug}`,
     inLanguage: "en-US",
@@ -170,7 +240,9 @@ function getHowToJsonLd(post: BlogPost) {
 }
 
 function getItemListJsonLd(post: BlogPost) {
-  const optionMatches = [...post.content.matchAll(/^##\s+Option\s+\d+:\s+(.+)$/gm)];
+  const optionMatches = [
+    ...post.content.matchAll(/^##\s+Option\s+\d+:\s+(.+)$/gm),
+  ];
   if (optionMatches.length === 0) {
     return null;
   }
@@ -221,6 +293,10 @@ export function getExtraBlogJsonLd(post: BlogPost) {
     if (howTo) {
       extras.push(howTo);
     }
+    const checklistHowTo = getIphoneChecklistHowToJsonLd(post);
+    if (checklistHowTo) {
+      extras.push(checklistHowTo);
+    }
   }
 
   if (schema.has("ItemList")) {
@@ -234,13 +310,36 @@ export function getExtraBlogJsonLd(post: BlogPost) {
 }
 
 export function getBreadcrumbBlogJsonLd(slug: string, title: string) {
+  const itemListElement = [
+    { "@type": "ListItem", position: 1, name: "Home", item: base },
+    { "@type": "ListItem", position: 2, name: "Journal", item: `${base}/blog` },
+  ];
+
+  if (slug === IPHONE_ALARM_GUIDE_SLUG) {
+    itemListElement.push({
+      "@type": "ListItem",
+      position: 3,
+      name: "iPhone alarms guide hub",
+      item: `${base}/blog/guides/iphone-alarms`,
+    });
+    itemListElement.push({
+      "@type": "ListItem",
+      position: 4,
+      name: title,
+      item: `${base}/blog/${slug}`,
+    });
+  } else {
+    itemListElement.push({
+      "@type": "ListItem",
+      position: 3,
+      name: title,
+      item: `${base}/blog/${slug}`,
+    });
+  }
+
   return {
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
-    itemListElement: [
-      { "@type": "ListItem", position: 1, name: "Home", item: base },
-      { "@type": "ListItem", position: 2, name: "Journal", item: `${base}/blog` },
-      { "@type": "ListItem", position: 3, name: title, item: `${base}/blog/${slug}` },
-    ],
+    itemListElement,
   };
 }
