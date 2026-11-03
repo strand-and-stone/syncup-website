@@ -7,7 +7,11 @@ const base = SITE.domain;
 
 /** Same path Next uses for `app/(marketing)/blog/[slug]/opengraph-image.tsx`. */
 export function blogPostOpenGraphImagePath(slug: string): string {
-  const imagePath = fillMetadataSegment("/(marketing)/blog/[slug]", { slug }, "opengraph-image");
+  const imagePath = fillMetadataSegment(
+    "/(marketing)/blog/[slug]",
+    { slug },
+    "opengraph-image",
+  );
   return `${imagePath}/${slug}`;
 }
 
@@ -88,7 +92,9 @@ export function getBlogPostingJsonLd(post: BlogPost) {
 
 function getFaqPageJsonLd(post: BlogPost) {
   const lines = post.content.split("\n");
-  const faqStart = lines.findIndex((line) => line.trim().toLowerCase() === "## faq");
+  const faqStart = lines.findIndex(
+    (line) => line.trim().toLowerCase() === "## faq",
+  );
   if (faqStart === -1) {
     return null;
   }
@@ -148,15 +154,25 @@ function getFaqPageJsonLd(post: BlogPost) {
 }
 
 function getHowToJsonLd(post: BlogPost) {
-  const stepMatches = [...post.content.matchAll(/^###\s+Step\s+\d+:\s+(.+)$/gm)];
+  const stepMatches = [
+    ...post.content.matchAll(/^###\s+Step\s+\d+:\s+(.+)$/gm),
+  ];
   if (stepMatches.length === 0) {
     return null;
   }
 
+  const checklistHeading = post.content.match(
+    /^##\s+(Night-before checklist.+)$/m,
+  );
+  const name =
+    post.slug === "daylight-saving-shared-alarms" && checklistHeading
+      ? checklistHeading[1].trim()
+      : post.title;
+
   return {
     "@context": "https://schema.org",
     "@type": "HowTo",
-    name: post.title,
+    name,
     description: post.description,
     step: stepMatches.map((match, index) => ({
       "@type": "HowToStep",
@@ -170,7 +186,9 @@ function getHowToJsonLd(post: BlogPost) {
 }
 
 function getItemListJsonLd(post: BlogPost) {
-  const optionMatches = [...post.content.matchAll(/^##\s+Option\s+\d+:\s+(.+)$/gm)];
+  const optionMatches = [
+    ...post.content.matchAll(/^##\s+Option\s+\d+:\s+(.+)$/gm),
+  ];
   if (optionMatches.length === 0) {
     return null;
   }
@@ -233,14 +251,28 @@ export function getExtraBlogJsonLd(post: BlogPost) {
   return extras;
 }
 
-export function getBreadcrumbBlogJsonLd(slug: string, title: string) {
+export function getBreadcrumbBlogJsonLd(
+  slug: string,
+  title: string,
+  middle?: { name: string; path: string },
+) {
+  const crumbs: Array<{ name: string; item: string }> = [
+    { name: "Home", item: base },
+    { name: "Journal", item: `${base}/blog` },
+  ];
+  if (middle) {
+    crumbs.push({ name: middle.name, item: `${base}${middle.path}` });
+  }
+  crumbs.push({ name: title, item: `${base}/blog/${slug}` });
+
   return {
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
-    itemListElement: [
-      { "@type": "ListItem", position: 1, name: "Home", item: base },
-      { "@type": "ListItem", position: 2, name: "Journal", item: `${base}/blog` },
-      { "@type": "ListItem", position: 3, name: title, item: `${base}/blog/${slug}` },
-    ],
+    itemListElement: crumbs.map((crumb, index) => ({
+      "@type": "ListItem",
+      position: index + 1,
+      name: crumb.name,
+      item: crumb.item,
+    })),
   };
 }

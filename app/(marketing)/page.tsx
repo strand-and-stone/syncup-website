@@ -41,6 +41,10 @@ export const metadata: Metadata = {
 
 const GUIDE_CARDS = [
   {
+    href: "/blog/daylight-saving-shared-alarms",
+    title: "Clocks fall back Sun, Nov 1: check your shared alarm",
+  },
+  {
     href: "/blog/guides/shared-wake-routines",
     title: "Shared wake routines",
   },
@@ -77,9 +81,9 @@ export default function Home() {
               <li key={guide.href}>
                 <Link
                   href={guide.href}
-                  className="group block h-full rounded-2xl border border-white/10 bg-zinc-950/40 p-6 transition-all hover:-translate-y-0.5 hover:border-purple/30 hover:bg-zinc-950/60 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-teal/60"
+                  className="group hover:border-purple/30 focus-visible:ring-teal/60 block h-full rounded-2xl border border-white/10 bg-zinc-950/40 p-6 transition-all hover:-translate-y-0.5 hover:bg-zinc-950/60 focus-visible:ring-2 focus-visible:outline-none"
                 >
-                  <p className="font-display text-lg font-semibold tracking-tight text-white group-hover:text-purple">
+                  <p className="font-display group-hover:text-purple text-lg font-semibold tracking-tight text-white">
                     {guide.title}
                   </p>
                 </Link>

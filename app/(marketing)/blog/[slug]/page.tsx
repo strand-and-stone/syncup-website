@@ -77,7 +77,13 @@ export default async function BlogPostPage({ params }: Props) {
   }
 
   const articleLd = getBlogPostingJsonLd(post);
-  const breadcrumbLd = getBreadcrumbBlogJsonLd(slug, post.h1);
+  const breadcrumbLd = getBreadcrumbBlogJsonLd(
+    slug,
+    post.h1,
+    slug === DAYLIGHT_SAVING_SLUG
+      ? { name: "iPhone alarms guide hub", path: "/blog/guides/iphone-alarms" }
+      : undefined,
+  );
   const extraLd = getExtraBlogJsonLd(post);
   const designedArticle =
     slug === DAYLIGHT_SAVING_SLUG ||
@@ -120,6 +126,17 @@ export default async function BlogPostPage({ params }: Props) {
             <Link href="/blog" className="hover:text-teal">
               Journal
             </Link>
+            {slug === DAYLIGHT_SAVING_SLUG ? (
+              <>
+                <span className="mx-2 text-zinc-700">/</span>
+                <Link
+                  href="/blog/guides/iphone-alarms"
+                  className="hover:text-teal"
+                >
+                  iPhone alarms guide hub
+                </Link>
+              </>
+            ) : null}
             <span className="mx-2 text-zinc-700">/</span>
             <span className="text-zinc-400">{post.category}</span>
           </nav>
@@ -205,8 +222,9 @@ export default async function BlogPostPage({ params }: Props) {
             <>
               <div className="border-teal/30 bg-teal/10 mt-10 rounded-2xl border p-4 sm:p-5">
                 <p className="text-sm leading-relaxed text-zinc-300 sm:text-base">
-                  If you and your partner or roommate both use iPhone, SyncUp lets you share one
-                  wake plan so a second person knows when you&apos;re meant to be up.
+                  If you and your partner or roommate both use iPhone, SyncUp
+                  lets you share one wake plan so a second person knows when
+                  you&apos;re meant to be up.
                 </p>
                 <p className="mt-3">
                   <Link
@@ -217,11 +235,12 @@ export default async function BlogPostPage({ params }: Props) {
                   </Link>
                 </p>
               </div>
-              <blockquote className="mt-8 border-l-2 border-purple/50 pl-4 text-sm italic text-zinc-500">
+              <blockquote className="border-purple/50 mt-8 border-l-2 pl-4 text-sm text-zinc-500 italic">
                 <p>
-                  SyncUp is not a medical device and isn&apos;t meant to diagnose or treat sleep
-                  conditions. If you regularly sleep through alarms or feel unusually tired, talk
-                  to a doctor. Keep a backup alarm for anything critical.
+                  SyncUp is not a medical device and isn&apos;t meant to
+                  diagnose or treat sleep conditions. If you regularly sleep
+                  through alarms or feel unusually tired, talk to a doctor. Keep
+                  a backup alarm for anything critical.
                 </p>
               </blockquote>
             </>

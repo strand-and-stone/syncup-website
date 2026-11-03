@@ -146,9 +146,9 @@ export const BLOG_POST_OG_DATA: Record<string, BlogPostOgData> = {
     category: "Product",
   },
   "daylight-saving-shared-alarms": {
-    title: "Daylight Saving Ends Nov 1, 2026: Adjust Sleep and Alarms",
+    title: "Daylight Saving Ends Nov 1, 2026: Check Shared Alarms",
     description:
-      "US clocks fall back at 2 a.m. on Sunday, Nov 1, 2026. How to check your iPhone alarms, ease your sleep schedule, and keep a shared alarm in sync.",
+      "US clocks fall back at 2:00 a.m. local time on Sunday, Nov 1, 2026. What NIST, Apple, and Google say, plus a night-before checklist for two.",
     category: "Guides",
   },
   "one-person-traveling-partner-alarm": {
