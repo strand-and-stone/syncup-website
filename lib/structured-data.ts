@@ -31,7 +31,7 @@ export function getSoftwareApplicationJsonLd() {
   const base = {
     "@context": "https://schema.org",
     "@type": "MobileApplication",
-    name: SITE.name,
+    name: "SyncUp: Partner Alarm Clock",
     applicationCategory: "LifestyleApplication",
     operatingSystem: "iOS",
     softwareRequirements: "iOS 26.0+",
