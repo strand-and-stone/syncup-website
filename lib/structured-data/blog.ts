@@ -99,7 +99,9 @@ function getFaqPageJsonLd(post: BlogPost) {
 
   for (let i = faqStart + 1; i < lines.length; i += 1) {
     const line = lines[i].trim();
-    if (line.startsWith("## ")) {
+    // The calendar post ends its FAQ with a callout sentinel, then a
+    // disclaimer. Neither line is the answer shown under the question.
+    if (line.startsWith("## ") || line.startsWith("SYNCUP_INLINE_CTA")) {
       break;
     }
 
