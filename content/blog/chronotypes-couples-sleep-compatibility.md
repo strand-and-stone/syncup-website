@@ -1,8 +1,9 @@
 ---
-title: "Chronotypes and couples: what sleep science says about mismatched schedules"
+title: "Chronotypes and Couples: Mismatched Sleep Schedules"
 description: "A research-backed guide to morning larks, night owls, social jetlag, and realistic shared wake routines for couples with different body clocks."
+h1: "Chronotypes and couples: mismatched sleep schedules"
 date: "2026-07-31"
-updated: "2026-07-31"
+updated: "2026-11-06"
 author: "SyncUpAlarm Team"
 category: "Research"
 keywords:

@@ -56,12 +56,22 @@ export function getBlogJsonLd(
   };
 }
 
+function blogPostingHeadline(post: BlogPost): string {
+  if (
+    post.slug === "daylight-saving-shared-alarms" ||
+    post.slug === "chronotypes-couples-sleep-compatibility"
+  ) {
+    return post.title;
+  }
+  return post.h1;
+}
+
 export function getBlogPostingJsonLd(post: BlogPost) {
   const url = `${base}/blog/${post.slug}`;
   return {
     "@context": "https://schema.org",
     "@type": "BlogPosting",
-    headline: post.h1,
+    headline: blogPostingHeadline(post),
     description: post.description,
     datePublished: post.date,
     dateModified: post.updated,

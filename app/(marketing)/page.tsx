@@ -52,6 +52,14 @@ const GUIDE_CARDS = [
     href: "/blog/alarm-for-heavy-sleepers",
     title: "Alarm for heavy sleepers",
   },
+  {
+    href: "/how-pairing-works",
+    title: "How pairing works",
+  },
+  {
+    href: "/blog/calendar-vs-alarm-for-waking-up",
+    title: "Calendar vs alarm",
+  },
 ] as const;
 
 export default function Home() {

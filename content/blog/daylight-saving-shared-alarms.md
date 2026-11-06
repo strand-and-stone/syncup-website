@@ -1,9 +1,9 @@
 ---
-title: "Daylight Saving Ends Nov 1, 2026: Adjust Sleep and Alarms"
-description: "US clocks fall back at 2 a.m. on Sunday, Nov 1, 2026. How to check your iPhone alarms, ease your sleep schedule, and keep a shared alarm in sync."
-h1: "Daylight saving ends Nov 1: how to adjust your sleep and alarms"
+title: "Daylight Saving Time: Check Shared Alarms When Clocks Change"
+description: "When US clocks change for daylight saving time, check iPhone Date & Time settings and confirm the wake time on your shared alarm plan."
+h1: "Daylight saving time: check shared alarms when clocks change"
 date: "2026-09-30"
-updated: "2026-10-21"
+updated: "2026-11-06"
 author: "SyncUpAlarm Team"
 category: "Guides"
 keywords:
