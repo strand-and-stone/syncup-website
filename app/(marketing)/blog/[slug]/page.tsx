@@ -32,6 +32,7 @@ import {
 type Props = { params: Promise<{ slug: string }> };
 
 const HEAVY_SLEEPER_ALARM_SLUG = "alarm-for-heavy-sleepers";
+const CHRONOTYPES_SLUG = "chronotypes-couples-sleep-compatibility";
 
 export async function generateStaticParams() {
   return getPostSlugs().map((slug) => ({ slug }));
@@ -45,7 +46,9 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   }
   return {
     title:
-      slug === DAYLIGHT_SAVING_SLUG || slug === HEAVY_SLEEPER_ALARM_SLUG
+      slug === DAYLIGHT_SAVING_SLUG ||
+      slug === HEAVY_SLEEPER_ALARM_SLUG ||
+      slug === CHRONOTYPES_SLUG
         ? { absolute: post.title }
         : post.title,
     description: post.description,

@@ -18,8 +18,7 @@ export const BLOG_POST_OG_DATA: Record<string, BlogPostOgData> = {
     category: "Product",
   },
   "chronotypes-couples-sleep-compatibility": {
-    title:
-      "Chronotypes and couples: what sleep science says about mismatched schedules",
+    title: "Chronotypes and Couples: Mismatched Sleep Schedules",
     description:
       "A research-backed guide to morning larks, night owls, social jetlag, and realistic shared wake routines.",
     category: "Research",
@@ -146,9 +145,9 @@ export const BLOG_POST_OG_DATA: Record<string, BlogPostOgData> = {
     category: "Product",
   },
   "daylight-saving-shared-alarms": {
-    title: "Daylight Saving Ends Nov 1, 2026: Adjust Sleep and Alarms",
+    title: "Daylight Saving Time: Check Shared Alarms When Clocks Change",
     description:
-      "US clocks fall back at 2 a.m. on Sunday, Nov 1, 2026. How to check your iPhone alarms, ease your sleep schedule, and keep a shared alarm in sync.",
+      "When US clocks change for daylight saving time, check iPhone Date & Time settings and confirm the wake time on your shared alarm plan.",
     category: "Guides",
   },
   "one-person-traveling-partner-alarm": {
