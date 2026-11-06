@@ -1,6 +1,6 @@
 ---
-title: "Heavy Sleeper Alarm: Setups That Help You Get Up"
-description: "Sleep through alarms? Why phone alarms get missed, how a partner or shared alarm adds a second cue, and quiet options when you share a room."
+title: "Sleep Through Alarms? Setups for Heavy Sleepers"
+description: "Sleep through your alarm? Try phone placement, layered cues, and a partner who knows your wake time, plus quiet options for shared rooms."
 h1: "Heavy Sleeper Alarm Setups: Solo, Shared, and Roommate-Friendly"
 date: "2026-10-17"
 updated: "2026-10-23"

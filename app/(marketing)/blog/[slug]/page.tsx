@@ -45,7 +45,9 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   }
   return {
     title:
-      slug === DAYLIGHT_SAVING_SLUG ? { absolute: post.title } : post.title,
+      slug === DAYLIGHT_SAVING_SLUG || slug === HEAVY_SLEEPER_ALARM_SLUG
+        ? { absolute: post.title }
+        : post.title,
     description: post.description,
     alternates: { canonical: `/blog/${slug}` },
     keywords: post.keywords,

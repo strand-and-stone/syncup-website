@@ -1,6 +1,6 @@
 import Link from "next/link";
 
-import { FOOTER_LINKS, SITE } from "@/lib/constants";
+import { FOOTER_APPLE_TRADEMARK_NOTICE, FOOTER_LINKS, SITE } from "@/lib/constants";
 
 export function Footer() {
   return (
@@ -13,6 +13,9 @@ export function Footer() {
             Privacy Policy
           </Link>
           .
+        </p>
+        <p className="max-w-xl text-center text-xs leading-relaxed text-zinc-600">
+          {FOOTER_APPLE_TRADEMARK_NOTICE}
         </p>
         <p className="text-center text-sm text-zinc-500">
           © {SITE.year} {SITE.name}
