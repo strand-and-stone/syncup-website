@@ -12,19 +12,22 @@ import { SITE } from "@/lib/constants";
  * Shared chrome from #34 (footer trademark line, sitewide app schema name)
  * is not used as a per-URL content date.
  */
+/** #40 squash. Committer 2026-11-06T11:24:34-07:00. */
+const SHIPPED_40 = "2026-11-06T18:24:34.000Z";
+
 const PAGE_LAST_MODIFIED = {
-  // 21ea53a8db2ce818ea2446c8c46e1a9d15855a2c homepage copy
-  "/": "2026-10-24T15:20:46.000Z",
-  // e1172be578e22b2a7d4c3aa6594f0f92ccc8e561 card title and description
-  "/blog": "2026-11-06T05:34:10.000Z",
-  // d7992d8cd49062bccd20d2b9fb225a79a747f494 first publish of this hub
-  "/blog/guides": "2026-10-23T23:33:47.000Z",
+  // 1f6d5993901b693433803cf092292ded71d9b17a pairing and calendar cards
+  "/": SHIPPED_40,
+  // 1f6d5993901b693433803cf092292ded71d9b17a pairing pillar and retitled cards
+  "/blog": SHIPPED_40,
+  // 1f6d5993901b693433803cf092292ded71d9b17a pairing and calendar cards
+  "/blog/guides": SHIPPED_40,
   // 30730c242cadc0559ff6979277aa0434e534b691 guide copy
   "/blog/guides/long-distance-mornings": "2026-10-17T08:31:24.000Z",
   // e1172be578e22b2a7d4c3aa6594f0f92ccc8e561 card title and description
   "/blog/guides/iphone-alarms": "2026-11-06T05:34:10.000Z",
-  // b2671c510020ebc98d591fbee4cfa95321e46c7f hub card added
-  "/blog/guides/shared-wake-routines": "2026-10-24T15:15:01.000Z",
+  // 1f6d5993901b693433803cf092292ded71d9b17a daylight-saving card description
+  "/blog/guides/shared-wake-routines": SHIPPED_40,
   // 984c52a9aba5f51a1a385618d9e22f247f36bef4 support address in the page body
   "/faq": "2026-10-21T20:59:48.000Z",
   "/press": "2026-10-21T20:59:48.000Z",
@@ -34,13 +37,16 @@ const PAGE_LAST_MODIFIED = {
 } as const;
 
 /**
- * Frontmatter `updated` still feeds every other post. This override is the
- * #34 squash on main, which changed the heavy-sleeper title and description
- * without moving `updated`.
+ * Frontmatter `updated` still feeds every other post. Overrides are sitemap-only
+ * when that field is earlier than the commit that changed the page.
  */
 const POST_LAST_MODIFIED: Record<string, string> = {
-  // e1172be578e22b2a7d4c3aa6594f0f92ccc8e561
+  // e1172be578e22b2a7d4c3aa6594f0f92ccc8e561 title and description; updated left at 2026-10-23
   "alarm-for-heavy-sleepers": "2026-11-06T05:34:10.000Z",
+  // 1f6d5993901b693433803cf092292ded71d9b17a title, H1, and description
+  "daylight-saving-shared-alarms": SHIPPED_40,
+  // 1f6d5993901b693433803cf092292ded71d9b17a title and H1
+  "chronotypes-couples-sleep-compatibility": SHIPPED_40,
 };
 
 function pageLastModified(path: keyof typeof PAGE_LAST_MODIFIED): string {
