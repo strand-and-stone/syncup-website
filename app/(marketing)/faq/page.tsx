@@ -91,6 +91,13 @@ export const metadata: Metadata = {
       "Everything you need to know before trying SyncUpAlarm with your partner or roommate.",
     url: `${SITE.domain}/faq`,
     type: "website",
+    images: [
+      {
+        url: "/opengraph-image",
+        width: 1200,
+        height: 630,
+      },
+    ],
   },
 };
 

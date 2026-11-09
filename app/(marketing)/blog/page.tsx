@@ -25,6 +25,13 @@ export const metadata: Metadata = {
       "Practical writing on shared mornings, long-distance rhythm, and iPhone alarm reliability.",
     url: `${SITE.domain}/blog`,
     type: "website",
+    images: [
+      {
+        url: "/opengraph-image",
+        width: 1200,
+        height: 630,
+      },
+    ],
   },
 };
 
