@@ -2,7 +2,12 @@ import type { Metadata } from "next";
 import Link from "next/link";
 
 import { JsonLd } from "@/components/JsonLd";
-import { APP_DOWNLOAD_PATH, SITE } from "@/lib/constants";
+import {
+  APP_DOWNLOAD_PATH,
+  ORGANIZATION_LEGAL_NAME,
+  PRODUCT_ENTITY_NAME,
+  SITE,
+} from "@/lib/constants";
 
 const description =
   "Learn why SyncUpAlarm was built, who it is for, and how the team approaches partner alarm sync on iPhone.";
@@ -13,7 +18,7 @@ const teamJsonLd = {
   name: "SyncUpAlarm Team",
   parentOrganization: {
     "@type": "Organization",
-    name: SITE.name,
+    name: PRODUCT_ENTITY_NAME,
     url: SITE.domain,
   },
   url: `${SITE.domain}/about`,
@@ -22,8 +27,8 @@ const teamJsonLd = {
 const organizationJsonLd = {
   "@context": "https://schema.org",
   "@type": "Organization",
-  name: SITE.name,
-  legalName: SITE.companyLegalName,
+  name: PRODUCT_ENTITY_NAME,
+  legalName: ORGANIZATION_LEGAL_NAME,
   url: SITE.domain,
   email: SITE.supportEmail,
   description:

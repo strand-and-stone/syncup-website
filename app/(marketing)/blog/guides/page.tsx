@@ -10,7 +10,7 @@ import {
 } from "lucide-react";
 
 import { JsonLd } from "@/components/JsonLd";
-import { SITE } from "@/lib/constants";
+import { PRODUCT_ENTITY_NAME, SITE } from "@/lib/constants";
 
 const title =
   "Guides: Shared mornings, iPhone alarms, and long-distance wake plans";
@@ -85,7 +85,7 @@ export default function BlogGuidesHubPage() {
     name: title,
     description,
     url,
-    isPartOf: { "@type": "WebSite", name: SITE.name, url: SITE.domain },
+    isPartOf: { "@type": "WebSite", name: PRODUCT_ENTITY_NAME, url: SITE.domain },
     inLanguage: "en-US",
     mainEntity: {
       "@type": "ItemList",

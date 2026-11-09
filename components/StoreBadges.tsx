@@ -40,7 +40,7 @@ export function StoreBadges({
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img
             src="https://developer.apple.com/assets/elements/badges/download-on-the-app-store.svg"
-            alt="Download SyncUpAlarm on the App Store"
+            alt="Download SyncUp: Partner Alarm Clock on the App Store"
             width={180}
             height={60}
             className="h-[44px] w-auto sm:h-[52px]"

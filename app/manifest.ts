@@ -1,11 +1,11 @@
 import type { MetadataRoute } from "next";
 
-import { SITE } from "@/lib/constants";
+import { PRODUCT_ENTITY_NAME } from "@/lib/constants";
 
 export default function manifest(): MetadataRoute.Manifest {
   return {
-    name: `${SITE.name} - Partner alarm sync for iPhone`,
-    short_name: SITE.name,
+    name: `${PRODUCT_ENTITY_NAME} - Partner alarm sync for iPhone`,
+    short_name: PRODUCT_ENTITY_NAME,
     description:
       "Sync wake-up alarms between partners on iPhone, built for couples, roommates, and long-distance mornings.",
     start_url: "/",

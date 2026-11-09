@@ -5,7 +5,7 @@ import { BlogCard } from "@/components/blog/BlogCard";
 import { JsonLd } from "@/components/JsonLd";
 import { getPostBySlug } from "@/lib/blog/get-posts";
 import { BLOG_GUIDES } from "@/lib/blog/guides";
-import { SITE } from "@/lib/constants";
+import { PRODUCT_ENTITY_NAME, SITE } from "@/lib/constants";
 
 const title = "iPhone Alarm App Guide: Clock, AlarmKit, Shared";
 const description =
@@ -119,7 +119,7 @@ export default function IPhoneAlarmsGuideHubPage() {
     name: title,
     description,
     url,
-    isPartOf: { "@type": "WebSite", name: SITE.name, url: SITE.domain },
+    isPartOf: { "@type": "WebSite", name: PRODUCT_ENTITY_NAME, url: SITE.domain },
     inLanguage: "en-US",
     mainEntity: {
       "@type": "ItemList",

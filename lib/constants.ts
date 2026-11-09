@@ -5,10 +5,19 @@ export const SITE = {
   name: "SyncUpAlarm",
   domain: siteDomain,
   year: 2026,
-  /** Legal / contact */
+  /** Legal / contact. Privacy and terms body copy still read this value. */
   companyLegalName: "SyncUpAlarm",
   supportEmail: "robert@strandandstonellc.com",
 } as const;
+
+/** Product entity name for the signed name-alignment fields only. */
+export const PRODUCT_ENTITY_NAME = "SyncUp: Partner Alarm Clock" as const;
+
+/**
+ * Registered organization name. Organization JSON-LD legalName only.
+ * NM SOS file 0008085725 uses this spelling.
+ */
+export const ORGANIZATION_LEGAL_NAME = "Strand and Stone LLC" as const;
 
 /**
  * Google Search Console
