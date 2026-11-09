@@ -4,7 +4,11 @@ import { Outfit, Plus_Jakarta_Sans } from "next/font/google";
 import { Analytics as VercelAnalytics } from "@vercel/analytics/next";
 import { Analytics as GoogleAnalytics } from "@/components/Analytics";
 import { JsonLd } from "@/components/JsonLd";
-import { GOOGLE_SITE_VERIFICATION, SITE } from "@/lib/constants";
+import {
+  GOOGLE_SITE_VERIFICATION,
+  PRODUCT_ENTITY_NAME,
+  SITE,
+} from "@/lib/constants";
 import {
   getOrganizationJsonLd,
   getSoftwareApplicationJsonLd,
@@ -37,10 +41,10 @@ export const metadata: Metadata = {
     template: `%s · ${SITE.name}`,
   },
   description,
-  applicationName: SITE.name,
-  authors: [{ name: SITE.companyLegalName, url: SITE.domain }],
-  creator: SITE.companyLegalName,
-  publisher: SITE.companyLegalName,
+  applicationName: PRODUCT_ENTITY_NAME,
+  authors: [{ name: PRODUCT_ENTITY_NAME, url: SITE.domain }],
+  creator: PRODUCT_ENTITY_NAME,
+  publisher: PRODUCT_ENTITY_NAME,
   category: "lifestyle",
   keywords: [
     "sync alarm",
@@ -51,7 +55,7 @@ export const metadata: Metadata = {
     "AlarmKit",
     "long distance relationship",
     "shared alarm clock",
-    SITE.name,
+    PRODUCT_ENTITY_NAME,
   ],
   alternates: {
     canonical: "/",
@@ -60,7 +64,7 @@ export const metadata: Metadata = {
     title: `${SITE.name} — Wake up together`,
     description,
     url: SITE.domain,
-    siteName: SITE.name,
+    siteName: PRODUCT_ENTITY_NAME,
     locale: "en_US",
     type: "website",
     images: [
@@ -68,7 +72,7 @@ export const metadata: Metadata = {
         url: "/opengraph-image",
         width: 1200,
         height: 630,
-        alt: `${SITE.name} — Partner alarm sync for iPhone`,
+        alt: `${PRODUCT_ENTITY_NAME} — Partner alarm sync for iPhone`,
       },
     ],
   },
