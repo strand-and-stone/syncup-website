@@ -3,12 +3,15 @@ import Link from "next/link";
 
 import { Footer } from "@/components/Footer";
 import { Navbar } from "@/components/Navbar";
-import { SITE } from "@/lib/constants";
+import { PRODUCT_ENTITY_NAME, SITE } from "@/lib/constants";
 
 export const metadata: Metadata = {
   title: "Page not found",
   description: `The page you requested does not exist on ${SITE.domain}.`,
   robots: { index: false, follow: true },
+  // Root layout sets canonical "/". A 404 must not inherit that or it
+  // points Google at the homepage. null clears the inherited alternate.
+  alternates: { canonical: null },
 };
 
 export default function NotFound() {
@@ -33,7 +36,7 @@ export default function NotFound() {
           href="/"
           className="mt-10 inline-flex items-center justify-center rounded-full bg-gradient-to-r from-purple/90 to-teal/80 px-6 py-3 text-sm font-semibold text-bg shadow-glowPurple ring-1 ring-white/10 transition-[box-shadow] hover:shadow-glowTeal"
         >
-          Back to {SITE.name}
+          Back to {PRODUCT_ENTITY_NAME}
         </Link>
       </main>
       <Footer />

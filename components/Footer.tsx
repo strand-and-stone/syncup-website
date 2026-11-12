@@ -1,6 +1,11 @@
 import Link from "next/link";
 
-import { FOOTER_LINKS, SITE } from "@/lib/constants";
+import {
+  FOOTER_APPLE_TRADEMARK_NOTICE,
+  FOOTER_LINKS,
+  PRODUCT_ENTITY_NAME,
+  SITE,
+} from "@/lib/constants";
 
 export function Footer() {
   return (
@@ -14,8 +19,11 @@ export function Footer() {
           </Link>
           .
         </p>
+        <p className="max-w-xl text-center text-xs leading-relaxed text-zinc-600">
+          {FOOTER_APPLE_TRADEMARK_NOTICE}
+        </p>
         <p className="text-center text-sm text-zinc-500">
-          © {SITE.year} {SITE.name}
+          © {SITE.year} {PRODUCT_ENTITY_NAME}
           <span className="mx-2 text-zinc-700" aria-hidden>
             ·
           </span>

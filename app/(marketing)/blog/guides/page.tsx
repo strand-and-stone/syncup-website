@@ -1,9 +1,16 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { AlarmClock, Globe, Users, type LucideIcon } from "lucide-react";
+import {
+  AlarmClock,
+  Calendar,
+  Globe,
+  Link2,
+  Users,
+  type LucideIcon,
+} from "lucide-react";
 
 import { JsonLd } from "@/components/JsonLd";
-import { SITE } from "@/lib/constants";
+import { PRODUCT_ENTITY_NAME, SITE } from "@/lib/constants";
 
 const title =
   "Guides: Shared mornings, iPhone alarms, and long-distance wake plans";
@@ -13,7 +20,7 @@ const description =
 const HUBS: Array<{
   href: string;
   title: string;
-  blurb: string;
+  blurb?: string;
   icon: LucideIcon;
   tone: string;
 }> = [
@@ -38,6 +45,18 @@ const HUBS: Array<{
     icon: Globe,
     tone: "border-flame/35 bg-flame/5",
   },
+  {
+    href: "/how-pairing-works",
+    title: "How pairing works",
+    icon: Link2,
+    tone: "border-teal/40 bg-teal/5",
+  },
+  {
+    href: "/blog/calendar-vs-alarm-for-waking-up",
+    title: "Calendar vs alarm",
+    icon: Calendar,
+    tone: "border-purple/40 bg-purple/5",
+  },
 ];
 
 export const metadata: Metadata = {
@@ -50,11 +69,19 @@ export const metadata: Metadata = {
     description,
     url: `${SITE.domain}/blog/guides`,
     type: "website",
+    images: [
+      {
+        url: "/opengraph-image",
+        width: 1200,
+        height: 630,
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
     title: `${title} · ${SITE.name}`,
     description,
+    images: ["/twitter-image"],
   },
 };
 
@@ -66,7 +93,7 @@ export default function BlogGuidesHubPage() {
     name: title,
     description,
     url,
-    isPartOf: { "@type": "WebSite", name: SITE.name, url: SITE.domain },
+    isPartOf: { "@type": "WebSite", name: PRODUCT_ENTITY_NAME, url: SITE.domain },
     inLanguage: "en-US",
     mainEntity: {
       "@type": "ItemList",
@@ -142,9 +169,13 @@ export default function BlogGuidesHubPage() {
                       {hub.title}
                     </Link>
                   </h3>
-                  <p className="mt-2 flex-1 text-sm leading-relaxed text-zinc-400">
-                    {hub.blurb}
-                  </p>
+                  {hub.blurb ? (
+                    <p className="mt-2 flex-1 text-sm leading-relaxed text-zinc-400">
+                      {hub.blurb}
+                    </p>
+                  ) : (
+                    <div className="mt-2 flex-1" />
+                  )}
                   <p className="mt-5">
                     <Link
                       href={hub.href}

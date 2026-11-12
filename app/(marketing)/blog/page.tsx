@@ -25,6 +25,13 @@ export const metadata: Metadata = {
       "Practical writing on shared mornings, long-distance rhythm, and iPhone alarm reliability.",
     url: `${SITE.domain}/blog`,
     type: "website",
+    images: [
+      {
+        url: "/opengraph-image",
+        width: 1200,
+        height: 630,
+      },
+    ],
   },
 };
 
@@ -107,6 +114,18 @@ export default function BlogIndexPage() {
               </p>
             </li>
           ))}
+          <li
+            className={`rounded-2xl border p-5 ${PILLAR_STYLES[BLOG_GUIDES.length] ?? PILLAR_STYLES[0]}`}
+          >
+            <p className="text-xs font-semibold tracking-wider text-zinc-400 uppercase">
+              Pillar
+            </p>
+            <h3 className="mt-2 text-lg font-semibold text-white">
+              <Link href="/how-pairing-works" className="hover:text-purple">
+                How pairing works
+              </Link>
+            </h3>
+          </li>
         </ul>
       </section>
 

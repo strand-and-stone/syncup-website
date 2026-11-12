@@ -6,9 +6,9 @@ import { FinalCta } from "@/components/FinalCta";
 import { Hero } from "@/components/Hero";
 import { HowItWorks } from "@/components/HowItWorks";
 import { WhoItsFor } from "@/components/WhoItsFor";
-import { SITE } from "@/lib/constants";
+import { PRODUCT_ENTITY_NAME, SITE } from "@/lib/constants";
 
-const title = "SyncUp: Shared Alarm App to Wake Up Together, iPhone";
+const title = "SyncUp: Partner Alarm Clock to Wake Up Together, iPhone";
 const description =
   "SyncUp is a shared alarm app for iPhone. Pair with your partner or roommate, set one wake plan, and see changes on both phones. Built on AlarmKit.";
 
@@ -19,7 +19,7 @@ export const metadata: Metadata = {
     title,
     description,
     url: SITE.domain,
-    siteName: SITE.name,
+    siteName: PRODUCT_ENTITY_NAME,
     locale: "en_US",
     type: "website",
     images: [
@@ -27,7 +27,7 @@ export const metadata: Metadata = {
         url: "/opengraph-image",
         width: 1200,
         height: 630,
-        alt: `${SITE.name} — Partner alarm sync for iPhone`,
+        alt: `${PRODUCT_ENTITY_NAME} — Partner alarm sync for iPhone`,
       },
     ],
   },
@@ -51,6 +51,14 @@ const GUIDE_CARDS = [
   {
     href: "/blog/alarm-for-heavy-sleepers",
     title: "Alarm for heavy sleepers",
+  },
+  {
+    href: "/how-pairing-works",
+    title: "How pairing works",
+  },
+  {
+    href: "/blog/calendar-vs-alarm-for-waking-up",
+    title: "Calendar vs alarm",
   },
   {
     href: "/blog/iphone-alarms-complete-guide#iphone-alarm-not-going-off-checklist",

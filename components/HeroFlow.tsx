@@ -67,7 +67,7 @@ export function HeroFlow() {
   return (
     <div
       className="mt-5 w-full max-w-md sm:mt-6 lg:mx-0"
-      aria-label="How SyncUpAlarm works in three steps"
+      aria-label="How SyncUp: Partner Alarm Clock works in three steps"
     >
       <div className="relative flex gap-1.5 sm:gap-2">
         {steps.map((step, i) => {

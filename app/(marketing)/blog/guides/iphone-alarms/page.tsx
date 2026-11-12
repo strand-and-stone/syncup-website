@@ -5,7 +5,7 @@ import { BlogCard } from "@/components/blog/BlogCard";
 import { JsonLd } from "@/components/JsonLd";
 import { getPostBySlug } from "@/lib/blog/get-posts";
 import { BLOG_GUIDES } from "@/lib/blog/guides";
-import { SITE } from "@/lib/constants";
+import { PRODUCT_ENTITY_NAME, SITE } from "@/lib/constants";
 
 const title = "iPhone Alarm App Guide: Clock, AlarmKit, Shared";
 const description =
@@ -82,11 +82,19 @@ export const metadata: Metadata = {
     description,
     url: `${SITE.domain}/blog/guides/iphone-alarms`,
     type: "website",
+    images: [
+      {
+        url: "/opengraph-image",
+        width: 1200,
+        height: 630,
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
     title: `${title} · ${SITE.name}`,
     description,
+    images: ["/twitter-image"],
   },
 };
 
@@ -119,7 +127,7 @@ export default function IPhoneAlarmsGuideHubPage() {
     name: title,
     description,
     url,
-    isPartOf: { "@type": "WebSite", name: SITE.name, url: SITE.domain },
+    isPartOf: { "@type": "WebSite", name: PRODUCT_ENTITY_NAME, url: SITE.domain },
     inLanguage: "en-US",
     mainEntity: {
       "@type": "ItemList",

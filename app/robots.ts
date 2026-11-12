@@ -10,6 +10,22 @@ export default function robots(): MetadataRoute.Robots {
         userAgent: "*",
         allow: "/",
       },
+      {
+        userAgent: "GPTBot",
+        allow: "/",
+      },
+      {
+        userAgent: "ClaudeBot",
+        allow: "/",
+      },
+      {
+        userAgent: "PerplexityBot",
+        allow: "/",
+      },
+      {
+        userAgent: "Bingbot",
+        allow: "/",
+      },
     ],
     sitemap: `${base}/sitemap.xml`,
     host: new URL(SITE.domain).host,

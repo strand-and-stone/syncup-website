@@ -17,7 +17,7 @@ import {
   APP_DOWNLOAD_PATH,
   APP_STORE_CTA_LIVE,
   NAV_LINKS,
-  SITE,
+  PRODUCT_ENTITY_NAME,
 } from "@/lib/constants";
 
 export function Navbar() {
@@ -44,11 +44,11 @@ export function Navbar() {
       <div className="mx-auto flex h-16 max-w-6xl items-center justify-between gap-3 px-4 sm:px-6 lg:px-8">
         <Link
           href="/"
-          className="font-display flex shrink-0 items-center gap-2.5 text-lg font-semibold tracking-tight text-white transition-colors hover:text-purple"
+          className="font-display flex min-w-0 items-center gap-2 text-sm font-semibold leading-tight tracking-tight text-white transition-colors hover:text-purple sm:gap-2.5 sm:text-base lg:text-lg"
           onClick={() => setMobileOpen(false)}
         >
           <LogoMark size={30} className="shrink-0" />
-          <span>{SITE.name}</span>
+          <span>{PRODUCT_ENTITY_NAME}</span>
         </Link>
 
         <nav

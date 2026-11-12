@@ -69,12 +69,25 @@ export function getBlogJsonLd(
   };
 }
 
+function blogPostingHeadline(post: BlogPost): string {
+  if (
+    post.slug === "daylight-saving-shared-alarms" ||
+    post.slug === "chronotypes-couples-sleep-compatibility"
+  ) {
+    return post.title;
+  }
+  return post.h1;
+}
+
 export function getBlogPostingJsonLd(post: BlogPost) {
   const url = `${base}/blog/${post.slug}`;
   return {
     "@context": "https://schema.org",
     "@type": "BlogPosting",
-    headline: post.slug === IPHONE_ALARM_GUIDE_SLUG ? post.title : post.h1,
+    headline:
+      post.slug === IPHONE_ALARM_GUIDE_SLUG
+        ? post.title
+        : blogPostingHeadline(post),
     description: post.description,
     datePublished: post.date,
     dateModified: post.updated,
@@ -114,7 +127,9 @@ function getFaqPageJsonLd(post: BlogPost) {
 
   for (let i = faqStart + 1; i < lines.length; i += 1) {
     const line = lines[i].trim();
-    if (line.startsWith("## ")) {
+    // The calendar post ends its FAQ with a callout sentinel, then a
+    // disclaimer. Neither line is the answer shown under the question.
+    if (line.startsWith("## ") || line.startsWith("SYNCUP_INLINE_CTA")) {
       break;
     }
 
