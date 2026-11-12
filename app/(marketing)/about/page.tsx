@@ -44,6 +44,13 @@ export const metadata: Metadata = {
     description,
     url: `${SITE.domain}/about`,
     type: "profile",
+    images: [
+      {
+        url: "/opengraph-image",
+        width: 1200,
+        height: 630,
+      },
+    ],
   },
 };
 

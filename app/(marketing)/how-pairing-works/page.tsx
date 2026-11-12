@@ -18,6 +18,13 @@ export const metadata: Metadata = {
     description,
     url: `${SITE.domain}/how-pairing-works`,
     type: "article",
+    images: [
+      {
+        url: "/opengraph-image",
+        width: 1200,
+        height: 630,
+      },
+    ],
   },
   robots: { index: true, follow: true },
 };
